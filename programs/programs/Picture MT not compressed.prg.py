@@ -1,0 +1,28 @@
+prg_comment = ""
+prg_version = "0.5.1"
+def program(prg, cmd):
+    prg.add(10, "Initialize 0 TTL0")
+    prg.add(100000, "Set MOT.sub")
+    prg.add(1000000, "Config MOT.sub")
+    prg.add(1200000, "Delta 1 Current", 11.000000)
+    prg.add(1210000, "Delta 2 Current", 200.000000)
+    prg.add(1220000, "Delta 1 Voltage", 30.000000)
+    prg.add(1230000, "Delta 2 Voltage", 0.000000)
+    prg.add(5000000, "Synchronize.sub")
+    prg.add(8210000, "Shutter repump Na Close", enable=False)
+    prg.add(9500000, "Dark Spot MOT.sub")
+    prg.add(10000000, "MOT lights Off.sub")
+    prg.add(10002490, "General Trigger ON", enable=False)
+    prg.add(10002500, "Config MT not compr.sub")
+    prg.add(10003000, "Delta 1 Current", 200.000000)
+    prg.add(10003400, "Delta 2 Voltage", 30.000000)
+    prg.add(10007000, "All Shutter Close.sub")
+    prg.add(10199990, "General Trigger OFF", enable=False)
+    prg.add(10400000, "Config MT compr.sub")
+    prg.add(10600000, "Config Field OFF.sub")
+    prg.add(10630000, "Picture.sub")
+    prg.add(31000000, "Config MOT.sub")
+    prg.add(31500000, "Set MOT.sub")
+    prg.add(32000000, "Delta 1 Current", 11.000000)
+    prg.add(32000500, "Delta 2 Voltage", 0.000000)
+    return prg
