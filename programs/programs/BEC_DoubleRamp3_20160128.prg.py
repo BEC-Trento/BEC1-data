@@ -28,7 +28,7 @@ def program(prg, cmd):
     prg.add(565009500, "Decompress Voltage MT.sub")
     prg.add(665589000, "B comp x ramp", start_t=0, stop_x=316, n_points=25, start_x=411, stop_t=500)
     prg.add(665590000, "Delta 1 Current ramp", start_t=0.0000, stop_x=50.000, n_points=300, start_x=100.000, stop_t=500.0000)
-    prg.add(670430000, "Picture NaK RFO doubleCam3.sub", enable=False)
+    prg.add(670430000, "Picture NaK RFO doubleCam3.sub")
     prg.add(671100000, "RFO FM amp", 0.4000)
     prg.add(671100000, "RFO FM amp", 4.0000, enable=False)
     prg.add(671191000, "RFO SingleSweepTrig Ramp", start_t=0.0000, stop_x=0.000, n_points=76, start_x=1.000, stop_t=600.0000)
