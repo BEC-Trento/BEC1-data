@@ -1,9 +1,9 @@
 prg_comment = ""
 prg_version = "0.5.1"
 def program(prg, cmd):
-    prg.add(10, "Initialize 0 TTL and Synchronize.sub")
+    prg.add(0, "Initialize 0 TTL and Synchronize.sub")
     prg.add(500, "Config Field OFF.sub", enable=False)
-    prg.add(5000, "TTL3-11 ON")
+    prg.add(5000, "TTL3-11 ON", enable=False)
     prg.add(12580, "B comp x", 0.0)
     prg.add(50000, "Optical Levit (-) Amp", 1000)
     prg.add(100000, "B comp y", 0.0000)
@@ -32,18 +32,20 @@ def program(prg, cmd):
     prg.add(378315000, "B comp x ramp", start_t=0, stop_x=0, n_points=300, start_x=319, stop_t=250)
     prg.add(380820000, "Decompress Current 200-50", start_t=0.0000, stop_x=0.000, n_points=300, start_x=50.000, stop_t=200.0000)
     prg.add(382830000, "LZ -1 to 0")
-    prg.add(389790000, "spin cleaning pinch", enable=False)
+    prg.add(382830000, "RF mag sweep 0 level")
+    prg.add(389790000, "spin cleaning pinch")
     prg.add(391800000, "ReleConfigBackForGravityComp")
-    prg.add(392800000, "Rabi oscillation 0 to 1-1", enable=False)
     prg.add(392800000, "Rabi oscillation 0 to 1-1 New Antena")
-    prg.add(393320000, "Dipole Trap y DAC V", -8.5000)
-    prg.add(393321000, "Dipole Trap x DAC V", 0.0000)
-    prg.add(393326000, "Picture - Field off at 0ms -SternGerlach_Levit 10ms.sub")
-    prg.add(393497000, "Picture NaK.sub", enable=False)
-    prg.add(403515200, "Set MOT NaK.sub")
-    prg.add(403832500, "Config Field OFF.sub", enable=False)
-    prg.add(404015200, "Dark Spot MOT load.sub")
-    prg.add(404115200, "Config MOT.sub")
+    prg.add(392800000, "Rabi oscillation 0 to 1-1", enable=False)
+    prg.add(392800000, "Majorana spectroscopy_New Antena", enable=False)
+    prg.add(393340000, "Dipole Trap y DAC V", -8.5000)
+    prg.add(393341000, "Dipole Trap x DAC V", 0.0000)
+    prg.add(393346000, "Picture - Field off at 0ms -SternGerlach_Levit 10ms.sub")
+    prg.add(393517000, "Picture NaK.sub", enable=False)
+    prg.add(403517000, "Bias field initialization")
+    prg.add(412502200, "Set MOT NaK.sub")
+    prg.add(413002200, "Dark Spot MOT load.sub")
+    prg.add(413102200, "Config MOT.sub")
     return prg
 def commands(cmd):
     from numpy import arange
