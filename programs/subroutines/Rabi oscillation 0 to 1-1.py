@@ -8,7 +8,7 @@ def program(prg, cmd):
     prg.add(300, "IGBT 4 Open")
     prg.add(800, "Analog71 Ramp", start_t=0.0000, stop_x=0.200, n_points=300, start_x=1.000, stop_t=50.0000)
     prg.add(900, "B comp y ramp", start_t=0, stop_x=0, n_points=300, start_x=0, stop_t=50)
-    prg.add(1100, "B comp x ramp", start_t=0, stop_x=900, n_points=300, start_x=0, stop_t=50)
+    prg.add(1100, "B comp x ramp", start_t=0, stop_x=850, n_points=300, start_x=0, stop_t=50)
     prg.add(505000, "RFO", 201)
     prg.add(506000, "RFO1 Amp", 1000)
     prg.add(507000, "TTL RF ON")
