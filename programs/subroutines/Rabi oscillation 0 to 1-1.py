@@ -15,4 +15,5 @@ def program(prg, cmd):
     prg.add(507150, "TTL RF OFF")
     prg.add(507160, "RFO1 Amp", 0)
     prg.add(507170, "RFO", 0)
+    prg.add(507200, "Pulse uw ON")
     return prg
