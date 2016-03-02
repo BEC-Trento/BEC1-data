@@ -918,11 +918,11 @@ def action_list_init(act_lst):
                 board="TTL2",
                 parameters=dict(channel=[1], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("Shutter Probe K Close", lib_action.DigitalAction,
+    act_lst.add("RFO Sweep Trig 2 OFF", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[2], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("Shutter Probe K Open", lib_action.DigitalAction,
+    act_lst.add("RFO Sweep Trig 2 ON", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[2], status=[True]),
                 categories=["actions", "TTL"])

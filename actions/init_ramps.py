@@ -94,6 +94,15 @@ def action_list_init(action_list):
                     var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
                     comment="0-10")
 
+    action_list.add("Analog71 Ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="Analog71", act_var_name="value"),
+                    variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=100, n_points=100),
+                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="")
+
+# Time repetition ramps:
+
     action_list.add("RFO Trig Sweep burst", lib_ramp.LinearRamp,
                     categories=["ramps"],
                     parameters=dict(act_name="RFO Sweep Trig Pulse"),
@@ -129,10 +138,18 @@ def action_list_init(action_list):
                     var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
                     comment="time")
 
-    action_list.add("Analog71 Ramp", lib_ramp.LinearRamp,
+    action_list.add("RFO ImagingQuantum2-12 Ramp", lib_ramp.LinearRamp,
                     categories=["ramps"],
-                    parameters=dict(act_name="Analog71", act_var_name="value"),
+                    parameters=dict(act_name="RFO ImagingQuantum2-12"),
                     variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=100, n_points=100),
                     var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
-                    comment="")
+                    comment="time")
+
+    action_list.add("RFO DoubleSweepTrig Ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="RFO DoubleSweepTrig"),
+                    variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=100, n_points=100),
+                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="time")
+
 
