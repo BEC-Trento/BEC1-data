@@ -35,7 +35,7 @@ def program(prg, cmd):
     prg.add(378320000, "Decompress Current 200-50", start_t=0.0000, stop_x=0.000, n_points=300, start_x=50.000, stop_t=300.0000)
     prg.add(381420000, "Dipole Trap x DAC V", 0.0000)
     prg.add(381420500, "Dipole Trap y DAC V", 0.0000)
-    prg.add(381425000, "Picture NaK.sub", enable=False)
+    prg.add(381421000, "Picture NaK.sub", enable=False)
     prg.add(381430000, "Picture - Field off at 0ms - Levit 50ms.sub", functions=dict(time=lambda x: x + cmd.get_var("t"), funct_enable=False), enable=False)
     prg.add(381430000, "Picture - Field off at 0ms - Levit 10ms.sub", enable=False)
     prg.add(381430000, "Picture - Field off at 0ms - Levit 100ms.sub", functions=dict(time=lambda x: x +  + cmd.get_var("t"), funct_enable=False), enable=False)

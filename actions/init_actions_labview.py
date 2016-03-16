@@ -930,11 +930,11 @@ def action_list_init(act_lst):
                 board="TTL2",
                 parameters=dict(channel=[3], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("Shutter CoolerMOT K Open", lib_action.DigitalAction,
+    act_lst.add("Bcomp y Sign Minus", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[3], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("Shutter Push K Close", lib_action.DigitalAction,
+    act_lst.add("Bcomp y Sign Plus", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[4], status=[False]),
                 categories=["actions", "TTL"])
