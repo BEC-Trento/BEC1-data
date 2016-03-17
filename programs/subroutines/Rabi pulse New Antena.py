@@ -9,6 +9,6 @@ def program(prg, cmd):
     prg.add(4630, "RFO", 0)
     prg.add(4730, "RFO2 Amp", 1)
     prg.add(4780, "RFO1 Amp", 1)
-    prg.add(5000, "B comp x ramp", start_t=0, stop_x=530, n_points=20, start_x=1880, stop_t=3)
+    prg.add(5000, "B comp x ramp", start_t=0, stop_x=1000, n_points=20, start_x=1880, stop_t=3)
     prg.add(37000, "Pulse uw ON")
     return prg
