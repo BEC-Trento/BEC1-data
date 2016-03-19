@@ -1,4 +1,4 @@
-prg_comment=""
+prg_comment = ""
 prg_version = "0.5.1"
 def program(prg, cmd):
     prg.add(-4100000, "Na Repumper1 (+) Amp", 1)
@@ -13,12 +13,12 @@ def program(prg, cmd):
     prg.add(-2010000, "Na Probe/Push (+) ON", enable=False)
     prg.add(-2000000, "Shutter 3DMOT cool Na Open")
     prg.add(-500000, "IGBT B comp y ON")
-    prg.add(-9500, "B comp y", 0.0000)
-    prg.add(-8970, "B comp y", 0.2600)
-    prg.add(-8450, "B comp y", 0.5300)
-    prg.add(-7920, "B comp y", 0.7900)
-    prg.add(-7390, "B comp y", 1.0500)
-    prg.add(-6870, "B comp y", 1.3200)
+    prg.add(-9500, "B comp y", 0.0000, enable=False)
+    prg.add(-8970, "B comp y", 0.2600, enable=False)
+    prg.add(-8450, "B comp y", 0.5300, enable=False)
+    prg.add(-7920, "B comp y", 0.7900, enable=False)
+    prg.add(-7390, "B comp y", 1.0500, enable=False)
+    prg.add(-6870, "B comp y", 1.3200, enable=False)
     prg.add(-6340, "B comp y", 1.5800)
     prg.add(-5820, "B comp y", 1.8400)
     prg.add(-5290, "B comp y", 2.1100)
