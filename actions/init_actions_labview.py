@@ -767,12 +767,16 @@ def action_list_init(act_lst):
                 parameters=dict(channel=[15], status=[True]),
                 categories=["actions", "TTL"])
     act_lst.add("Mirrors Imaging", lib_action.DigitalAction,
-                board="TTL0",
-                parameters=dict(channel=[16], status=[True]),
+                board="TTL2",
+                parameters=dict(channel=[6, 7], status=[True, True]),
+                categories=["actions", "TTL"])
+    act_lst.add("Mirrors Imaging Bragg", lib_action.DigitalAction,
+                board="TTL2",
+                parameters=dict(channel=[6, 7], status=[True, False]),
                 categories=["actions", "TTL"])
     act_lst.add("Mirrors MOT", lib_action.DigitalAction,
-                board="TTL0",
-                parameters=dict(channel=[16], status=[False]),
+                board="TTL2",
+                parameters=dict(channel=[6, 7], status=[False, False]),
                 categories=["actions", "TTL"])
     act_lst.add("TTL1 OFF", lib_action.DigitalAction,
                 board="TTL1",
