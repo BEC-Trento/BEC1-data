@@ -766,17 +766,13 @@ def action_list_init(act_lst):
                 board="TTL0",
                 parameters=dict(channel=[15], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("Mirrors Imaging", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[6, 7], status=[True, True]),
+    act_lst.add("TTL0-16 OFF", lib_action.DigitalAction,
+                board="TTL0",
+                parameters=dict(channel=[16], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("Mirrors Imaging Bragg", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[6, 7], status=[True, False]),
-                categories=["actions", "TTL"])
-    act_lst.add("Mirrors MOT", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[6, 7], status=[False, False]),
+    act_lst.add("TTL0-16 ON", lib_action.DigitalAction,
+                board="TTL0",
+                parameters=dict(channel=[16], status=[True]),
                 categories=["actions", "TTL"])
     act_lst.add("TTL1 OFF", lib_action.DigitalAction,
                 board="TTL1",
@@ -954,29 +950,17 @@ def action_list_init(act_lst):
                 board="TTL2",
                 parameters=dict(channel=[5], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL2-6 OFF", lib_action.DigitalAction,
+    act_lst.add("Mirrors Imaging", lib_action.DigitalAction,
                 board="TTL2",
-                parameters=dict(channel=[6], status=[False]),
+                parameters=dict(channel=[6, 7, 8], status=[True, True, False]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL2-6 ON", lib_action.DigitalAction,
+    act_lst.add("Mirrors Imaging Bragg", lib_action.DigitalAction,
                 board="TTL2",
-                parameters=dict(channel=[6], status=[True]),
+                parameters=dict(channel=[6, 7, 8], status=[True, False, True]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL2-7 OFF", lib_action.DigitalAction,
+    act_lst.add("Mirrors MOT", lib_action.DigitalAction,
                 board="TTL2",
-                parameters=dict(channel=[7], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL2-7 ON", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[7], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL2-8 OFF", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[8], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL2-8 ON", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[8], status=[True]),
+                parameters=dict(channel=[6, 7, 8], status=[False, False, False]),
                 categories=["actions", "TTL"])
     act_lst.add("TTL2-9 OFF", lib_action.DigitalAction,
                 board="TTL2",
