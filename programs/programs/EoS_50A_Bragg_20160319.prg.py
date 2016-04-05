@@ -37,6 +37,7 @@ def program(prg, cmd):
     prg.add(388320000, "Config Field OFF.sub", enable=False)
     prg.add(388330000, "Bragg Pulse Single2015.sub")
     prg.add(388380000, "Config Field OFF.sub")
+    prg.add(388380000, "TTL2-8 ON")
     prg.add(388380000, "Picture NaK Bragg.sub", enable=False)
     prg.add(388430000, "Picture NaK.sub")
     prg.add(388430000, "Picture - Field off at 0ms - Levit 110msBraggAllignTop.sub", enable=False)
