@@ -53,6 +53,6 @@ def program(prg, cmd):
     prg.add(370000, "Na Probe/Push (-) Amp", 800)
     prg.add(380000, "Na Probe/Push (+) Amp", 1000)
     prg.add(390000, "B comp y", 0.0000)
-    prg.add(400000, "B comp x", 0.0)
+    prg.add(400000, "B comp x", 1369.0)
     prg.add(410000, "IGBT B comp z ON")
     return prg
