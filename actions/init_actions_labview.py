@@ -904,7 +904,7 @@ def action_list_init(act_lst):
                 categories=["actions", "TTL"])
     act_lst.add("Initialize 0 TTL2", lib_action.DigitalAction,
                 board="TTL2",
-                parameters=dict(channel=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], status=[False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]),
+                parameters=dict(channel=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], status=[False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False]),
                 categories=["actions", "TTL"])
     act_lst.add("Initialize 1 TTL2", lib_action.DigitalAction,
                 board="TTL2",
@@ -962,11 +962,11 @@ def action_list_init(act_lst):
                 board="TTL2",
                 parameters=dict(channel=[6, 7, 8], status=[False, False, False]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL2-9 OFF", lib_action.DigitalAction,
+    act_lst.add("Bx Grad OFF", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[9], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL2-9 ON", lib_action.DigitalAction,
+    act_lst.add("Bx Grad ON", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[9], status=[True]),
                 categories=["actions", "TTL"])
