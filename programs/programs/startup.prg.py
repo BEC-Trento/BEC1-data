@@ -11,12 +11,3 @@ def program(prg, cmd):
     prg.add(2000000, "Dark Spot MOT load.sub")
     prg.add(2100000, "Config MOT.sub")
     return prg
-def commands(cmd):
-    a=[4,5,6]
-    cmd.set_var("hhh", 4)
-    cmd.run()
-    while(cmd.running):
-        a.pop()
-        if len(a) == 0:
-         cmd.stop()
-    return cmd
