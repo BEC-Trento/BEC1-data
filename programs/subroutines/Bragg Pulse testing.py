@@ -1,9 +1,9 @@
 prg_comment = ""
 prg_version = "0.5.1"
 def program(prg, cmd):
-    prg.add(22999800, "TTL3-12 ON")
+    prg.add(0, "Mirrors Imaging Bragg")
+    prg.add(5000, "Shutter Bragg Open")
     prg.add(23000000, "Bragg Pulse Single2015.sub")
-    prg.add(23000200, "TTL3-12 OFF")
     prg.add(23060000, "Picture NaK Bragg Tom.sub", enable=False)
     prg.add(23060000, "Picture NaK.sub", enable=False)
     return prg

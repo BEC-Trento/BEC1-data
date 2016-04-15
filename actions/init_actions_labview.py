@@ -1122,11 +1122,11 @@ def action_list_init(act_lst):
                 board="TTL3",
                 parameters=dict(channel=[11], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL3-12 OFF", lib_action.DigitalAction,
+    act_lst.add("Bragg burst OFF", lib_action.DigitalAction,
                 board="TTL3",
                 parameters=dict(channel=[12], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL3-12 ON", lib_action.DigitalAction,
+    act_lst.add("Bragg burst ON", lib_action.DigitalAction,
                 board="TTL3",
                 parameters=dict(channel=[12], status=[True]),
                 categories=["actions", "TTL"])
