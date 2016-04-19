@@ -23,7 +23,7 @@ def program(prg, cmd):
     prg.add(125008460, "Mirrors Imaging")
     prg.add(125508460, "IGBT B comp x ON")
     prg.add(126008460, "All AOM On.sub")
-    prg.add(129008460, "B comp x", 1005.0)
+    prg.add(129008460, "B comp x", 997.0)
     prg.add(129998420, "Evaporation Ramp.sub")
     prg.add(567001420, "Decompress Current 200-50", start_t=0.0000, stop_x=50.000, n_points=150, start_x=200.000, stop_t=600.0000)
     prg.add(567008420, "Decompress Voltage 200-50", start_t=0.0000, stop_x=0.000, n_points=150, start_x=30.000, stop_t=600.0000)
