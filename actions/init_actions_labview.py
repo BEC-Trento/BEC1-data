@@ -420,6 +420,13 @@ def action_list_init(act_lst):
                 var_formats=dict(n_lut="%d"),
                 categories=["actions", "DDS"],
                 comment="LUT")
+    act_lst.add("Na Bragg relative freq", lib_action.DdsAction,
+                board="DDS35",
+                parameters=dict(channel=1),
+                variables=dict(frequency=0),
+                var_formats=dict(frequency="%.2f"),
+                categories=["actions", "DDS"],
+                comment="+1990 to -1990 (10) kHz")
     act_lst.add("Na Bragg (-) freq", lib_action.DdsAction,
                 board="DDS35",
                 parameters=dict(channel=1),
