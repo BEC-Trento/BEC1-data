@@ -427,6 +427,13 @@ def action_list_init(act_lst):
                 var_formats=dict(frequency="%.2f"),
                 categories=["actions", "DDS"],
                 comment="+1990 to -1990 (10) kHz")
+    act_lst.add("Na Bragg relative freq wide range", lib_action.DdsAction,
+                board="DDS35",
+                parameters=dict(channel=2),
+                variables=dict(frequency=0),
+                var_formats=dict(frequency="%.2f"),
+                categories=["actions", "DDS"],
+                comment="+4000 to -3980 (20) kHz")
     act_lst.add("Na Bragg (-) freq", lib_action.DdsAction,
                 board="DDS35",
                 parameters=dict(channel=1),

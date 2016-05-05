@@ -1,10 +1,8 @@
 prg_comment = ""
 prg_version = "0.5.1"
 def program(prg, cmd):
-    prg.add(-20000000, "Na Bragg (+) freq", 110.00)
     prg.add(-19500000, "Na 3D MOT cool (-) freq", 150.00)
     prg.add(-19200000, "Na 3D MOT cool (+) freq", 150.00)
-    prg.add(-19000000, "Na Bragg (-) freq", 110.00)
     prg.add(-5100000, "Na Bragg (-) Amp", 1000)
     prg.add(-5000000, "Na Bragg (+) Amp", 1000)
     prg.add(-4902100, "Na Repumper MOT Amp", 1)
@@ -12,7 +10,7 @@ def program(prg, cmd):
     prg.add(-4000000, "Shutter Bragg Open")
     prg.add(-3900000, "Bragg OFF")
     prg.add(-450000, "Shutter Bragg Close")
-    prg.add(-6000, "Na Bragg relative freq", -1500.00)
+    prg.add(-6000, "Na Bragg relative freq", 700.00)
     prg.add(-2500, "Na 3D MOT cool (+) freq", 110.50)
     prg.add(-2000, "Na 3D MOT cool (-) freq", 109.50)
     prg.add(-1500, "Na 3D MOT cool (+) Amp", 1000)
