@@ -448,6 +448,13 @@ def action_list_init(act_lst):
                 var_formats=dict(amplitude="%d"),
                 categories=["actions", "DDS"],
                 comment="1,10,20,...1000")
+    act_lst.add("Na Bragg ch1 Amp", lib_action.DdsAction,
+                board="DDS35",
+                parameters=dict(channel=1),
+                variables=dict(amplitude=0),
+                var_formats=dict(amplitude="%d"),
+                categories=["actions", "DDS"],
+                comment="1,10,20,...1000")
     act_lst.add("Na Bragg (+) freq", lib_action.DdsAction,
                 board="DDS35",
                 parameters=dict(channel=2),
@@ -456,6 +463,13 @@ def action_list_init(act_lst):
                 categories=["actions", "DDS"],
                 comment="60-159 (0.25) MHz")
     act_lst.add("Na Bragg (+) Amp", lib_action.DdsAction,
+                board="DDS35",
+                parameters=dict(channel=2),
+                variables=dict(amplitude=0),
+                var_formats=dict(amplitude="%d"),
+                categories=["actions", "DDS"],
+                comment="1,10,20,...1000")
+    act_lst.add("Na Bragg ch2 Amp", lib_action.DdsAction,
                 board="DDS35",
                 parameters=dict(channel=2),
                 variables=dict(amplitude=0),
