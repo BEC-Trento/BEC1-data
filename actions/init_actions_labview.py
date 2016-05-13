@@ -1134,6 +1134,14 @@ def action_list_init(act_lst):
                 board="TTL3",
                 parameters=dict(channel=[9], status=[True]),
                 categories=["actions", "TTL"])
+    act_lst.add("Shutter Bragg D1 Open", lib_action.DigitalAction,
+                board="TTL3",
+                parameters=dict(channel=[8, 9], status=[True, False]),
+                categories=["actions", "TTL"])
+    act_lst.add("Shutter Bragg D1 Close", lib_action.DigitalAction,
+                board="TTL3",
+                parameters=dict(channel=[8, 9], status=[False, True]),
+                categories=["actions", "TTL"])
     act_lst.add("TTL3-10 OFF", lib_action.DigitalAction,
                 board="TTL3",
                 parameters=dict(channel=[10], status=[False]),
