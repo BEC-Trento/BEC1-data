@@ -27,7 +27,7 @@ def program(prg, cmd):
     prg.add(60000000, "Evaporation Ramp.sub")
     prg.add(497003000, "Decompress Current 200-50", start_t=0.0000, stop_x=50.000, n_points=150, start_x=200.000, stop_t=600.0000)
     prg.add(497010000, "Decompress Voltage 200-50", start_t=0.0000, stop_x=0.000, n_points=150, start_x=30.000, stop_t=600.0000)
-    prg.add(614500000, "Bragg pulse D1")
+    prg.add(614500000, "Bragg pulse D1", enable=False)
     prg.add(614500000, "Picture - Field off at 0ms - Levit 180ms.sub", enable=False)
     prg.add(614500000, "Picture - Field off at 0ms - Levit 50ms.sub", enable=False)
     prg.add(614500000, "Picture - Field off at 0ms - Levit 80ms.sub", enable=False)
