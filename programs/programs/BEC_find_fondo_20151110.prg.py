@@ -28,11 +28,12 @@ def program(prg, cmd):
     prg.add(617009500, "Decompress Voltage MT.sub")
     prg.add(637009500, "Picture - Field off at 0ms - Levit 30ms.sub", enable=False)
     prg.add(637009500, "Picture - Field off at 0ms - Levit 20ms.sub", enable=False)
-    prg.add(720600000, "Config Field OFF.sub")
-    prg.add(720610000, "Picture NaK.sub")
-    prg.add(743050000, "Set MOT NaK.sub")
-    prg.add(743550000, "Dark Spot MOT load.sub")
-    prg.add(743650000, "Config MOT.sub")
+    prg.add(733040000, "Config Field OFF.sub", enable=False)
+    prg.add(733050000, "Picture NaK.sub", enable=False)
+    prg.add(746690000, "Picture - Field off at 0ms - Levit 180ms.sub")
+    prg.add(755490000, "Set MOT NaK.sub")
+    prg.add(755990000, "Dark Spot MOT load.sub")
+    prg.add(756090000, "Config MOT.sub")
     return prg
 def commands(cmd):
     from numpy import arange
