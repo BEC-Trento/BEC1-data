@@ -10,7 +10,7 @@ def program(prg, cmd):
     prg.add(1000, "Rele 5 Close")
     prg.add(2000, "Rele 3 Open")
     prg.add(3000, "Rele 4 Close")
-    prg.add(3000, "Decompress Current 200-50", start_t=0.0000, stop_x=1.800, n_points=200, start_x=0.000, stop_t=48.0000)
+    prg.add(3000, "Decompress Current 200-50", start_t=0.0000, stop_x=2.000, n_points=200, start_x=0.000, stop_t=48.0000)
     prg.add(497990, "Delta 1 Current", 20.000, enable=False)
     prg.add(498000, "IGBT 1 pinch", -10.0000)
     prg.add(498100, "IGBT 4 Open")
