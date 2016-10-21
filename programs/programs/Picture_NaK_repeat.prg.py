@@ -19,24 +19,16 @@ def program(prg, cmd):
     prg.add(15054440, "Mirrors Imaging")
     prg.add(16054440, "All AOM On.sub")
     prg.add(21054440, "Picture NaK.sub", enable=False)
-    prg.add(21054440, "Picture NaK Repump Off.sub")
+    prg.add(21054440, "Picture NaK Repump Off.sub", enable=False)
     prg.add(21054440, "Picture NaK Hamamatsu.sub", enable=False)
-    prg.add(21057860, "Picture - Field off at 0ms - Levit 50ms - Hamamatsu.sub", enable=False)
-    prg.add(28826280, "Set MOT NaK.sub", enable=False)
-    prg.add(29326280, "Dark Spot MOT load.sub", enable=False)
-    prg.add(29426280, "Config MOT.sub", enable=False)
+    prg.add(21054440, "Picture EoS 6 frame - Hamamatsu.sub", enable=False)
+    prg.add(21054440, "Picture NaK RFO doubleCam2-12.sub", enable=False)
+    prg.add(21054440, "RFO SetImaging+Ref-solo-Hamamatsu")
+    prg.add(21054440, "Picture NaK Init.sub", enable=False)
+    prg.add(21954440, "RFO ImagingQuantum-solo-Hamamatsu Ramp", start_t=0.0000, stop_x=0.000, n_points=10, start_x=1.000, stop_t=36.0000)
+    prg.add(21957860, "Picture - Field off at 0ms - Levit 50ms - Hamamatsu.sub", enable=False)
+    prg.add(29726280, "Set MOT NaK.sub", enable=False)
+    prg.add(30226280, "Dark Spot MOT load.sub", enable=False)
+    prg.add(30326280, "Config MOT.sub", enable=False)
+    prg.add(30900000, "All AOM On.sub")
     return prg
-def commands(cmd):
-    from numpy import arange
-    times=list(arange(0,20,1))
-    times.reverse()
-    while(cmd.running):
-        print('actual: ', times[-1])
-        print('real hold time : ', 1+times[-1])
-        cmd.set_var("t", times.pop())
-        print('Remaining: ',times)
-        cmd.run()
-        cmd.sleep(2000)
-        if len(times) == 0:
-         cmd.stop()
-    return cmd

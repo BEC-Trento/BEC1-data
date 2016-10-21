@@ -139,6 +139,13 @@ def action_list_init(action_list):
                     var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
                     comment="time")
 
+    action_list.add("Picture EoS Ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="Picture EoS Quantum - Hamamatsu.sub"),
+                    variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=100, n_points=100),
+                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="time")
+
     action_list.add("RFO FM ampQuantum Ramp", lib_ramp.LinearRamp,
                     categories=["ramps"],
                     parameters=dict(act_name="RFO FM ampQuantum"),
@@ -156,6 +163,20 @@ def action_list_init(action_list):
     action_list.add("RFO ImagingQuantum2-12 Ramp", lib_ramp.LinearRamp,
                     categories=["ramps"],
                     parameters=dict(act_name="RFO ImagingQuantum2-12"),
+                    variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=100, n_points=100),
+                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="time")
+
+    action_list.add("RFO ImagingQuantum2-12-Hamamatsu Ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="RFO ImagingQuantum2-12-Hamamatsu"),
+                    variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=100, n_points=100),
+                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="time")
+
+    action_list.add("RFO ImagingQuantum-solo-Hamamatsu Ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="RFO ImagingQuantum-solo-Hamamatsu"),
                     variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=100, n_points=100),
                     var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
                     comment="time")
