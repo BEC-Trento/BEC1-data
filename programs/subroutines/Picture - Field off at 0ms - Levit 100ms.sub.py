@@ -1,4 +1,4 @@
-prg_comment=""
+prg_comment = ""
 prg_version = "0.5.1"
 def program(prg, cmd):
     prg.add(-3402000, "Na Repumper1 (+) Amp", 1)
@@ -9,8 +9,6 @@ def program(prg, cmd):
     prg.add(-3002000, "Shutter Probe Na Open")
     prg.add(-2512000, "Na Probe/Push (-) Amp", 1)
     prg.add(-2502000, "Na Probe/Push (+) Amp", 1)
-    prg.add(-2032000, "Shutter Probe K Open")
-    prg.add(-2022000, "Shutter RepumperMOT K Open")
     prg.add(-2012000, "Shutter repump Na Open")
     prg.add(-1492000, "K probe Cooler (-) Amp", 1)
     prg.add(-1029000, "Na 3D MOT cool (-) Amp", 1)
@@ -147,7 +145,7 @@ def program(prg, cmd):
     prg.add(10380, "IGBT 4 Close")
     prg.add(10390, "IGBT 5 Open")
     prg.add(10400, "Delta 2 Voltage", 0.0000)
-    prg.add(10410, "Delta 1 Current", 15.350)
+    prg.add(10410, "Delta 1 Current", 14.500)
     prg.add(10450, "B comp x", 0.0)
     prg.add(10500, "B comp y", 5.0000)
     prg.add(11030, "B comp y", 4.7400)
@@ -194,7 +192,6 @@ def program(prg, cmd):
     prg.add(1002400, "K probe Cooler (-) Amp", 1)
     prg.add(1003000, "Trig OFF Stingray 1")
     prg.add(1251000, "Shutter Probe Na Close")
-    prg.add(1261000, "Shutter Probe K Close")
     prg.add(2000500, "Trig ON Stingray 1")
     prg.add(2001000, "Na Probe/Push (-) Amp", 1000)
     prg.add(2001399, "K probe Cooler (-) Amp", 1000)
