@@ -1,5 +1,5 @@
 prg_comment = ""
-PRG_VERSION = "0.6"
+prg_version = "0.5.1"
 def program(prg, cmd):
     prg.add(500000, "Evaporation", 0)
     prg.add(1000000, "Evaporation", 1)

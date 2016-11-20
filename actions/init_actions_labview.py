@@ -794,11 +794,11 @@ def action_list_init(act_lst):
                 board="TTL0",
                 parameters=dict(channel=[15], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL0-16 OFF", lib_action.DigitalAction,
+    act_lst.add("RF02 OFF", lib_action.DigitalAction,
                 board="TTL0",
                 parameters=dict(channel=[16], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL0-16 ON", lib_action.DigitalAction,
+    act_lst.add("RF02 ON", lib_action.DigitalAction,
                 board="TTL0",
                 parameters=dict(channel=[16], status=[True]),
                 categories=["actions", "TTL"])
@@ -938,11 +938,11 @@ def action_list_init(act_lst):
                 board="TTL2",
                 parameters=dict(channel=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], status=[True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True]),
                 categories=["actions", "TTL"])
-    act_lst.add("RF02 OFF", lib_action.DigitalAction,
+    act_lst.add("Bcomp z Sign Plus", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[1], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("RF02 ON", lib_action.DigitalAction,
+    act_lst.add("Bcomp z Sign Minus", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[1], status=[True]),
                 categories=["actions", "TTL"])
