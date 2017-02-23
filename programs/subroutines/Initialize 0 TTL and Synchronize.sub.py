@@ -14,6 +14,7 @@ def program(prg, cmd):
     prg.add(5500, "Breakpoint Main Table TTL ON")
     prg.add(5600, "Breakpoint Na Table TTL ON")
     prg.add(8000, "Bcomp z Sign Plus")
+    prg.add(9000, "Bcomp y Sign Plus")
     prg.add(10000, "Analog71", 0.3250)
     prg.add(10100, "B comp x", 1369.0)
     prg.add(15000, "Bx Grad OFF")

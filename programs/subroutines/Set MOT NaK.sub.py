@@ -50,7 +50,7 @@ def program(prg, cmd):
     prg.add(340000, "Shutter Push Na Open")
     prg.add(350000, "Na Probe/Push (-) freq", 104.00)
     prg.add(360000, "Na Probe/Push (+) freq", 116.00)
-    prg.add(370000, "Na Probe/Push (-) Amp", 800)
+    prg.add(370000, "Na Probe/Push (-) Amp", 1000)
     prg.add(380000, "Na Probe/Push (+) Amp", 1000)
     prg.add(390000, "B comp y", 0.0000)
     prg.add(400000, "B comp x", 1369.0)

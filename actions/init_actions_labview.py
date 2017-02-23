@@ -518,6 +518,21 @@ def action_list_init(act_lst):
                 var_formats=dict(n_lut="%d"),
                 categories=["actions", "DDS"],
                 comment="LUT")
+# Copying Gray molasses --> Phase Imprint 2016-11-29 AMPLITUDE ONLY
+    act_lst.add("Phase Imprint 2016 ch1 Amp", lib_action.DdsAction,
+                board="DDS19",
+                parameters=dict(channel=1),
+                variables=dict(amplitude=0),
+                var_formats=dict(amplitude="%d"),
+                categories=["actions", "DDS"],
+                comment="1,10,20,...1000")
+    act_lst.add("Phase Imprint 2016", lib_action.DdsAction,
+                board="DDS19",
+                parameters=dict(),
+                variables=dict(n_lut=0),
+                var_formats=dict(n_lut="%d"),
+                categories=["actions", "DDS"],
+                comment="LUT")
     act_lst.add("Evaporation", lib_action.DdsAction,
                 board="DDS50",
                 parameters=dict(),
@@ -674,11 +689,11 @@ def action_list_init(act_lst):
                 board="TTL0",
                 parameters=dict(channel=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], status=[False, False, False, False, True, False, False, True, False, True, True, False, False, False, False, False]),
                 categories=["actions", "TTL"])
-    act_lst.add("Trigger OT ramp_x OFF", lib_action.DigitalAction,
+    act_lst.add("TTL RF OFF", lib_action.DigitalAction,
                 board="TTL0",
                 parameters=dict(channel=[1], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("Trigger OT ramp_x ON", lib_action.DigitalAction,
+    act_lst.add("TTL RF ON", lib_action.DigitalAction,
                 board="TTL0",
                 parameters=dict(channel=[1], status=[True]),
                 categories=["actions", "TTL"])
@@ -970,11 +985,11 @@ def action_list_init(act_lst):
                 board="TTL2",
                 parameters=dict(channel=[4], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL RF OFF", lib_action.DigitalAction,
+    act_lst.add("TTL2 5 OFF", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[5], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL RF ON", lib_action.DigitalAction,
+    act_lst.add("TTL2 5 ON", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[5], status=[True]),
                 categories=["actions", "TTL"])

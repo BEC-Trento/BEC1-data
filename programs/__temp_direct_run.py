@@ -1,7 +1,8 @@
 prg_comment = ""
 prg_version = "0.5.1"
 def program(prg, cmd):
-    prg.add(0, "Initialize 0 TTL and Synchronize.sub")
+    prg.add(0, "Initialize 0 TTL and Synchronize.sub", enable=False)
+    prg.add(0, "Initialize Experiment.sub")
     prg.add(500, "Config Field OFF.sub", enable=False)
     prg.add(12580, "B comp x", 0.0)
     prg.add(50000, "Optical Levit (-) Amp", 1000)
