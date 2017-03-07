@@ -1045,11 +1045,11 @@ def action_list_init(act_lst):
                 board="TTL2",
                 parameters=dict(channel=[13], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("Breakpoint K Table TTL OFF", lib_action.DigitalAction,
+    act_lst.add("TTL2-14 OFF", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[14], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("Breakpoint K Table TTL ON", lib_action.DigitalAction,
+    act_lst.add("TTL2-14 ON", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[14], status=[True]),
                 categories=["actions", "TTL"])

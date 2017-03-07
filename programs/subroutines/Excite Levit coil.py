@@ -8,7 +8,7 @@ def program(prg, cmd):
     prg.add(400, "IGBT 4 Close")
     prg.add(500, "IGBT 5 Open")
     prg.add(900, "TTL2-12 ON")
-    prg.add(1000, "Decompress Current 200-50", start_t=0.0000, stop_x=18.000, n_points=100, start_x=0.000, stop_t=98.0000)
+    prg.add(1000, "Decompress Current 200-50", start_t=0.0000, stop_x=20.000, n_points=100, start_x=0.000, stop_t=98.0000)
     prg.add(981000, "TTL2-12 OFF")
     prg.add(1000000, "IGBT 3 Open")
     return prg
