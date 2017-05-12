@@ -11,7 +11,7 @@ def program(prg, cmd):
     prg.add(2000, "Rele 3 Open")
     prg.add(3000, "Rele 4 Close")
     prg.add(3010, "TTL2-12 ON")
-    prg.add(3050, "Decompress Current 200-50", start_t=0.0000, stop_x=1.200, n_points=200, start_x=0.000, stop_t=48.0000)
+    prg.add(3050, "Decompress Current 200-50", start_t=0.0000, stop_x=1.000, n_points=200, start_x=0.000, stop_t=48.0000)
     prg.add(493050, "Delta 1 Current", 10.000, enable=False)
     prg.add(495160, "TTL2-12 OFF")
     prg.add(496160, "IGBT 1 pinch", -10.0000)

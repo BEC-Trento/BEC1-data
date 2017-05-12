@@ -4,7 +4,7 @@ def program(prg, cmd):
     prg.add(-4403000, "Na Repumper1 (+) Amp", 1)
     prg.add(-4363000, "Na Dark Spot Amp", 1)
     prg.add(-4353000, "Na Repumper MOT Amp", 1)
-    prg.add(-4006000, "Na Repumper MOT freq", 112.50, enable=False)
+    prg.add(-4006000, "Na Repumper MOT freq", enable=False)
     prg.add(-4003000, "Shutter Probe Na Open")
     prg.add(-3513000, "Na Probe/Push (-) Amp", 1)
     prg.add(-3503000, "Na Probe/Push (+) Amp", 1)

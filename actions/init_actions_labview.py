@@ -1,35 +1,45 @@
 import libraries.action as lib_action
 def action_list_init(act_lst):
-    act_lst.add("Na Repumper MOT Amp", lib_action.DdsAction,
-                board="DDS20",
-                parameters=dict(channel=1),
-                variables=dict(amplitude=0),
-                var_formats=dict(amplitude="%d"),
-                categories=["actions", "DDS"],
-                comment="1,10,20,...1000")
-    act_lst.add("Na Dark Spot Amp", lib_action.DdsAction,
-                board="DDS20",
-                parameters=dict(channel=2),
-                variables=dict(amplitude=0),
-                var_formats=dict(amplitude="%d"),
-                categories=["actions", "DDS"],
-                comment="1,10,20,...1000")
-    act_lst.add("Na Repumper MOT freq", lib_action.DdsAction,
-                board="DDS20",
-                parameters=dict(channel=1),
-                variables=dict(frequency=0),
-                var_formats=dict(frequency="%.2f"),
-                categories=["actions", "DDS"],
-                comment="60-159 (0.25) MHz")
-    act_lst.add("Na Repumper Dark Spot freq", lib_action.DdsAction,
-                board="DDS20",
-                parameters=dict(channel=2),
-                variables=dict(frequency=0),
-                var_formats=dict(frequency="%.2f"),
-                categories=["actions", "DDS"],
-                comment="60-159 (0.25) MHz")
+    act_lst.add("Na Repumper MOT Amp",
+                lib_action.DigitalThresholdAction,
+                board="TTL2",
+                parameters=dict(channel=[13], threshold=[500]),
+                variables=dict(status=0),
+                categories=["actions", "Obsolete"],
+                comment="OBSOLETE")
+    act_lst.add("Na Dark Spot Amp",
+                lib_action.DigitalThresholdAction,
+                board="TTL2",
+                parameters=dict(channel=[15], threshold=[500]),
+                variables=dict(status=0),
+                categories=["actions", "Obsolete"],
+                comment="OBSOLETE")
+
+    act_lst.add("Na Repumper MOT freq", lib_action.EmptyAction,
+                #board="DDS20",
+                #parameters=dict(channel=1),
+                #variables=dict(frequency=0),
+                #var_formats=dict(frequency="%.2f"),
+                categories=["actions", "Obsolete"],
+                comment="OBSOLETE")
+    act_lst.add("Na Repumper Dark Spot freq", lib_action.EmptyAction,
+                #board="DDS20",
+                #parameters=dict(channel=2),
+                #variables=dict(frequency=0),
+                #var_formats=dict(frequency="%.2f"),
+                categories=["actions", "Obsolete"],
+                comment="OBSOLETE")    
+    act_lst.add("Na Repumper (+)", lib_action.EmptyAction,
+                #board="DDS21",
+                #parameters=dict(),
+                #variables=dict(n_lut=0),
+                #var_formats=dict(n_lut="%d"),
+                categories=["actions", "Obsolete"],
+                comment="LUT")
+
+
     act_lst.add("Na Repumper MOT/Dark Spot", lib_action.DdsAction,
-                board="DDS20",
+                board="DDS21",
                 parameters=dict(),
                 variables=dict(n_lut=0),
                 var_formats=dict(n_lut="%d"),
@@ -41,7 +51,7 @@ def action_list_init(act_lst):
                 variables=dict(frequency=0),
                 var_formats=dict(frequency="%.1f"),
                 categories=["actions", "DDS"],
-                comment="1632.5-1792.5 (1.6) MHz")
+                comment="1632 - 1790 (0.4) MHz")
     act_lst.add("Na Repumper1 (+) Amp", lib_action.DdsAction,
                 board="DDS21",
                 parameters=dict(channel=1),
@@ -56,13 +66,9 @@ def action_list_init(act_lst):
                 var_formats=dict(amplitude="%d"),
                 categories=["actions", "DDS"],
                 comment="1,10,20,...1000")
-    act_lst.add("Na Repumper (+)", lib_action.DdsAction,
-                board="DDS21",
-                parameters=dict(),
-                variables=dict(n_lut=0),
-                var_formats=dict(n_lut="%d"),
-                categories=["actions", "DDS"],
-                comment="LUT")
+
+
+
     act_lst.add("Na Lock (+) freq", lib_action.DdsAction,
                 board="DDS22",
                 parameters=dict(channel=1),
@@ -1015,11 +1021,11 @@ def action_list_init(act_lst):
                 categories=["actions", "TTL"])
     act_lst.add("TTL2-10 OFF", lib_action.DigitalAction,
                 board="TTL2",
-                parameters=dict(channel=[10], status=[True]),
+                parameters=dict(channel=[10], status=[False]),
                 categories=["actions", "TTL"])
     act_lst.add("TTL2-10 ON", lib_action.DigitalAction,
                 board="TTL2",
-                parameters=dict(channel=[10], status=[False]),
+                parameters=dict(channel=[10], status=[True]),
                 categories=["actions", "TTL"])
     act_lst.add("TTL2-11 OFF", lib_action.DigitalAction,
                 board="TTL2",
@@ -1037,11 +1043,11 @@ def action_list_init(act_lst):
                 board="TTL2",
                 parameters=dict(channel=[12], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL2-13 OFF", lib_action.DigitalAction,
+    act_lst.add("TTL Repumper MOT OFF", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[13], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL2-13 ON", lib_action.DigitalAction,
+    act_lst.add("TTL Repumper MOT ON", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[13], status=[True]),
                 categories=["actions", "TTL"])
@@ -1053,11 +1059,11 @@ def action_list_init(act_lst):
                 board="TTL2",
                 parameters=dict(channel=[14], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL2-15 OFF", lib_action.DigitalAction,
+    act_lst.add("TTL Dark Spot OFF", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[15], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL2-15 ON", lib_action.DigitalAction,
+    act_lst.add("TTL Dark Spot ON", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[15], status=[True]),
                 categories=["actions", "TTL"])
