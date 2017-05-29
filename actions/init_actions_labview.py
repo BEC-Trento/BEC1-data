@@ -679,6 +679,20 @@ def action_list_init(act_lst):
                 var_formats=dict(value="%.4f"),
                 categories=["actions", "analog"],
                 comment="0 - 5V")
+    act_lst.add("Pinning Lock", lib_action.AnalogAction,
+                board="ANG74",
+                parameters=dict(),
+                variables=dict(value=0),
+                var_formats=dict(value="%.4f"),
+                categories=["actions", "analog"],
+                comment="0 - 10V")
+    act_lst.add("BcompRamp", lib_action.AnalogAction,
+                board="ANG75",
+                parameters=dict(),
+                variables=dict(value=0),
+                var_formats=dict(value="%.4f"),
+                categories=["actions", "analog"],
+                comment="0 - 10V")
     act_lst.add("Initialize 0 TTL0", lib_action.DigitalAction,
                 board="TTL0",
                 parameters=dict(channel=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], status=[False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]),
@@ -1275,6 +1289,16 @@ def action_list_init(act_lst):
                 board="TTL4",
                 parameters=dict(channel=[5], status=[True]),
                 categories=["actions", "TTL"])
+#2017-05-25
+    act_lst.add("TTL Pinning OFF", lib_action.DigitalAction,
+                board="TTL4",
+                parameters=dict(channel=[5], status=[False]),
+                categories=["actions", "TTL"])
+    act_lst.add("TTL Pinning ON", lib_action.DigitalAction,
+                board="TTL4",
+                parameters=dict(channel=[5], status=[True]),
+                categories=["actions", "TTL"])
+
     act_lst.add("Shutter Optical Levit Close", lib_action.DigitalAction,
                 board="TTL4",
                 parameters=dict(channel=[6], status=[False]),

@@ -6,7 +6,7 @@ def program(prg, cmd):
     prg.add(2500, "RFO2 Amp", 170)
     prg.add(3000, "RF02 ON")
     prg.add(3120, "RF02 OFF")
-    prg.add(3500, "B comp x", 800.0, enable=False)
+    prg.add(3500, "B comp x", 800.0)
     prg.add(3575, "Pulse uw ON")
     prg.add(4185, "RFO", 0)
     prg.add(4285, "RFO2 Amp", 1)
