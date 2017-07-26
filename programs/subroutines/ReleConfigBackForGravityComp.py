@@ -8,7 +8,7 @@ def program(prg, cmd):
     prg.add(5000, "Rele 3 Close")
     prg.add(6000, "IGBT 2 pinch+comp", -10.0000)
     prg.add(8000, "Rele 5 Close")
-    prg.add(10000, "Rele 1 Close")
+    prg.add(11000, "Rele 1 Close")
     prg.add(40000, "Rele 2 Open")
     prg.add(50000, "Rele 4 Open")
     return prg

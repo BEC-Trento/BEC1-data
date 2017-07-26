@@ -14,7 +14,7 @@ def program(prg, cmd):
     prg.add(-2030000, "Na 3D MOT cool (-) Amp", 1)
     prg.add(-2020000, "Na 3D MOT cool (+) Amp", 1)
     prg.add(-2000000, "Shutter 3DMOT cool Na Open")
-    prg.add(-6000, "Na Repumper MOT freq", 112.50, enable=False)
+    prg.add(-6000, "Na Repumper MOT freq", enable=False)
     prg.add(-5400, "K probe Cooler (-) freq", 99.50, enable=False)
     prg.add(-5000, "K Cooler 2p (+) freq", 97.50, enable=False)
     prg.add(-4600, "K Repumper 1p (+) Amp", 1000, enable=False)

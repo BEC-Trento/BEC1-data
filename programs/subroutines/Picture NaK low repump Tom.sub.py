@@ -21,7 +21,7 @@ def program(prg, cmd):
     prg.add(-3800, "K Repumper 2p (+) freq", 96.00, enable=False)
     prg.add(-2500, "Na Repumper MOT Amp", 300)
     prg.add(-2000, "Na Repumper1 (+) Amp", 1000)
-    prg.add(-1600, "Na Repumper Tune (+) freq", 2000.0)
+    prg.add(-1600, "Na Repumper Tune (+) freq", 1713.0)
     prg.add(-1200, "Na Probe/Push (+) freq", 110.00)
     prg.add(-800, "Na Probe/Push (-) freq", 110.00)
     prg.add(-500, "Trig ON Stingray 1")

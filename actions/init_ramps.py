@@ -122,6 +122,12 @@ def action_list_init(action_list):
                     variables=dict(start_x=0, stop_x=1, start_t=0, stop_t=100, n_points=50),
                     comment="prova")
 
+    action_list.add("B compensation ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="BcompRamp", act_var_name="value"),
+                    variables=dict(start_x=0, stop_x=1, start_t=0, stop_t=100, n_points=50),
+                    comment="prova")
+
 # Time repetition ramps:
 
     action_list.add("RFO Trig Sweep burst", lib_ramp.LinearRamp,
@@ -141,6 +147,13 @@ def action_list_init(action_list):
     action_list.add("RFO ImagingQuatum Ramp", lib_ramp.LinearRamp,
                     categories=["ramps"],
                     parameters=dict(act_name="RFO ImagingQuantum"),
+                    variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=100, n_points=100),
+                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="time")
+
+    action_list.add("RFO ImagingQuatum Ramp - Trig2", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="RFO ImagingQuantum - Trig2"),
                     variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=100, n_points=100),
                     var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
                     comment="time")
@@ -200,5 +213,27 @@ def action_list_init(action_list):
                     variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=100, n_points=100),
                     var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
                     comment="time")
+
+# AOM amps/freqs
+    action_list.add("Na Repumper1 (+) Amp ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="Na Repumper1 (+) Amp", act_var_name="amplitude"),
+                    variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=100, n_points=100),
+                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="")
+
+    action_list.add("Na 3D MOT cool (+) freq ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="Na 3D MOT cool (+) freq", act_var_name="frequency"),
+                    variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=100, n_points=100),
+                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="")
+
+    action_list.add("Na 3D MOT cool (-) freq ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="Na 3D MOT cool (-) freq", act_var_name="frequency"),
+                    variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=100, n_points=100),
+                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="")
 
 
