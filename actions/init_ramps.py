@@ -45,6 +45,13 @@ def action_list_init(action_list):
     action_list.add("Decompress Current 200-50", lib_ramp.LinearRamp,
                     categories=["ramps"],
                     parameters=dict(act_name="Delta 1 Current", act_var_name="value"),
+                    variables=dict(start_x=200, stop_x=50, start_t=0, stop_t=300, n_points=600),
+                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="prova")
+
+    action_list.add("Delta 1 Current ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="Delta 1 Current", act_var_name="value"),
                     variables=dict(start_x=0, stop_x=0, start_t=0, stop_t=0, n_points=0),
                     var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
                     comment="prova")
@@ -52,18 +59,25 @@ def action_list_init(action_list):
     action_list.add("Decompress Voltage 200-50", lib_ramp.LinearRamp,
                     categories=["ramps"],
                     parameters=dict(act_name="Delta 2 Voltage", act_var_name="value"),
-                    variables=dict(start_x=0, stop_x=0, start_t=0, stop_t=0, n_points=0),
+                    variables=dict(start_x=30, stop_x=0, start_t=0, stop_t=300, n_points=600),
                     var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
                     comment="prova")
 
     action_list.add("Decompress Current 200-100", lib_ramp.LinearRamp,
                     categories=["ramps"],
                     parameters=dict(act_name="Delta 1 Current", act_var_name="value"),
-                    variables=dict(start_x=0, stop_x=0, start_t=0, stop_t=0, n_points=0),
+                    variables=dict(start_x=200, stop_x=100, start_t=0, stop_t=300, n_points=600),
                     var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
                     comment="prova")
 
     action_list.add("Decompress Voltage 200-100", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="Delta 2 Voltage", act_var_name="value"),
+                    variables=dict(start_x=30, stop_x=0, start_t=0, stop_t=300, n_points=600),
+                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="prova")
+
+    action_list.add("Delta 2 Voltage ramp", lib_ramp.LinearRamp,
                     categories=["ramps"],
                     parameters=dict(act_name="Delta 2 Voltage", act_var_name="value"),
                     variables=dict(start_x=0, stop_x=0, start_t=0, stop_t=0, n_points=0),

@@ -1,5 +1,5 @@
 prg_comment = ""
-prg_version = "0.5.1"
+prg_version = "0.7"
 def program(prg, cmd):
     prg.add(-3402000, "Na Repumper1 (+) Amp", 1)
     prg.add(-3392000, "K probe Repumper (+) Amp", 1)
@@ -144,6 +144,7 @@ def program(prg, cmd):
     prg.add(10370, "IGBT 3 Close")
     prg.add(10380, "IGBT 4 Close")
     prg.add(10390, "IGBT 5 Open")
+    prg.add(10395, "TTL2-12 ON")
     prg.add(10400, "Delta 2 Voltage", 0.0000)
     prg.add(10410, "Delta 1 Current", 15.400)
     prg.add(10450, "B comp x", 0.0)
@@ -184,6 +185,7 @@ def program(prg, cmd):
     prg.add(999400, "Na Repumper Tune (+) freq", 1713.0)
     prg.add(999800, "Na Probe/Push (+) freq", 110.00)
     prg.add(1000200, "Na Probe/Push (-) freq", 110.00)
+    prg.add(1000300, "TTL2-12 OFF")
     prg.add(1000500, "Trig ON Stingray 1")
     prg.add(1000600, "Na Probe/Push (+) Amp", 1000)
     prg.add(1001000, "Na Probe/Push (-) Amp", 1000)

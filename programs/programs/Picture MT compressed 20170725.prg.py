@@ -1,5 +1,5 @@
 prg_comment = ""
-prg_version = "0.5.1"
+prg_version = "0.7"
 def program(prg, cmd):
     prg.add(0, "Initialize 0 TTL and Synchronize.sub")
     prg.add(500, "Config Field OFF.sub")
@@ -17,11 +17,11 @@ def program(prg, cmd):
     prg.add(200056020, "Mirrors Imaging")
     prg.add(210056020, "Decompress Current 200-50", start_t=0.0000, stop_x=50.000, n_points=300, start_x=200.000, stop_t=300.0000)
     prg.add(210059020, "Decompress Voltage 200-50", start_t=0.0000, stop_x=0.000, n_points=300, start_x=30.000, stop_t=300.0000)
-    prg.add(213159020, "Config Field OFF.sub")
-    prg.add(213164020, "Picture close.sub", functions=dict(time=lambda x: x + cmd.get_var('dt'), funct_enable=False))
-    prg.add(221981520, "Set MOT NaK.sub")
-    prg.add(222481520, "Dark Spot MOT load.sub")
-    prg.add(222581520, "Config MOT.sub")
+    prg.add(220059020, "Config Field OFF.sub")
+    prg.add(220064020, "Picture close.sub", functions=dict(time=lambda x: x + cmd.get_var('dt'), funct_enable=False))
+    prg.add(228881520, "Set MOT NaK.sub")
+    prg.add(229381520, "Dark Spot MOT load.sub")
+    prg.add(229481520, "Config MOT.sub")
     return prg
 def commands(cmd):
     import numpy as np

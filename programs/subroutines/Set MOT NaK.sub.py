@@ -1,5 +1,5 @@
 prg_comment = ""
-prg_version = "0.5.1"
+prg_version = "0.7"
 def program(prg, cmd):
     prg.add(1000, "Delta 1 Current", 12.000)
     prg.add(1100, "Delta 2 Current", 200.000)

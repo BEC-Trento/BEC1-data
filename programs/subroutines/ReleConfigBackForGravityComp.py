@@ -1,5 +1,5 @@
 prg_comment = ""
-prg_version = "0.5.1"
+prg_version = "0.7"
 def program(prg, cmd):
     prg.add(0, "IGBT 4 Open")
     prg.add(100, "IGBT 5 Open")

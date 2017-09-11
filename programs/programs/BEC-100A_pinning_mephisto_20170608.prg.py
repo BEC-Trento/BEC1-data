@@ -1,5 +1,5 @@
 prg_comment = ""
-prg_version = "0.5.1"
+prg_version = "0.7"
 def program(prg, cmd):
     prg.add(0, "Initialize Experiment.sub", enable=False)
     prg.add(10, "Initialize 0 TTL and Synchronize.sub")
@@ -28,7 +28,7 @@ def program(prg, cmd):
     prg.add(195069540, "Mirrors Imaging")
     prg.add(195569540, "IGBT B comp x ON")
     prg.add(196069540, "All AOM On.sub")
-    prg.add(199069539, "B comp x", 930.0)
+    prg.add(199069539, "B comp x", 998.0)
     prg.add(200011579, "Evaporation Ramp.sub")
     prg.add(637014579, "Decompress Current 200-50", start_t=0.0000, stop_x=100.000, n_points=150, start_x=200.000, stop_t=500.0000)
     prg.add(637021579, "Decompress Voltage 200-50", start_t=0.0000, stop_x=0.000, n_points=150, start_x=30.000, stop_t=500.0000)
