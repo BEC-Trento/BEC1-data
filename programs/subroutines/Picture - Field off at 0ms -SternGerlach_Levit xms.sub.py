@@ -1,5 +1,5 @@
 prg_comment = ""
-prg_version = "0.5.1"
+prg_version = "0.7"
 def program(prg, cmd):
     prg.add(-4299000, "Na Repumper1 (+) Amp", 1)
     prg.add(-4259000, "Na Dark Spot Amp", 1)

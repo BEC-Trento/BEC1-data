@@ -1,12 +1,13 @@
 prg_comment = ""
-prg_version = "0.5.1"
+prg_version = "0.7"
 def program(prg, cmd):
     prg.add(-19000, "B comp y", 0.5000)
-    prg.add(-2000, "Na Repumper1 (+) Amp", 1000)
-    prg.add(-1600, "Na Repumper Tune (+) freq", 1713.0)
-    prg.add(-1200, "Na Repumper MOT Amp", 1000)
-    prg.add(-1000, "Na Probe/Push (+) freq", 120.00)
-    prg.add(-800, "Na Probe/Push (-) freq", 100.00)
+    prg.add(-19000, "Analog71", 0.5000, enable=False)
+    prg.add(-10000, "Na Repumper Tune (+) freq", 1713.0)
+    prg.add(-3050, "Na Repumper MOT Amp", 1000)
+    prg.add(-3000, "Na Repumper1 (+) Amp", 1000)
+    prg.add(-1000, "Na Probe/Push (+) freq", 125.00)
+    prg.add(-800, "Na Probe/Push (-) freq", 95.00)
     prg.add(-500, "Trig ON Stingray 1")
     prg.add(-400, "Na Probe/Push (+) Amp", 1000)
     prg.add(0, "Na Probe/Push (-) Amp", 1000)
