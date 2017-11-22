@@ -3,7 +3,6 @@ prg_version = "0.7"
 def program(prg, cmd):
     prg.add(-3402000, "Na Repumper1 (+) Amp", 1)
     prg.add(-3392000, "K probe Repumper (+) Amp", 1)
-    prg.add(-3382000, "K Repumper 1p (+) Amp", 1)
     prg.add(-3362000, "Na Dark Spot Amp", 1)
     prg.add(-3352000, "Na Repumper MOT Amp", 1)
     prg.add(-3002000, "Shutter Probe Na Open")
@@ -176,7 +175,6 @@ def program(prg, cmd):
     prg.add(995040, "IGBT 5 Open")
     prg.add(995050, "IGBT 6 Open")
     prg.add(995600, "K probe Cooler (-) freq", 99.50)
-    prg.add(996000, "K Cooler 2p (+) freq", 97.50)
     prg.add(996400, "K Repumper 1p (+) Amp", 1000)
     prg.add(996800, "K Repumper 1p (+) freq", 115.00)
     prg.add(997200, "K Repumper 2p (+) freq", 96.00)

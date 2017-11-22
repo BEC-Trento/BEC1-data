@@ -1,5 +1,5 @@
 prg_comment = ""
-prg_version = "0.5.1"
+prg_version = "0.7"
 def program(prg, cmd):
     prg.add(20, "Na 3D MOT cool (+) Amp", 1000)
     prg.add(5020, "Na 3D MOT cool (+) Amp", 980)

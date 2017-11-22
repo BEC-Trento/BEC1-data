@@ -1,6 +1,8 @@
 prg_comment = ""
-prg_version = "0.5.1"
+prg_version = "0.7"
 def program(prg, cmd):
+    prg.add(0, "TTL Repumper MOT ON")
+    prg.add(10, "TTL Dark Spot OFF", enable=False)
     prg.add(20, "Na Repumper Tune (+) freq", 1707.0)
     prg.add(100, "Na 3D MOT cool (-) freq", 115.00)
     prg.add(500, "Na 3D MOT cool (+) freq", 105.00)

@@ -300,41 +300,42 @@ def action_list_init(act_lst):
                 var_formats=dict(n_lut="%d"),
                 categories=["actions", "DDS"],
                 comment="LUT")
-    act_lst.add("K Cooler 2p (+) freq", lib_action.DdsAction,
+# deleted old Gray molasses and copyed from Fish
+# deleted old DDS31 (K cooler) to make room for Gray Molasses from Fish
+
+    act_lst.add("AOM GM Detuning", lib_action.DdsAction,
                 board="DDS31",
                 parameters=dict(channel=1),
                 variables=dict(frequency=0),
-                var_formats=dict(frequency="%.2f"),
+                var_formats=dict(frequency="%.3f"),
                 categories=["actions", "DDS"],
-                comment="60-159 (0.25) MHz")
-    act_lst.add("K Cooler 2p (+) Amp", lib_action.DdsAction,
+                comment="-100 .. +100 MHz (0.25)")
+
+
+    act_lst.add("AOM GM Amp ch1 (+)", lib_action.DdsAction,
                 board="DDS31",
                 parameters=dict(channel=1),
                 variables=dict(amplitude=0),
                 var_formats=dict(amplitude="%d"),
                 categories=["actions", "DDS"],
                 comment="1,10,20,...1000")
-    act_lst.add("K Cooler 1p (-) freq", lib_action.DdsAction,
-                board="DDS31",
-                parameters=dict(channel=2),
-                variables=dict(frequency=0),
-                var_formats=dict(frequency="%.2f"),
-                categories=["actions", "DDS"],
-                comment="60-159 (0.25) MHz")
-    act_lst.add("K Cooler 1p (-) Amp", lib_action.DdsAction,
+
+    act_lst.add("AOM GM Amp ch2 (-)", lib_action.DdsAction,
                 board="DDS31",
                 parameters=dict(channel=2),
                 variables=dict(amplitude=0),
                 var_formats=dict(amplitude="%d"),
                 categories=["actions", "DDS"],
                 comment="1,10,20,...1000")
-    act_lst.add("K Cooler 1p (-)", lib_action.DdsAction,
+
+    act_lst.add("DDS31 LUT", lib_action.DdsAction,
                 board="DDS31",
                 parameters=dict(),
                 variables=dict(n_lut=0),
                 var_formats=dict(n_lut="%d"),
                 categories=["actions", "DDS"],
                 comment="LUT")
+
     act_lst.add("K Repumper 2p (+) freq", lib_action.DdsAction,
                 board="DDS32",
                 parameters=dict(channel=1),
@@ -484,41 +485,6 @@ def action_list_init(act_lst):
                 comment="1,10,20,...1000")
     act_lst.add("Na Bragg", lib_action.DdsAction,
                 board="DDS35",
-                parameters=dict(),
-                variables=dict(n_lut=0),
-                var_formats=dict(n_lut="%d"),
-                categories=["actions", "DDS"],
-                comment="LUT")
-    act_lst.add("Na Gray molasses (+) freq", lib_action.DdsAction,
-                board="DDS19",
-                parameters=dict(channel=1),
-                variables=dict(frequency=0),
-                var_formats=dict(frequency="%.2f"),
-                categories=["actions", "DDS"],
-                comment="60-159 (0.25) MHz")
-    act_lst.add("Na Gray molasses (+) Amp", lib_action.DdsAction,
-                board="DDS19",
-                parameters=dict(channel=1),
-                variables=dict(amplitude=0),
-                var_formats=dict(amplitude="%d"),
-                categories=["actions", "DDS"],
-                comment="1,10,20,...1000")
-    act_lst.add("Na Gray molasses (-) freq", lib_action.DdsAction,
-                board="DDS19",
-                parameters=dict(channel=2),
-                variables=dict(frequency=0),
-                var_formats=dict(frequency="%.2f"),
-                categories=["actions", "DDS"],
-                comment="60-159 (0.25) MHz")
-    act_lst.add("Na Gray molasses (-) Amp", lib_action.DdsAction,
-                board="DDS19",
-                parameters=dict(channel=2),
-                variables=dict(amplitude=0),
-                var_formats=dict(amplitude="%d"),
-                categories=["actions", "DDS"],
-                comment="1,10,20,...1000")
-    act_lst.add("Na Gray molasses", lib_action.DdsAction,
-                board="DDS19",
                 parameters=dict(),
                 variables=dict(n_lut=0),
                 var_formats=dict(n_lut="%d"),
@@ -1153,21 +1119,21 @@ def action_list_init(act_lst):
                 board="TTL3",
                 parameters=dict(channel=[7], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("Shutter Phase Imprint Close", lib_action.DigitalAction,
+    act_lst.add("TTL Repumper GM OFF", lib_action.DigitalAction,
                 board="TTL3",
                 parameters=dict(channel=[8], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("Shutter Phase Imprint Open", lib_action.DigitalAction,
+    act_lst.add("TTL Repumper GM ON", lib_action.DigitalAction,
                 board="TTL3",
                 parameters=dict(channel=[8], status=[True]),
                 categories=["actions", "TTL"])
     act_lst.add("Shutter Gray molasses Open", lib_action.DigitalAction,
                 board="TTL3",
-                parameters=dict(channel=[9], status=[False]),
+                parameters=dict(channel=[9], status=[True]),
                 categories=["actions", "TTL"])
     act_lst.add("Shutter Gray molasses Close", lib_action.DigitalAction,
                 board="TTL3",
-                parameters=dict(channel=[9], status=[True]),
+                parameters=dict(channel=[9], status=[False]),
                 categories=["actions", "TTL"])
     act_lst.add("Shutter Bragg D1 Open", lib_action.DigitalAction,
                 board="TTL3",

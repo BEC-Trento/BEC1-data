@@ -28,6 +28,13 @@ def action_list_init(action_list):
                     var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
                     comment="prova")
 
+    action_list.add("Delta 1 Voltage ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="Delta 1 Voltage", act_var_name="value"),
+                    variables=dict(start_x=0, stop_x=0, start_t=0, stop_t=0, n_points=0),
+                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="prova")
+
     action_list.add("Delta 2 Voltage ramp", lib_ramp.LinearRamp,
                     categories=["ramps"],
                     parameters=dict(act_name="Delta 2 Voltage", act_var_name="value"),
@@ -248,6 +255,18 @@ def action_list_init(action_list):
                     parameters=dict(act_name="Na 3D MOT cool (-) freq", act_var_name="frequency"),
                     variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=100, n_points=100),
                     var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="")
+
+    action_list.add("GM amp(+) ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="AOM GM Amp ch1 (+)", act_var_name="amplitude"),
+                    variables=dict(start_x=0, stop_x=0, start_t=0, stop_t=0, n_points=1),
+                    comment="")
+    
+    action_list.add("GM Detuning ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="AOM GM Detuning", act_var_name="frequency"),
+                    variables=dict(start_x=0, stop_x=0, start_t=0, stop_t=0, n_points=1),
                     comment="")
 
 
