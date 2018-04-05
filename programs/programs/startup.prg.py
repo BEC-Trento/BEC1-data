@@ -1,5 +1,5 @@
 prg_comment = ""
-prg_version = "0.5.1"
+prg_version = "0.7"
 def program(prg, cmd):
     prg.add(0, "Initialize 0 TTL and Synchronize.sub", enable=False)
     prg.add(0, "Initialize Experiment.sub")
@@ -13,16 +13,16 @@ def program(prg, cmd):
     prg.add(2100000, "Config MOT.sub")
     return prg
 def commands(cmd):
-    from numpy import arange
-    times=list(arange(0,20,1))
-    times.reverse()
+    import numpy as np
+    iters = np.arange(5, 20, 2)
+    j = 0
     while(cmd.running):
-        print('actual: ', times[-1])
-        print('real hold time : ', 1+times[-1])
-        cmd.set_var("t", times.pop())
-        print('Remaining: ',times)
-        cmd.run()
-        cmd.sleep(2000)
-        if len(times) == 0:
-         cmd.stop()
+        tof1 = iters[j]
+        cmd.set_var('tof', tof1)
+        print('\n-------o-------')
+        print('Run #%d/%d, with variables:\ntof = %g\n'%(j+1, len(iters), tof1))
+        cmd.run(wait_end=True, add_time=100)
+        j += 1
+        if j == len(iters):
+            cmd.stop()
     return cmd

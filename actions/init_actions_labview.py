@@ -999,6 +999,32 @@ def action_list_init(act_lst):
                 board="TTL2",
                 parameters=dict(channel=[9], status=[True]),
                 categories=["actions", "TTL"])
+
+    act_lst.add("TTL2-6 OFF", lib_action.DigitalAction,
+                board="TTL2",
+                parameters=dict(channel=[6], status=[False]),
+                categories=["actions", "TTL"])
+    act_lst.add("TTL2-6 ON", lib_action.DigitalAction,
+                board="TTL2",
+                parameters=dict(channel=[6], status=[True]),
+                categories=["actions", "TTL"])
+    act_lst.add("TTL2-7 OFF", lib_action.DigitalAction,
+                board="TTL2",
+                parameters=dict(channel=[7], status=[False]),
+                categories=["actions", "TTL"])
+    act_lst.add("TTL2-7 ON", lib_action.DigitalAction,
+                board="TTL2",
+                parameters=dict(channel=[7], status=[True]),
+                categories=["actions", "TTL"])
+    act_lst.add("TTL2-8 OFF", lib_action.DigitalAction,
+                board="TTL2",
+                parameters=dict(channel=[8], status=[False]),
+                categories=["actions", "TTL"])
+    act_lst.add("TTL2-8 ON", lib_action.DigitalAction,
+                board="TTL2",
+                parameters=dict(channel=[8], status=[True]),
+                categories=["actions", "TTL"])
+
     act_lst.add("TTL2-10 OFF", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[10], status=[False]),

@@ -1,5 +1,5 @@
 prg_comment = ""
-prg_version = "0.5.1"
+prg_version = "0.7"
 def program(prg, cmd):
     prg.add(-4403000, "Na Repumper1 (+) Amp", 1)
     prg.add(-4363000, "Na Dark Spot Amp", 1)
@@ -8,9 +8,12 @@ def program(prg, cmd):
     prg.add(-3513000, "Na Probe/Push (-) Amp", 1)
     prg.add(-3503000, "Na Probe/Push (+) Amp", 1)
     prg.add(-3013000, "Shutter repump Na Open", enable=False)
+    prg.add(-3011000, "IGBT B comp y OFF")
     prg.add(-2030000, "Na 3D MOT cool (-) Amp", 1)
     prg.add(-2020000, "Na 3D MOT cool (+) Amp", 1)
     prg.add(-2000000, "Shutter 3DMOT cool Na Open", enable=False)
+    prg.add(-201000, "B comp y", 0.0500)
+    prg.add(-40000, "IGBT B comp y ON")
     prg.add(-1200, "Na Probe/Push (+) freq", 114.50)
     prg.add(-800, "Na Probe/Push (-) freq", 105.50)
     prg.add(-500, "Trig ON Stingray 2")

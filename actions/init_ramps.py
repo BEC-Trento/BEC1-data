@@ -73,7 +73,7 @@ def action_list_init(action_list):
     action_list.add("Decompress Current 200-100", lib_ramp.LinearRamp,
                     categories=["ramps"],
                     parameters=dict(act_name="Delta 1 Current", act_var_name="value"),
-                    variables=dict(start_x=200, stop_x=100, start_t=0, stop_t=300, n_points=600),
+                    variables=dict(start_x=200, stop_x=100, start_t=0, stop_t=600, n_points=150),
                     var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
                     comment="prova")
 
@@ -232,6 +232,13 @@ def action_list_init(action_list):
                     categories=["ramps"],
                     parameters=dict(act_name="RFO SingleSweepTrig12"),
                     variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=100, n_points=100),
+                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="time")
+
+    action_list.add("Bottom Evaporation ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="Bottom Evaporation pulse"),
+                    variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=20, n_points=6),
                     var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
                     comment="time")
 
