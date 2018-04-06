@@ -11,7 +11,7 @@ def program(prg, cmd):
     prg.add(-2030000, "Na 3D MOT cool (-) Amp", 1)
     prg.add(-2020000, "Na 3D MOT cool (+) Amp", 1)
     prg.add(-2000000, "Shutter 3DMOT cool Na Open", enable=False)
-    prg.add(-201000, "B comp y", 0.2000)
+    prg.add(-201000, "B comp y", 0.0500)
     prg.add(-40000, "IGBT B comp y ON")
     prg.add(-1200, "Na Probe/Push (+) freq", 110.00)
     prg.add(-800, "Na Probe/Push (-) freq", 110.00)

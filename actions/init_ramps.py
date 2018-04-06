@@ -185,6 +185,27 @@ def action_list_init(action_list):
                     variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=100, n_points=100),
                     var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
                     comment="time")
+                    
+    action_list.add("Picture Ramp Trig1", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="Picture Quantum - 1 shot Trig1"),
+                    variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=400, n_points=4),
+                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="time")
+
+    action_list.add("Picture Ramp Trig2", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="Picture Quantum - 1 shot Trig2"),
+                    variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=400, n_points=4),
+                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="time")                  
+                    
+    action_list.add("Pulse uw Ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="Pulse uw"),
+                    variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=400, n_points=4),
+                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="time")                                        
 
     action_list.add("RFO FM ampQuantum Ramp", lib_ramp.LinearRamp,
                     categories=["ramps"],
