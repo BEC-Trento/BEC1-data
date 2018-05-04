@@ -561,6 +561,13 @@ def action_list_init(act_lst):
                 var_formats=dict(value="%.4f"),
                 categories=["actions", "analog"],
                 comment="A")
+    act_lst.add("B comp z", lib_action.AnalogAction,
+                board="ANG71",
+                parameters=dict(scale=0.5, offset=-0.07),
+                variables=dict(value=0,),
+                var_formats=dict(value="%.4f"),
+                categories=["actions", "analog"],
+                comment="A")
     act_lst.add("B comp x", lib_action.AnalogAction,
                 board="ANG61",
                 parameters=dict(),

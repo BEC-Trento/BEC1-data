@@ -1,5 +1,5 @@
 prg_comment = ""
-prg_version = "0.5.1"
+prg_version = "0.7"
 def program(prg, cmd):
     prg.add(-4299000, "Na Repumper1 (+) Amp", 1)
     prg.add(-4259000, "Na Dark Spot Amp", 1)
@@ -143,7 +143,7 @@ def program(prg, cmd):
     prg.add(10380, "IGBT 4 Close")
     prg.add(10390, "IGBT 5 Open")
     prg.add(10400, "Delta 2 Voltage", 0.0000)
-    prg.add(10410, "Delta 1 Current", 20.000)
+    prg.add(10410, "Delta 1 Current", 10.000)
     prg.add(10450, "B comp x", 0.0)
     prg.add(10500, "B comp y", 5.0000)
     prg.add(11030, "B comp y", 4.7400)

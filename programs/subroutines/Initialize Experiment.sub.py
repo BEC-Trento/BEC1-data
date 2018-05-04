@@ -9,6 +9,7 @@ def program(prg, cmd):
     prg.add(350, "Na 3D MOT cool (-) ON", enable=False)
     prg.add(400, "Na Probe/Push (+) ON")
     prg.add(450, "Pulse MOT Na OFF")
+    prg.add(4000, "Mirrors MOT")
     prg.add(8000, "Bcomp z Sign Plus")
     prg.add(9000, "Bcomp y Sign Plus")
     prg.add(15000, "Bx Grad OFF")

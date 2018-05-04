@@ -2,6 +2,42 @@ import libraries.ramp as lib_ramp
 
 def action_list_init(action_list):
 
+# 2017-04-10 brand newer FunctionRamps
+
+    action_list.add("Dipole y Func", lib_ramp.FunctionRamp,
+                    categories=["func"],
+                    parameters=dict(act_name="Dipole Trap y DAC V", act_var_name="value", act_parameters={}),
+                    variables=dict(start_t=0, stop_t=100, n_points=100,
+                                   func="amp*sin(2*pi*freq*t)**2", func_args="amp=5, freq=100"),
+                    var_formats=dict(start_t="%.4f", stop_t="%.4f", n_points="%d", func="%s", func_args="%s"),
+                    comment="time")
+    
+    action_list.add("Pulse uw Func", lib_ramp.FunctionRamp,
+                    categories=["func"],
+                    parameters=dict(act_name="Pulse uw", act_var_name="pulse_t", act_parameters={'polarity': 1}),
+                    variables=dict(start_t=0, stop_t=100, n_points=100,
+                                   func="sin(2*pi*freq*t)**2", func_args=""),
+                    var_formats=dict(start_t="%.4f", stop_t="%.4f", n_points="%d", func="%s", func_args="%s"),
+                    comment="time")  
+
+# 2017-04-10 brand new TTLPulse ramps
+
+    action_list.add("Pulse uw Ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="Pulse uw", act_var_name="pulse_t", act_parameters={'polarity': 1}),
+                    variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=400, n_points=5),
+                    var_formats=dict(start_x="%.4f", stop_x="%.4f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="time")  
+                    
+    action_list.add("TTL2-12 Pulse Ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="Pulse TTL2-12", act_var_name="pulse_t"),
+                    variables=dict(start_x=1, stop_x=2, start_t=0, stop_t=400, n_points=5),
+                    var_formats=dict(start_x="%.4f", stop_x="%.4f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="time")
+                    
+# Analog actions ramps                    
+
     action_list.add("B comp x ramp", lib_ramp.LinearRamp,
                     categories=["ramps"],
                     parameters=dict(act_name="B comp x", act_var_name="value"),
@@ -13,6 +49,13 @@ def action_list_init(action_list):
                     parameters=dict(act_name="B comp y", act_var_name="value"),
                     variables=dict(start_x=0, stop_x=0, start_t=0, stop_t=0, n_points=1),
                     comment="prova")
+                    
+    action_list.add("B comp z ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="B comp z", act_var_name="value"),
+                    variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=100, n_points=100),
+                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="")
 
     action_list.add("Rampa GM per test", lib_ramp.LinearRamp,
                     categories=["ramps"],
@@ -199,14 +242,7 @@ def action_list_init(action_list):
                     variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=400, n_points=4),
                     var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
                     comment="time")                  
-                    
-    action_list.add("Pulse uw Ramp", lib_ramp.LinearRamp,
-                    categories=["ramps"],
-                    parameters=dict(act_name="Pulse uw"),
-                    variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=400, n_points=4),
-                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
-                    comment="time")                                        
-
+                                                        
     action_list.add("RFO FM ampQuantum Ramp", lib_ramp.LinearRamp,
                     categories=["ramps"],
                     parameters=dict(act_name="RFO FM ampQuantum"),
