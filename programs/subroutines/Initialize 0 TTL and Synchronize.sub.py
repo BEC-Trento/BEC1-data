@@ -7,7 +7,7 @@ def program(prg, cmd):
     prg.add(20200, "Initialize 0 TTL2")
     prg.add(20300, "Initialize 0 TTL3")
     prg.add(20400, "Initialize 0 TTL4")
-    prg.add(25400, "Bcomp y Sign Minus")
+    prg.add(25400, "Bcomp y Sign Minus", enable=False)
     prg.add(25450, "Na 3D MOT cool (-) ON", enable=False)
     prg.add(25500, "Na Probe/Push (+) ON")
     prg.add(25550, "Pulse MOT Na OFF")

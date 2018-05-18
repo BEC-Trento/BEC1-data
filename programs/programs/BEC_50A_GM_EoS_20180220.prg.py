@@ -16,7 +16,7 @@ def program(prg, cmd):
     prg.add(197606735, "Gray Molasses 2017")
     prg.add(197666735, "empty.sub")
     prg.add(197666735, "Loading_GM_Q50_MTC200A")
-    prg.add(199791645, "B comp x", 685.0)
+    prg.add(199791645, "B comp x", 890.0)
     prg.add(200000000, "Bcomp y Sign Minus", enable=False)
     prg.add(202600000, "All AOM On.sub")
     prg.add(217600000, "Evaporation Ramp.sub")
@@ -30,7 +30,7 @@ def program(prg, cmd):
     prg.add(776910000, "Picture SetImaging")
     prg.add(776920000, "Picture SetRepumper")
     prg.add(781920000, "TTL2-12 ON")
-    prg.add(781930000, "Pulse uw", polarity=1, pulse_t=0.04000, functions=dict(pulse_t=lambda x: 1e-3*cmd.get_var('tau'), funct_enable=False))
+    prg.add(781930000, "Pulse uw", polarity=1, pulse_t=0.00150, functions=dict(pulse_t=lambda x: 1e-3*cmd.get_var('tau')))
     prg.add(782000000, "Picture NaK Ready no Rep Trig2.sub")
     prg.add(782000000, "Picture NaK Ready Trig 2.sub", enable=False)
     prg.add(782002500, "Picture Levit 2017 - setup")
@@ -45,7 +45,7 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(4, 60, 4)
+    iters = np.arange(36, 47, 2)
     j = 0
     while(cmd.running):
         tau1 = iters[j]
