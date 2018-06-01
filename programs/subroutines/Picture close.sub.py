@@ -3,7 +3,7 @@ prg_version = "0.7"
 def program(prg, cmd):
     prg.add(-19000, "B comp y", 0.5000)
     prg.add(-19000, "Analog71", 0.5000, enable=False)
-    prg.add(-10000, "Na Repumper Tune (+) freq", 1713.0)
+    prg.add(-10500, "Na Repumper Tune (+) freq", 1713.0)
     prg.add(-9000, "Na Repumper MOT Amp", 1000)
     prg.add(-8000, "Na Repumper1 (+) Amp", 1000)
     prg.add(-5000, "Na Probe/Push (+) freq", 120.00)

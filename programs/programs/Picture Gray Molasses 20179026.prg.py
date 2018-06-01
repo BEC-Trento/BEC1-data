@@ -7,10 +7,10 @@ def program(prg, cmd):
     prg.add(1510000, "Set MOT NaK.sub")
     prg.add(2010000, "Dark Spot MOT load.sub")
     prg.add(2110000, "Config MOT.sub")
-    prg.add(2120000, "B comp x", 770.0, functions=dict(value=lambda x: cmd.get_var('b'), funct_enable=False), enable=False)
+    prg.add(2120000, "B comp x", 740.0, functions=dict(value=lambda x: cmd.get_var('b'), funct_enable=False), enable=False)
     prg.add(2120100, "Bcomp y Sign Minus", enable=False)
-    prg.add(2130000, "B comp y", 0.0500, functions=dict(value=lambda x: cmd.get_var('b'), funct_enable=False), enable=False)
-    prg.add(2140000, "B comp z", 0.9500, functions=dict(value=lambda x: cmd.get_var('b'), funct_enable=False), enable=False)
+    prg.add(2130000, "B comp y", 0.0750, functions=dict(value=lambda x: cmd.get_var('b'), funct_enable=False), enable=False)
+    prg.add(2140000, "B comp z", 0.9750, functions=dict(value=lambda x: cmd.get_var('b'), funct_enable=False), enable=False)
     prg.add(192140000, "Synchronize.sub", enable=False)
     prg.add(199790000, "Shutter Probe Na Open")
     prg.add(202291500, "Config Field OFF.sub")
@@ -30,7 +30,7 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(0.7, 1.15, 0.05)
+    iters = np.arange(0, 0.3, 0.05)
     j = 0
     while(cmd.running):
         b1 = iters[j]
