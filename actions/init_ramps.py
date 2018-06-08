@@ -35,6 +35,13 @@ def action_list_init(action_list):
                     variables=dict(start_x=1, stop_x=2, start_t=0, stop_t=400, n_points=5),
                     var_formats=dict(start_x="%.4f", stop_x="%.4f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
                     comment="time")
+                                        
+    action_list.add("Bottom Evap Pulse Ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="Pulse Bottom Evap", act_var_name="pulse_t"),
+                    variables=dict(start_x=1, stop_x=2, start_t=0, stop_t=400, n_points=5),
+                    var_formats=dict(start_x="%.4f", stop_x="%.4f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="time")
                     
 # Analog actions ramps                    
 

@@ -9,8 +9,9 @@ def program(prg, cmd):
     prg.add(-3503000, "Na Probe/Push (+) Amp", 1)
     prg.add(-2030000, "Na 3D MOT cool (-) Amp", 1)
     prg.add(-2020000, "Na 3D MOT cool (+) Amp", 1)
-    prg.add(-2000, "Na Probe/Push (+) ON")
-    prg.add(-1200, "Na Probe/Push (+) freq", 110.00)
-    prg.add(-800, "Na Probe/Push (-) freq", 110.00)
-    prg.add(-400, "Na Probe/Push (+) Amp", 1000)
+    prg.add(-190000, "Na Probe/Push (+) OFF")
+    prg.add(-99564, "Na Probe/Push (+) freq", 110.00)
+    prg.add(-90000, "Na Probe/Push (-) freq", 110.00)
+    prg.add(-10000, "Na Probe/Push (-) Amp", 1000)
+    prg.add(0, "Na Probe/Push (+) Amp", 1000)
     return prg

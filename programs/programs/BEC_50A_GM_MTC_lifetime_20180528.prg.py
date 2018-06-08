@@ -33,7 +33,7 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(180, 210, 30)
+    iters = np.arange(30, 120, 30)
     j = 0
     while(cmd.running):
         wait1 = iters[j]

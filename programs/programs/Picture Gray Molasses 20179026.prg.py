@@ -12,7 +12,7 @@ def program(prg, cmd):
     prg.add(2130000, "B comp y", 0.0750, functions=dict(value=lambda x: cmd.get_var('b'), funct_enable=False), enable=False)
     prg.add(2140000, "B comp z", 0.9750, functions=dict(value=lambda x: cmd.get_var('b'), funct_enable=False), enable=False)
     prg.add(192140000, "Synchronize.sub", enable=False)
-    prg.add(199790000, "Shutter Probe Na Open")
+    prg.add(199500000, "Shutter Probe Na Open")
     prg.add(202291500, "Config Field OFF.sub")
     prg.add(202291555, "MOT lights Off close.sub", enable=False)
     prg.add(202291555, "Melassa Na.sub", enable=False)

@@ -35,4 +35,11 @@ def action_list_init(action_list):
                     parameters=dict(act_on_name="TTL Repumper MOT ON", act_off_name="TTL Repumper MOT OFF"),
                     variables=dict(pulse_t=0.1, polarity=1),
                     var_formats=dict(pulse_t="%.5f", polarity="%d"),
-                    comment="ttl pulse")                     
+                    comment="ttl pulse")
+                    
+    action_list.add("Pulse Bottom Evap", lib_ttlpulse.TTLPulse,
+                    categories=["ttl pulses"],
+                    parameters=dict(act_on_name="Bottom Evaporation ON", act_off_name="Bottom Evaporation OFF"),
+                    variables=dict(pulse_t=1.0, polarity=1),
+                    var_formats=dict(pulse_t="%.5f", polarity="%d"),
+                    comment="ttl pulse")    

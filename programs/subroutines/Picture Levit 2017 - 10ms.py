@@ -11,8 +11,8 @@ def program(prg, cmd):
     prg.add(2100, "Delta 1 Current", 10.000)
     prg.add(5500, "B comp y ramp", start_t=0, stop_x=0, n_points=20, start_x=5, stop_t=1, enable=False)
     prg.add(5600, "B comp x ramp", start_t=0, stop_x=1369, n_points=20, start_x=2000, stop_t=1, enable=False)
-    prg.add(40000, "Config Field OFF.sub")
-    prg.add(41250, "B comp y", 1.0000, enable=False)
-    prg.add(50000, "Picture NaK.sub")
-    prg.add(4052000, "B comp y", 0.0000)
+    prg.add(90000, "Config Field OFF.sub")
+    prg.add(91250, "B comp y", 1.0000, enable=False)
+    prg.add(100000, "Picture NaK.sub")
+    prg.add(4102000, "B comp y", 0.0000)
     return prg
