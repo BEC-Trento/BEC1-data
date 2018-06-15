@@ -15,6 +15,7 @@ def program(prg, cmd):
     prg.add(27000, "Na 3D MOT cool (+) Amp", 1000)
     prg.add(27500, "Na 3D MOT cool (-) Amp", 1000)
     prg.add(32000, "Shutter Gray molasses Close")
+    prg.add(100000, "Shutter Repump2 Close")
     prg.add(110000, "Shutter repump Na Open")
     prg.add(120000, "Na Repumper Tune (+) freq", 1712.0)
     prg.add(130000, "Na Repumper1 (+) Amp", 1000)
