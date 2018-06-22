@@ -1202,11 +1202,11 @@ def action_list_init(act_lst):
                 categories=["actions", "TTL"])
     act_lst.add("Bragg burst OFF", lib_action.DigitalAction,
                 board="TTL3",
-                parameters=dict(channel=[12], status=[False]),
+                parameters=dict(channel=[16], status=[False]),
                 categories=["actions", "TTL"])
     act_lst.add("Bragg burst ON", lib_action.DigitalAction,
                 board="TTL3",
-                parameters=dict(channel=[12], status=[True]),
+                parameters=dict(channel=[16], status=[True]),
                 categories=["actions", "TTL"])
     act_lst.add("TTL3-13 OFF", lib_action.DigitalAction,
                 board="TTL3",
@@ -1234,11 +1234,11 @@ def action_list_init(act_lst):
                 categories=["actions", "TTL"])
     act_lst.add("Na 3D MOT cool (-) OFF", lib_action.DigitalAction,
                 board="TTL3",
-                parameters=dict(channel=[16], status=[False]),
+                parameters=dict(channel=[12], status=[False]),
                 categories=["actions", "TTL"])
     act_lst.add("Na 3D MOT cool (-) ON", lib_action.DigitalAction,
                 board="TTL3",
-                parameters=dict(channel=[16], status=[True]),
+                parameters=dict(channel=[12], status=[True]),
                 categories=["actions", "TTL"])
     act_lst.add("Bragg OFF", lib_action.DigitalAction,
                 board="TTL3",

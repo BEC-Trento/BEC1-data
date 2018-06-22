@@ -6,7 +6,7 @@ def program(prg, cmd):
     prg.add(100, "Initialize 0 TTL2")
     prg.add(200, "Initialize 0 TTL3")
     prg.add(300, "Initialize 0 TTL4")
-    prg.add(350, "Na 3D MOT cool (-) ON", enable=False)
+    prg.add(350, "Na 3D MOT cool (-) ON")
     prg.add(400, "Na Probe/Push (+) ON")
     prg.add(450, "Pulse MOT Na OFF")
     prg.add(4000, "Mirrors MOT")

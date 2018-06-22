@@ -18,6 +18,14 @@ def action_list_init(action_list):
                     variables=dict(start_t=0, stop_t=100, n_points=100,
                                    func="sin(2*pi*freq*t)**2", func_args=""),
                     var_formats=dict(start_t="%.4f", stop_t="%.4f", n_points="%d", func="%s", func_args="%s"),
+                    comment="time")
+                    
+    action_list.add("MT trap Heating", lib_ramp.FunctionRamp,
+                    categories=["func"],
+                    parameters=dict(act_name="Delta 1 Current", act_var_name="value", act_parameters={}),
+                    variables=dict(start_t=0, stop_t=100, n_points=100,
+                                   func="amp*sin(2*pi*freq*t) + offs", func_args="amp=5, freq=200, offs=50"),
+                    var_formats=dict(start_t="%.4f", stop_t="%.4f", n_points="%d", func="%s", func_args="%s"),
                     comment="time")  
 
 # 2017-04-10 brand new TTLPulse ramps

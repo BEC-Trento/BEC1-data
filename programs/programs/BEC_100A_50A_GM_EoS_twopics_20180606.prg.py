@@ -28,7 +28,7 @@ def program(prg, cmd):
     prg.add(808825000, "Picture SetImaging")
     prg.add(808835000, "Picture SetRepumper")
     prg.add(814335000, "TTL2-12 ON")
-    prg.add(814335150, "Pulse uw", polarity=1, pulse_t=0.00200, functions=dict(pulse_t=lambda x: 1e-3*cmd.get_var('tau'), funct_enable=False))
+    prg.add(814335150, "Pulse uw", polarity=1, pulse_t=0.00900, functions=dict(pulse_t=lambda x: 1e-3*cmd.get_var('tau'), funct_enable=False))
     prg.add(814335250, "Picture NaK Ready no Rep Trig2.sub")
     prg.add(814336350, "Picture NaK Ready.sub", enable=False)
     prg.add(814336350, "Config Field OFF.sub")

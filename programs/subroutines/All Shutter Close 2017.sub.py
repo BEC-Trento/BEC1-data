@@ -6,6 +6,5 @@ def program(prg, cmd):
     prg.add(20, "Shutter EOM Na Close")
     prg.add(31, "Shutter 3DMOT cool Na Close")
     prg.add(40, "Shutter Push Na Close")
-    prg.add(50, "Shutter Bragg Close")
-    prg.add(60, "Shutter Repump2 Close")
+    prg.add(50, "Shutter Repump2 Close")
     return prg

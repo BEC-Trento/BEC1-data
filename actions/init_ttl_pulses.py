@@ -37,6 +37,13 @@ def action_list_init(action_list):
                     var_formats=dict(pulse_t="%.5f", polarity="%d"),
                     comment="ttl pulse")
                     
+    action_list.add("Pulse MOT beams", lib_ttlpulse.TTLPulse,
+                    categories=["ttl pulses"],
+                    parameters=dict(act_on_name="Na 3D MOT cool (-) ON", act_off_name="Na 3D MOT cool (-) OFF"),
+                    variables=dict(pulse_t=0.1, polarity=1),
+                    var_formats=dict(pulse_t="%.5f", polarity="%d"),
+                    comment="ttl pulse")
+                    
     action_list.add("Pulse Probe Na", lib_ttlpulse.TTLPulse,
                     categories=["ttl pulses"],
                     parameters=dict(act_on_name="Na Probe/Push (+) ON", act_off_name="Na Probe/Push (+) OFF"),

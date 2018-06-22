@@ -7,10 +7,10 @@ def program(prg, cmd):
     prg.add(1510000, "Set MOT NaK.sub")
     prg.add(2010000, "Dark Spot MOT load.sub")
     prg.add(2110000, "Config MOT.sub")
-    prg.add(2120000, "B comp x", 740.0, functions=dict(value=lambda x: cmd.get_var('b'), funct_enable=False), enable=False)
+    prg.add(2120000, "B comp x", 780.0, functions=dict(value=lambda x: cmd.get_var('b')))
     prg.add(2120100, "Bcomp y Sign Minus", enable=False)
-    prg.add(2130000, "B comp y", 0.0750, functions=dict(value=lambda x: cmd.get_var('b'), funct_enable=False), enable=False)
-    prg.add(2140000, "B comp z", 0.9750, functions=dict(value=lambda x: cmd.get_var('b'), funct_enable=False), enable=False)
+    prg.add(2130000, "B comp y", 0.0600, functions=dict(value=lambda x: cmd.get_var('b'), funct_enable=False))
+    prg.add(2140000, "B comp z", 0.9250, functions=dict(value=lambda x: cmd.get_var('b'), funct_enable=False))
     prg.add(192140000, "Synchronize.sub")
     prg.add(199500000, "Shutter Probe Na Open")
     prg.add(202291500, "Config Field OFF.sub")
@@ -30,13 +30,13 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(0.2, 3, 0.2)
+    iters = np.arange(700, 850, 20)
     j = 0
     while(cmd.running):
-        tof1 = iters[j]
-        cmd.set_var('tof', tof1)
+        b1 = iters[j]
+        cmd.set_var('b', b1)
         print('\n-------o-------')
-        print('Run #%d/%d, with variables:\ntof = %g\n'%(j+1, len(iters), tof1))
+        print('Run #%d/%d, with variables:\nb = %g\n'%(j+1, len(iters), b1))
         cmd.run(wait_end=True, add_time=100)
         j += 1
         if j == len(iters):
