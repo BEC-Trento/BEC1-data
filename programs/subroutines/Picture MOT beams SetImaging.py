@@ -13,8 +13,8 @@ def program(prg, cmd):
     prg.add(-190000, "Na 3D MOT cool (+) freq", 110.00)
     prg.add(-180000, "Na 3D MOT cool (-) freq", 110.00)
     prg.add(-150000, "Na Probe/Push (+) OFF")
-    prg.add(-99564, "Na Probe/Push (+) freq", 110.00, functions=dict(frequency=lambda x: x + 0.5*cmd.get_var('det'), funct_enable=False))
-    prg.add(-90000, "Na Probe/Push (-) freq", 110.00, functions=dict(frequency=lambda x: x - 0.5*cmd.get_var('det'), funct_enable=False))
+    prg.add(-99564, "Na Probe/Push (+) freq", 110.00, functions=dict(frequency=lambda x: x + 0.5*cmd.get_var('det')))
+    prg.add(-90000, "Na Probe/Push (-) freq", 110.00, functions=dict(frequency=lambda x: x - 0.5*cmd.get_var('det')))
     prg.add(-10000, "Na Probe/Push (-) Amp", 1000)
     prg.add(0, "Na Probe/Push (+) Amp", 1000)
     return prg
