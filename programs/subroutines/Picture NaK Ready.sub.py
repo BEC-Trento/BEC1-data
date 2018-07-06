@@ -7,7 +7,7 @@ def program(prg, cmd):
     prg.add(0, "Pulse Probe Na", polarity=1, pulse_t=0.01000)
     prg.add(2000, "Trig OFF Stingray 1")
     prg.add(999500, "Trig ON Stingray 1")
-    prg.add(1000000, "Pulse Probe Na", polarity=1, pulse_t=0.05000)
+    prg.add(1000000, "Pulse Probe Na", polarity=1, pulse_t=0.01000)
     prg.add(1002000, "Trig OFF Stingray 1")
     prg.add(1999500, "Trig ON Stingray 1")
     prg.add(2001500, "Trig OFF Stingray 1")

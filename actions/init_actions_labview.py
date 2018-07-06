@@ -1322,6 +1322,14 @@ def action_list_init(act_lst):
                 board="TTL4",
                 parameters=dict(channel=[7, 8], status=[True, True]),
                 categories=["actions", "TTL"])
+    act_lst.add("Trig Extra Hamamatsu OFF", lib_action.DigitalAction,
+                board="TTL4",
+                parameters=dict(channel=[7], status=[False]),
+                categories=["actions", "TTL"])
+    act_lst.add("Trig Extra Hamamatsu ON", lib_action.DigitalAction,
+                board="TTL4",
+                parameters=dict(channel=[7], status=[True]),
+                categories=["actions", "TTL"])
     act_lst.add("Bottom Evaporation OFF", lib_action.DigitalAction,
                 board="TTL4",
                 parameters=dict(channel=[9], status=[False]),
