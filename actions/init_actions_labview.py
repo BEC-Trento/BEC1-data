@@ -1192,13 +1192,13 @@ def action_list_init(act_lst):
                 board="TTL3",
                 parameters=dict(channel=[10], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL3-11 OFF", lib_action.DigitalAction,
+    act_lst.add("TTL3-16 OFF", lib_action.DigitalAction,
                 board="TTL3",
-                parameters=dict(channel=[11], status=[False]),
+                parameters=dict(channel=[16], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL3-11 ON", lib_action.DigitalAction,
+    act_lst.add("TTL3-16 ON", lib_action.DigitalAction,
                 board="TTL3",
-                parameters=dict(channel=[11], status=[True]),
+                parameters=dict(channel=[16], status=[True]),
                 categories=["actions", "TTL"])
     act_lst.add("Bragg burst OFF", lib_action.DigitalAction,
                 board="TTL3",
@@ -1240,13 +1240,13 @@ def action_list_init(act_lst):
                 board="TTL3",
                 parameters=dict(channel=[12], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("Bragg OFF", lib_action.DigitalAction,
+    act_lst.add("Na Probe/Push Freq Sweep OFF", lib_action.DigitalAction,
                 board="TTL3",
-                parameters=dict(channel=[16], status=[False]),
+                parameters=dict(channel=[11], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("Bragg ON", lib_action.DigitalAction,
+    act_lst.add("Na Probe/Push Freq Sweep ON", lib_action.DigitalAction,
                 board="TTL3",
-                parameters=dict(channel=[16], status=[True]),
+                parameters=dict(channel=[11], status=[True]),
                 categories=["actions", "TTL"])
     act_lst.add("Initialize 0 TTL4", lib_action.DigitalAction,
                 board="TTL4",
