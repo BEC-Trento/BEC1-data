@@ -1,7 +1,7 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
-    prg.add(0, "Initialize 0 TTL and Synchronize.sub", enable=False)
+    prg.add(0, "Initialize 0 TTL and Synchronize.sub")
     prg.add(200000, "Pulse TTL2-12", polarity=1, pulse_t=2.00000)
     prg.add(210000, "Pulse Freq sweep Probe Na", polarity=1, pulse_t=800.00000)
     prg.add(210500, "Pulse Probe Na", polarity=1, pulse_t=500.00000, enable=False)

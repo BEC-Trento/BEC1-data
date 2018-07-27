@@ -1,7 +1,7 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
-    prg.add(0, "Initialize 0 TTL and Synchronize.sub", enable=False)
+    prg.add(0, "Initialize 0 TTL and Synchronize.sub")
     prg.add(300000, "Mirrors Imaging")
     prg.add(5300000, "Picture SetImaging", enable=False)
     prg.add(5310000, "Picture SetRepumper", enable=False)
