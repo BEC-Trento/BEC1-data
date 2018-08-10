@@ -2,6 +2,7 @@ prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
     prg.add(-3011000, "IGBT B comp y OFF", enable=False)
+    prg.add(-1000500, "Pulse Trig Extra Hamamatsu", polarity=1, pulse_t=0.10000)
     prg.add(-201000, "B comp y", 0.0500, enable=False)
     prg.add(-40000, "IGBT B comp y ON", enable=False)
     prg.add(-500, "Trig ON Stingray 1")

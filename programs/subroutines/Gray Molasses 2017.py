@@ -12,7 +12,7 @@ def program(prg, cmd):
     prg.add(48600, "AOM GM Amp ch1 (+)", 1000, enable=False)
     prg.add(58600, "AOM GM Amp ch1 (+)", 1)
     prg.add(59101, "AOM GM Amp ch2 (-)", 1)
-    prg.add(59352, "Shutter Gray molasses Close")
+    prg.add(89352, "Shutter Gray molasses Close")
     prg.add(10058852, "AOM GM Amp ch1 (+)", 1000)
     prg.add(10068852, "AOM GM Amp ch2 (-)", 1000)
     prg.add(10078852, "TTL Repumper GM OFF")
