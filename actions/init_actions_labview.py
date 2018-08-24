@@ -1169,12 +1169,12 @@ def action_list_init(act_lst):
                 parameters=dict(channel=[8], status=[True]),
                 categories=["actions", "TTL"])
     act_lst.add("Shutter Gray molasses Open", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[9], status=[True]),
+                board="TTL2",
+                parameters=dict(channel=[5], status=[True]),
                 categories=["actions", "TTL"])
     act_lst.add("Shutter Gray molasses Close", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[9], status=[False]),
+                board="TTL2",
+                parameters=dict(channel=[5], status=[False]),
                 categories=["actions", "TTL"])
     act_lst.add("Shutter Bragg D1 Open", lib_action.DigitalAction,
                 board="TTL3",
