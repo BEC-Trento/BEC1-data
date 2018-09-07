@@ -23,7 +23,7 @@ def program(prg, cmd):
     prg.add(-1700, "TTL Repumper MOT OFF")
     prg.add(-1600, "TTL Repumper MOT ON", enable=False)
     prg.add(-500, "Trig ON Stingray 1")
-    prg.add(-37, "Pulse Freq sweep Probe Na", polarity=1, pulse_t=0.05000)
+    prg.add(-25, "Pulse Freq sweep Probe Na", polarity=1, pulse_t=0.05000)
     prg.add(0, "Picture Set Probe Pulse.sub")
     prg.add(2000, "Trig OFF Stingray 1")
     prg.add(99500, "Trig ON Stingray 1")
