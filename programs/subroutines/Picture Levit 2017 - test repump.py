@@ -11,7 +11,7 @@ def program(prg, cmd):
     prg.add(5500, "B comp y ramp", start_t=0, stop_x=0, n_points=20, start_x=5, stop_t=1, enable=False)
     prg.add(5600, "B comp x ramp", start_t=0, stop_x=1369, n_points=20, start_x=2000, stop_t=1, enable=False)
     prg.add(190000, "Config Field OFF.sub")
-    prg.add(200000, "Picture NaK.sub", enable=False)
+    prg.add(200000, "Picture NaK for Levit 2017.sub", enable=False)
     prg.add(200000, "Picture NaK repump already ON.sub", enable=False)
     prg.add(200000, "Picture NaK no Rep.sub")
     prg.add(4202000, "B comp y", 0.0000)
