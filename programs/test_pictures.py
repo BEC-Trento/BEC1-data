@@ -22,7 +22,7 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(0, 14, 1)
+    iters = np.arange(0, 4, 1)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
@@ -30,7 +30,7 @@ def commands(cmd):
         cmd.set_var('rep', rep1)
         print('\n')
         print('Run #%d/%d, with variables:\nrep = %g\n'%(j+1, len(iters), rep1))
-        cmd.run(wait_end=True, add_time=23000)
+        cmd.run(wait_end=True, add_time=20000)
         j += 1
         if j == len(iters):
             cmd.stop()
