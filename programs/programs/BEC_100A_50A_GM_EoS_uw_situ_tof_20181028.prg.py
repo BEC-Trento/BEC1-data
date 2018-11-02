@@ -17,35 +17,32 @@ def program(prg, cmd):
     prg.add(646220000, "Delta 1 Current ramp", start_t=0.0000, stop_x=50.000, n_points=200, start_x=100.000, stop_t=4500.0000)
     prg.add(646230000, "B comp x ramp", start_t=0, stop_x=6000, n_points=200, start_x=675, stop_t=4500)
     prg.add(716230000, "empty.sub", enable=False)
-    prg.add(716231560, "Pulse TTL2-12", polarity=1, pulse_t=0.10000, enable=False)
-    prg.add(716231617, "Picture Levit 2017 - 10ms", enable=False)
-    prg.add(716231617, "Picture Levit 2017 - 20ms", enable=False)
-    prg.add(716231617, "Picture Levit 2017 - 30ms", enable=False)
-    prg.add(716231617, "Picture Levit 2017 - 50ms", enable=False)
-    prg.add(716231617, "Pulse uw ON")
-    prg.add(716231617, "Pulse uw OFF", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')))
-    prg.add(716231651, "Picture NaK no Rep 20ms delay.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')))
-    prg.add(716231651, "Picture NaK 20ms delay.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')), enable=False)
-    prg.add(716261651, "Config Field OFF.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')))
-    prg.add(732002076, "Set MOT NaK.sub")
-    prg.add(732502076, "Dark Spot MOT load.sub")
-    prg.add(732602076, "Config MOT.sub")
+    prg.add(716230000, "Picture SetImaging")
+    prg.add(716240000, "Picture SetRepumper")
+    prg.add(716241560, "Pulse TTL2-12", polarity=1, pulse_t=0.10000, enable=False)
+    prg.add(716241617, "Pulse uw ON")
+    prg.add(716241617, "Pulse uw OFF", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')))
+    prg.add(716241651, "Picture NaK Ready no Rep 20ms delay.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')), enable=False)
+    prg.add(716321651, "Picture Quantum - 1 shot Trig1", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')))
+    prg.add(716351651, "Config Field OFF.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')), enable=False)
+    prg.add(716351651, "Picture Levit 2017 - 30ms", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')), enable=False)
+    prg.add(716351651, "Picture Levit 2017 - 50ms", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')), enable=False)
+    prg.add(716351651, "Picture Levit 2017 - 80ms", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')))
+    prg.add(732092076, "Set MOT NaK.sub")
+    prg.add(732592076, "Dark Spot MOT load.sub")
+    prg.add(732692076, "Config MOT.sub")
     return prg
 def commands(cmd):
     import numpy as np
-    t = np.asarray([0.6])
-    r = np.arange(0,10)
-    rep_arr, t_uw_arr = np.meshgrid(r, t)
-    iters = list(zip(t_uw_arr.ravel(), rep_arr.ravel()))
+    iters = np.arange(100, 201, 5)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        t_uw1, rep1 = iters[j]
+        t_uw1 = iters[j]
         cmd.set_var('t_uw', t_uw1)
-        cmd.set_var('rep', rep1)
         print('\n')
-        print('Run #%d/%d, with variables:\nt_uw = %g\nrep = %g\n'%(j+1, len(iters), t_uw1, rep1))
-        cmd.run(wait_end=True, add_time=25000)
+        print('Run #%d/%d, with variables:\nt_uw = %g\n'%(j+1, len(iters), t_uw1))
+        cmd.run(wait_end=True, add_time=20000)
         j += 1
         if j == len(iters):
             cmd.stop()
