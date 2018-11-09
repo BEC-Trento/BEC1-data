@@ -24,28 +24,24 @@ def program(prg, cmd):
     prg.add(716231617, "Picture Levit 2017 - 50ms", enable=False)
     prg.add(716231617, "Pulse uw ON")
     prg.add(716231617, "Pulse uw OFF", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')))
-    prg.add(716231651, "Picture NaK no Rep 20ms delay.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')))
-    prg.add(716231651, "Picture NaK 20ms delay.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')), enable=False)
-    prg.add(716261651, "Config Field OFF.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')))
-    prg.add(732002076, "Set MOT NaK.sub")
-    prg.add(732502076, "Dark Spot MOT load.sub")
-    prg.add(732602076, "Config MOT.sub")
+    prg.add(716251651, "Picture NaK no Rep 20ms delay.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')))
+    prg.add(716251651, "Picture NaK 20ms delay.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')), enable=False)
+    prg.add(716281651, "Config Field OFF.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')))
+    prg.add(732022076, "Set MOT NaK.sub")
+    prg.add(732522076, "Dark Spot MOT load.sub")
+    prg.add(732622076, "Config MOT.sub")
     return prg
 def commands(cmd):
     import numpy as np
-    t = np.asarray([0.6])
-    r = np.arange(0,10)
-    rep_arr, t_uw_arr = np.meshgrid(r, t)
-    iters = list(zip(t_uw_arr.ravel(), rep_arr.ravel()))
+    iters = np.arange(0, 3, 1)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        t_uw1, rep1 = iters[j]
-        cmd.set_var('t_uw', t_uw1)
+        rep1 = iters[j]
         cmd.set_var('rep', rep1)
         print('\n')
-        print('Run #%d/%d, with variables:\nt_uw = %g\nrep = %g\n'%(j+1, len(iters), t_uw1, rep1))
-        cmd.run(wait_end=True, add_time=25000)
+        print('Run #%d/%d, with variables:\nrep = %g\n'%(j+1, len(iters), rep1))
+        cmd.run(wait_end=True, add_time=12000)
         j += 1
         if j == len(iters):
             cmd.stop()

@@ -4,9 +4,10 @@ def program(prg, cmd):
     prg.add(0, "Initialize 0 TTL and Synchronize.sub")
     prg.add(300000, "Mirrors Imaging")
     prg.add(11410080, "TTL2-12 ON")
-    prg.add(12413530, "Picture NaK 20ms delay.sub")
+    prg.add(12413530, "Picture NaK 20ms delay.sub", enable=False)
     prg.add(12613940, "TTL2-12 OFF")
-    prg.add(13613940, "Picture NaK for Levit 2017 Trig2.sub")
+    prg.add(13613940, "Picture NaK for Levit 2017 Trig2.sub", enable=False)
+    prg.add(13613940, "Picture NaK for Levit 2017.sub")
     prg.add(30000050, "startup.prg", enable=False)
     prg.add(30000050, "All AOM On.sub")
     return prg
