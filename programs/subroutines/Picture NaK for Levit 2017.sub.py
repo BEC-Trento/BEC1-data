@@ -23,6 +23,7 @@ def program(prg, cmd):
     prg.add(-91199, "Na Probe/Push (+) freq", 110.00, functions=dict(frequency=lambda x: x + cmd.get_var('probe_det')/2.0))
     prg.add(-90800, "Na Probe/Push (-) freq", 110.00, functions=dict(frequency=lambda x: x - cmd.get_var('probe_det')/2.0))
     prg.add(-39954, "IGBT B comp y ON", enable=False)
+    prg.add(-7650, "IGBT B comp x OFF")
     prg.add(-2600, "TTL Repumper MOT ON")
     prg.add(-500, "Trig ON Stingray 1")
     prg.add(-100, "TTL Repumper MOT OFF")

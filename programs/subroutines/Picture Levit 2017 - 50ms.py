@@ -13,5 +13,4 @@ def program(prg, cmd):
     prg.add(490000, "Config Field OFF.sub")
     prg.add(500000, "Picture NaK for Levit 2017.sub")
     prg.add(500000, "Picture NaK for Levit 2017 Trig2.sub", enable=False)
-    prg.add(4502000, "B comp y", 0.0000)
     return prg

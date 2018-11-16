@@ -17,31 +17,39 @@ def program(prg, cmd):
     prg.add(657010000, "Delta 1 Current ramp", start_t=0.0000, stop_x=50.000, n_points=200, start_x=100.000, stop_t=6000.0000)
     prg.add(657020000, "B comp x ramp", start_t=0, stop_x=6000, n_points=200, start_x=675, stop_t=6000)
     prg.add(727020000, "empty.sub", enable=False)
-    prg.add(727021560, "Pulse TTL2-12", polarity=1, pulse_t=0.10000, enable=False)
-    prg.add(727021617, "Picture Levit 2017 - 10ms", enable=False)
-    prg.add(727021617, "Picture Levit 2017 - 20ms", enable=False)
-    prg.add(727021617, "Picture Levit 2017 - 30ms", enable=False)
-    prg.add(727021617, "Pulse uw ON", enable=False)
-    prg.add(727021617, "Pulse uw OFF", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')), enable=False)
-    prg.add(727041651, "Picture NaK no Rep 20ms delay.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')), enable=False)
-    prg.add(727041651, "Picture NaK 20ms delay.sub", functions=dict(time=lambda x: x + cmd.get_var('wait')), enable=False)
-    prg.add(727071651, "Config Field OFF.sub", functions=dict(time=lambda x: x + cmd.get_var('wait')))
-    prg.add(727271651, "Picture NaK for Levit 2017.sub", functions=dict(time=lambda x: x + cmd.get_var('wait')))
-    prg.add(743003727, "Set MOT NaK.sub")
-    prg.add(743503727, "Dark Spot MOT load.sub")
-    prg.add(743603727, "Config MOT.sub")
+    prg.add(727021660, "IGBT 1 pinch", 10.0000)
+    prg.add(727021670, "IGBT 4 Close")
+    prg.add(727021690, "Delta 1 Voltage", 5.0000)
+    prg.add(727023690, "Config Levitation zero current.sub")
+    prg.add(727024690, "B comp x", 3600.0)
+    prg.add(727025790, "Delta 1 Current", 14.130)
+    prg.add(727025790, "Pulse TTL2-12", polarity=1, pulse_t=0.10000, enable=False)
+    prg.add(727035790, "IGBT B comp x OFF")
+    prg.add(727036790, "Pulse uw ON")
+    prg.add(727236840, "Pulse uw OFF")
+    prg.add(727236874, "Config Field OFF.sub")
+    prg.add(727246874, "Picture NaK for Levit 2017.sub")
+    prg.add(727246874, "Picture NaK for Levit no Rep 2017.sub", enable=False)
+    prg.add(727246875, "empty.sub", enable=False)
+    prg.add(727276988, "Config Field OFF.sub")
+    prg.add(743017413, "Set MOT NaK.sub")
+    prg.add(743517413, "Dark Spot MOT load.sub")
+    prg.add(743617413, "Config MOT.sub")
     return prg
 def commands(cmd):
+    import os
     import numpy as np
-    iters = np.arange(0, 10, 1)
+    iters = np.arange(12.5, 50, 0.7)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        rep1 = iters[j]
-        cmd.set_var('rep', rep1)
+        freq1 = iters[j]
+        cmd.set_var('freq', freq1)
+        comm = "python3 /home/stronzio/remote_device_marconi/MarconiComm.py %g"%(1e3*freq1)
+        os.system(comm)
         print('\n')
-        print('Run #%d/%d, with variables:\nrep = %g\n'%(j+1, len(iters), rep1))
-        cmd.run(wait_end=True, add_time=21000)
+        print('Run #%d/%d, with variables:\nfreq = %g\n'%(j+1, len(iters), freq1))
+        cmd.run(wait_end=True, add_time=22000)
         j += 1
         if j == len(iters):
             cmd.stop()
