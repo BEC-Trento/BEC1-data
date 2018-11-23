@@ -2,6 +2,7 @@ prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
     prg.add(0, "Config Field OFF.sub")
+    prg.add(10000, "TTL Fluo Lock OFF")
     prg.add(20000, "Initialize 0 TTL0")
     prg.add(20100, "Initialize Test IGBT")
     prg.add(20200, "Initialize 0 TTL2")

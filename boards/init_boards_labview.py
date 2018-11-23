@@ -116,10 +116,13 @@ def board_list_init(board_lst):
                   parameters=dict(ang_to_dig={1: lambda x: float(x)*32767*0.5/5.0}))
     board_lst.add("ANG72", lib_board.AnalogBoard,
                   address=72,
-                  parameters=dict(ang_to_dig={1: lambda x: float(x)*32767*1.0/5.0}))
+                  parameters=dict(ang_to_dig={1: lambda x: float(x)*32767*1.0/5000.0}))
+    board_lst.add("ANG73", lib_board.AnalogBoard,
+                  address=73,
+                  parameters=dict(ang_to_dig={1: lambda x: float(x)*32767*1.0/5000.0}))        
     board_lst.add("ANG74", lib_board.AnalogBoard,
                   address=74,
-                  parameters=dict(ang_to_dig={1: lambda x: float(x)*32767*1.0/10}))
+                  parameters=dict(ang_to_dig={1: lambda x: float(x)*32767*1.0/5000.0}))
     board_lst.add("ANG75", lib_board.AnalogBoard,
                   address=75,
                   parameters=dict(ang_to_dig={1: lambda x: float(x)*32767*1.0/10}))

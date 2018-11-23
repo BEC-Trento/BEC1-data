@@ -650,15 +650,29 @@ def action_list_init(act_lst):
                 parameters=dict(),
                 variables=dict(value=0),
                 var_formats=dict(value="%.4f"),
-                categories=["actions", "analog"],
+                categories=["actions", "analog", "OBSOLETE"],
                 comment="0 - 5V")
+    act_lst.add("Fluo Lock", lib_action.AnalogAction,
+                board="ANG72",
+                parameters=dict(scale=1, offset=-49.10),
+                variables=dict(value=0),
+                var_formats=dict(value="%.4f"),
+                categories=["actions", "analog",],
+                comment="0 - 5000 V")                        
     act_lst.add("Pinning Lock", lib_action.AnalogAction,
                 board="ANG74",
                 parameters=dict(),
                 variables=dict(value=0),
                 var_formats=dict(value="%.4f"),
-                categories=["actions", "analog"],
-                comment="0 - 10V")
+                categories=["actions", "analog", "OBSOLETE"],
+                comment="0 - 10V")        
+    act_lst.add("Analog 74", lib_action.AnalogAction,
+                board="ANG74",
+                parameters=dict(),
+                variables=dict(value=0),
+                var_formats=dict(value="%.4f"),
+                categories=["actions", "analog",],
+                comment="0 - 5000 mV")
     act_lst.add("BcompRamp", lib_action.AnalogAction,
                 board="ANG75",
                 parameters=dict(),
@@ -746,11 +760,11 @@ def action_list_init(act_lst):
                 board="TTL0",
                 parameters=dict(channel=[8], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL0-9 broken OFF", lib_action.DigitalAction,
+    act_lst.add("TTL Fluo Lock OFF", lib_action.DigitalAction,
                 board="TTL0",
                 parameters=dict(channel=[9], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL0-9 broken ON", lib_action.DigitalAction,
+    act_lst.add("TTL Fluo Lock ON", lib_action.DigitalAction,
                 board="TTL0",
                 parameters=dict(channel=[9], status=[True]),
                 categories=["actions", "TTL"])

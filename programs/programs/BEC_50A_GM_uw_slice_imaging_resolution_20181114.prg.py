@@ -35,3 +35,28 @@ def program(prg, cmd):
     prg.add(643363464, "Dark Spot MOT load.sub")
     prg.add(643463464, "Config MOT.sub")
     return prg
+def commands(cmd):
+    import os
+    import numpy as np
+    # amp_arr = np.arange(6, 10, 100)
+    # uw_tau_arr = np.arange(10, 100, 1000)
+    freq1 = 1698.100
+    amp_arr = [6]
+    uw_tau_arr = [10]
+    iters = list(zip(amp_arr, uw_tau_arr))
+    j = 0
+    while(cmd.running):
+        print('\n-------o-------')
+        amp1, uw_tau1 = iters[j]
+        cmd.set_var('amp', amp1)
+        cmd.set_var('uw_tau', uw_tau1)
+        print('\n')
+        comm = "python3 /home/stronzio/remote_device_marconi/MarconiComm.py"
+        args = "--freq %g --amp %g"%(freq1, amp1)
+        os.system(comm + " " + args)
+        print('Run #%d/%d, with variables:\namp = %g\nuw_tau = %g\n'%(j+1, len(iters), amp1, uw_tau1))
+        cmd.run(wait_end=True, add_time=100)
+        j += 1
+        if j == len(iters):
+            cmd.stop()
+    return cmd

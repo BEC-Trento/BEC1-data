@@ -354,5 +354,12 @@ def action_list_init(action_list):
                     parameters=dict(act_name="AOM GM Detuning", act_var_name="frequency"),
                     variables=dict(start_x=0, stop_x=0, start_t=0, stop_t=0, n_points=1),
                     comment="")
+                    
+    action_list.add("Optical Levit (+) freq ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="Optical Levit (+) freq", act_var_name="frequency"),
+                    variables=dict(start_x=100, stop_x=140, start_t=0, stop_t=100, n_points=100),
+                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="")
 
 

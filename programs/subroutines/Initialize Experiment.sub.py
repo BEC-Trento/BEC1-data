@@ -12,5 +12,6 @@ def program(prg, cmd):
     prg.add(4000, "Mirrors MOT")
     prg.add(8000, "Bcomp z Sign Plus")
     prg.add(9000, "Bcomp y Sign Plus")
+    prg.add(10000, "TTL Fluo Lock ON")
     prg.add(15000, "Bx Grad OFF")
     return prg
