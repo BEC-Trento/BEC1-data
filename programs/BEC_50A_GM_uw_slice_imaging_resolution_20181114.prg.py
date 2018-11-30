@@ -26,35 +26,29 @@ def program(prg, cmd):
     prg.add(804023290, "B comp y", 0.0000, enable=False)
     prg.add(804023290, "IGBT B comp x OFF", enable=False)
     prg.add(804082030, "DDS27 ch1 freq ramp", start_t=0.0000, stop_x=130.000, n_points=40, start_x=120.000, stop_t=2.0000, enable=False)
-    prg.add(804082030, "DDS27 ch2 freq ramp", start_t=0.0000, stop_x=128.000, n_points=400, start_x=127.000, stop_t=2.0000)
-    prg.add(804082030, "empty.sub")
-    prg.add(804082048, "Pulse uw ON")
-    prg.add(804102048, "Pulse uw OFF")
-    prg.add(804102048, "empty.sub")
-    prg.add(804103048, "Config Field OFF.sub")
-    prg.add(804113048, "Picture NaK for Levit 2017.sub", enable=False)
-    prg.add(804113048, "Picture NaK for Levit no Rep 2017.sub")
-    prg.add(819853473, "Set MOT NaK.sub")
-    prg.add(820353473, "Dark Spot MOT load.sub")
-    prg.add(820453473, "Config MOT.sub")
+    prg.add(804082030, "DDS27 ch2 freq ramp", start_t=0.0000, stop_x=128.000, n_points=400, start_x=127.000, stop_t=2.0000, enable=False)
+    prg.add(804091570, "empty.sub")
+    prg.add(804091570, "Pulse uw ON")
+    prg.add(804091570, "Pulse uw OFF", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')))
+    prg.add(804091570, "empty.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')))
+    prg.add(804092570, "Config Field OFF.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')))
+    prg.add(804102570, "Picture NaK for Levit 2017.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')), enable=False)
+    prg.add(804102570, "Picture NaK for Levit no Rep 2017.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')))
+    prg.add(819842995, "Set MOT NaK.sub")
+    prg.add(820342995, "Dark Spot MOT load.sub")
+    prg.add(820442995, "Config MOT.sub")
     return prg
 def commands(cmd):
-    import os
     import numpy as np
-    #amp_arr, freq_arr = np.mgrid[6:7:1, 1626.3:1629:0.1, ]
-    #iters = list(zip(amp_arr.ravel(), freq_arr.ravel()))
-    iters = [14]
+    iters = np.arange(28, 40, 3)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        amp1, freq1 = iters[j]
+        t_uw1 = iters[j]
+        cmd.set_var('t_uw', t_uw1)
         print('\n')
-        cmd.set_var('freq', freq1)
-        comm = "python3 /home/stronzio/remote_device_marconi/MarconiComm.py"
-        args = "--freq %g --amp %g"%(freq1, amp1)
-        os.system(comm + " " + args)
-        print('Run #%d/%d, with variables:\namp = %g\nfreq = %g\n'%(j+1, len(iters), amp1, freq1))
-        cmd.run(wait_end=True, add_time=3000)
+        print('Run #%d/%d, with variables:\nt_uw = %g\n'%(j+1, len(iters), t_uw1))
+        cmd.run(wait_end=True, add_time=6000)
         j += 1
         if j == len(iters):
             cmd.stop()

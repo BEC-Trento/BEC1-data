@@ -14,11 +14,15 @@ def program(prg, cmd):
     prg.add(662003000, "Decompress Current 200-100", start_t=0.0000, stop_x=50.000, n_points=150, start_x=200.000, stop_t=600.0000)
     prg.add(662010000, "Decompress Voltage 200-100", start_t=0.0000, stop_x=0.000, n_points=150, start_x=30.000, stop_t=600.0000)
     prg.add(802010000, "empty.sub", enable=False)
-    prg.add(807010000, "Config Field OFF.sub", enable=False)
-    prg.add(807010000, "Picture Levit 2017 - 50ms")
-    prg.add(822750425, "Set MOT NaK.sub")
-    prg.add(823250425, "Dark Spot MOT load.sub")
-    prg.add(823350425, "Config MOT.sub")
+    prg.add(807010000, "Config Field OFF.sub")
+    prg.add(807050000, "Picture NaK.sub")
+    prg.add(807051685, "Pulse TTL2-12", polarity=1, pulse_t=0.95600)
+    prg.add(807054045, "Picture Levit 2017 - 50ms", enable=False)
+    prg.add(807054045, "Picture Levit 2017 - 80ms", enable=False)
+    prg.add(807054045, "Picture Levit 2017 - 120ms", enable=False)
+    prg.add(822794470, "Set MOT NaK.sub")
+    prg.add(823294470, "Dark Spot MOT load.sub")
+    prg.add(823394470, "Config MOT.sub")
     return prg
 def commands(cmd):
     import os

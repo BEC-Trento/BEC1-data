@@ -32,7 +32,7 @@ def board_list_init(board_lst):
     board_lst.add("DDS27", lib_board.DdsBoard,
                   address=27,
                   parameters=dict(amp_to_lut={1: lambda x: (int(x)+4000)*1.0/10, 2: lambda x: (int(x)+4000)*1.0/10 + 500},
-                                  freq_to_lut={1: lambda x: (float(x)-59.75)*1.0/0.25, 2: lambda x: (float(x)-59.75)*1.0/0.25 + 500}))
+                                  freq_to_lut={1: lambda x: (float(x)-59.75)*1.0/0.25, 2: lambda x: (float(x)-126.9975)*1.0/0.0025 + 500}))
     board_lst.add("DDS30", lib_board.DdsBoard,
                   address=30,
                   parameters=dict(amp_to_lut={1: lambda x: (int(x)+4000)*1.0/10},

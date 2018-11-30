@@ -248,7 +248,7 @@ def action_list_init(act_lst):
                 board="DDS27",
                 parameters=dict(channel=1),
                 variables=dict(frequency=0),
-                var_formats=dict(frequency="%.2f"),
+                var_formats=dict(frequency="%.4f"),
                 categories=["actions", "DDS"],
                 comment="60-159 (0.25) MHz")
     act_lst.add("Optical Levit (+) Amp", lib_action.DdsAction,
@@ -262,9 +262,9 @@ def action_list_init(act_lst):
                 board="DDS27",
                 parameters=dict(channel=2),
                 variables=dict(frequency=0),
-                var_formats=dict(frequency="%.2f"),
+                var_formats=dict(frequency="%.4f"),
                 categories=["actions", "DDS"],
-                comment="60-159 (0.25) MHz")
+                comment="127-128 (0.0025) MHz")
     act_lst.add("Optical Levit (-) Amp", lib_action.DdsAction,
                 board="DDS27",
                 parameters=dict(channel=2),
