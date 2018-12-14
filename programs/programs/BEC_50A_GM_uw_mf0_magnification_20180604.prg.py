@@ -29,3 +29,19 @@ def program(prg, cmd):
     prg.add(824474965, "Dark Spot MOT load.sub")
     prg.add(824574965, "Config MOT.sub")
     return prg
+def commands(cmd):
+    import numpy as np
+    iters = np.arange(1, 10, 1)
+    np.random.shuffle(iters)
+    j = 0
+    while(cmd.running):
+        print('\n-------o-------')
+        tof1 = iters[j]
+        cmd.set_var('tof', tof1)
+        print('\n')
+        print('Run #%d/%d, with variables:\ntof = %g\n'%(j+1, len(iters), tof1))
+        cmd.run(wait_end=True, add_time=500)
+        j += 1
+        if j == len(iters):
+            cmd.stop()
+    return cmd

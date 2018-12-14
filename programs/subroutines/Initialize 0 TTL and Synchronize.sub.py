@@ -12,7 +12,7 @@ def program(prg, cmd):
     prg.add(25450, "Na 3D MOT cool (-) ON")
     prg.add(25500, "Na Probe/Push (+) ON")
     prg.add(25550, "Pulse MOT Na OFF")
-    prg.add(27000, "Mirrors MOT")
+    prg.add(27000, "Mirrors MOT", enable=False)
     prg.add(30100, "Breakpoint Main Table TTL OFF")
     prg.add(30200, "Breakpoint Na Table TTL OFF")
     prg.add(30600, "Breakpoint Main Table TTL ON")
