@@ -30,7 +30,6 @@ def program(prg, cmd):
     prg.add(804091570, "empty.sub")
     prg.add(804091570, "Pulse uw ON")
     prg.add(804091570, "Pulse uw OFF", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')))
-    prg.add(804091570, "empty.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')))
     prg.add(804092570, "Config Field OFF.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')))
     prg.add(804102570, "Picture NaK for Levit 2017.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')), enable=False)
     prg.add(804102570, "Picture NaK for Levit no Rep 2017.sub", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('t_uw')))
@@ -39,16 +38,23 @@ def program(prg, cmd):
     prg.add(820442995, "Config MOT.sub")
     return prg
 def commands(cmd):
+    import os
     import numpy as np
-    iters = np.arange(28, 40, 3)
+    iters = np.arange(610, 550, -1)
+    iters = [610]
+    #np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        t_uw1 = iters[j]
-        cmd.set_var('t_uw', t_uw1)
+        freq1 = iters[j]
+        cmd.set_var('freq', freq1)
+        comm = "python3 devices/marconi/MarconiComm.py"
+        uw_freq1 = 1e-3*freq1 + 1371.0
+        args = " --freq %.9f"%(uw_freq1)
+        os.system(comm+args)
         print('\n')
-        print('Run #%d/%d, with variables:\nt_uw = %g\n'%(j+1, len(iters), t_uw1))
-        cmd.run(wait_end=True, add_time=6000)
+        print('Run #%d/%d, with variables:\nfreq = %g\n'%(j+1, len(iters), freq1))
+        cmd.run(wait_end=True, add_time=100)
         j += 1
         if j == len(iters):
             cmd.stop()
