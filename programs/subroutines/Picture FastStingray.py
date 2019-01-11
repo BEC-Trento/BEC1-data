@@ -1,8 +1,8 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
-    prg.add(-1012300, "Picture SetRepumper")
-    prg.add(-1002300, "Picture SetImaging")
+    prg.add(-1112300, "Picture SetRepumper")
+    prg.add(-1102300, "Picture SetImaging")
     prg.add(-702300, "Pulse Trig Stingray 1", polarity=1, pulse_t=0.01000)
     prg.add(-2600, "Na Probe/Push (+) ON", functions=dict(time=lambda x: x - 1e-3*cmd.get_var('probe_tau')))
     prg.add(-2600, "Na Probe/Push (+) OFF")

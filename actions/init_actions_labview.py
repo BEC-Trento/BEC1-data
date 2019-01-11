@@ -36,7 +36,22 @@ def action_list_init(act_lst):
                 #var_formats=dict(n_lut="%d"),
                 categories=["actions", "Obsolete"],
                 comment="LUT")
-
+    
+    #--- script_actions
+    act_lst.add("Test fake device", lib_action.ScriptAction,
+                parameters=dict(script="devices/fake_device.py"),
+                variables=dict(),
+                var_formats=dict(),
+                categories=["actions", "scripts"],
+                comment="A fake device for testing scripts")
+                
+    act_lst.add("Set Marconi uw", lib_action.MarconiScriptAction,
+                parameters=dict(script="devices/marconi/MarconiComm.py"),
+                #parameters=dict(script="devices/fake_marconi.py"),
+                variables=dict(frequency=1769.0, amplitude=0),
+                var_formats=dict(frequency="%.6f", amplitude="%.2f"),
+                categories=["actions", "scripts"],
+                comment="Remote Marconi")                
 
     act_lst.add("Na Repumper MOT/Dark Spot", lib_action.DdsAction,
                 board="DDS21",
