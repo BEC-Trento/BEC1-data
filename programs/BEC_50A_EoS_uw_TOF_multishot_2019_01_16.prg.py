@@ -37,3 +37,24 @@ def program(prg, cmd):
     prg.add(766633793, "Dark Spot MOT load.sub")
     prg.add(766733793, "Config MOT.sub")
     return prg
+def commands(cmd):
+    import numpy as np
+    from random import choice
+    nreps = 200
+    uw1 = [1, 1.3]
+    uw2 = [2, 2.5]
+    iters = [(choice(uw1), choice(uw2)) for q in range(nreps)]
+    np.random.shuffle(iters)
+    j = 0
+    while(cmd.running):
+        print('\n-------o-------')
+        u1, u2 = iters[j]
+        cmd.set_var('uw_tau', u1)
+        cmd.set_var('uw_tau2', u2)
+        print('\n')
+        print('Run #%d/%d, with variables:\nu1 = %g\nu2 = %g\n'%(j+1, len(iters), u1, u2))
+        cmd.run(wait_end=True, add_time=5000)
+        j += 1
+        if j == len(iters):
+            cmd.stop()
+    return cmd
