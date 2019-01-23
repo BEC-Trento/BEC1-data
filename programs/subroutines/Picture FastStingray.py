@@ -12,5 +12,4 @@ def program(prg, cmd):
     prg.add(500, "Na Probe/Push (+) ON")
     prg.add(500, "Na Probe/Push (+) OFF", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('probe_tau')))
     prg.add(798100, "Pulse Trig Stingray 1", polarity=1, pulse_t=0.01000)
-    prg.add(1597800, "Pulse Trig Stingray 1", polarity=1, pulse_t=0.01000, enable=False)
     return prg
