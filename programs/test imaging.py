@@ -1,0 +1,27 @@
+prg_comment = ""
+prg_version = "0.7"
+def program(prg, cmd):
+    prg.add(0, "Initialize 0 TTL and Synchronize.sub")
+    prg.add(1400000, "Set MOT NaK.sub")
+    prg.add(1900000, "Dark Spot MOT load.sub")
+    prg.add(2000000, "Config MOT.sub")
+    prg.add(4000000, "Shutter Probe Na Open")
+    prg.add(7000100, "TTL Repumper MOT OFF", enable=False)
+    prg.add(7001000, "TTL Repumper MOT ON", enable=False)
+    prg.add(7002000, "TTL Repumper MOT OFF", enable=False)
+    prg.add(8800000, "Na Probe/Push (+) OFF")
+    prg.add(8820000, "Trig ON Stingray 1")
+    prg.add(8821000, "Trig OFF Stingray 1")
+    prg.add(9470000, "Na Probe/Push (+) ON")
+    prg.add(9470100, "Na Probe/Push (+) OFF")
+    prg.add(9620000, "TTL Repumper MOT ON")
+    prg.add(9620100, "TTL Repumper MOT OFF")
+    prg.add(9630000, "Trig ON Stingray 1")
+    prg.add(9631000, "Trig OFF Stingray 1")
+    prg.add(9640000, "Na Probe/Push (+) ON")
+    prg.add(9640100, "Na Probe/Push (+) OFF")
+    prg.add(9650000, "Shutter Probe Na Close")
+    prg.add(10820000, "Trig ON Stingray 1")
+    prg.add(10821000, "Trig OFF Stingray 1")
+    prg.add(12620000, "Na Probe/Push (+) ON")
+    return prg
