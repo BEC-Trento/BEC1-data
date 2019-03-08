@@ -1,9 +1,9 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
-    prg.add(-5000000, "Shutter Probe Na Open")
-    prg.add(-1800, "Na Probe/Push (+) OFF")
-    prg.add(-1700, "TTL Repumper MOT ON")
+    prg.add(-5000900, "Shutter Probe Na Open")
+    prg.add(-2700, "Na Probe/Push (+) OFF")
+    prg.add(-2600, "TTL Repumper MOT ON")
     prg.add(-1600, "TTL Repumper MOT OFF")
     prg.add(-1500, "Trig ON Stingray 1")
     prg.add(-500, "Trig OFF Stingray 1")
