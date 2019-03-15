@@ -31,7 +31,7 @@ def program(prg, cmd):
     prg.add(280000, "AOM GM Detuning", 40.000)
     prg.add(290000, "TTL Repumper GM OFF")
     prg.add(300000, "Na Zeeman slower (-) Amp", 1000)
-    prg.add(310000, "Na Zeeman slower (-) freq", 305.0)
+    prg.add(310000, "Na Zeeman slower (-) freq", 305.0, functions=dict(frequency=lambda x: cmd.get_var('zs_det')))
     prg.add(330000, "Shutter Probe Na Close")
     prg.add(340000, "Shutter Push Na Open")
     prg.add(350000, "Na Probe/Push (-) freq", 104.00, enable=False)
