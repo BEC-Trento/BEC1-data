@@ -1,0 +1,25 @@
+prg_comment = ""
+prg_version = "0.5.1"
+def program(prg, cmd):
+    prg.add(100, "K Cooler 2p (+) freq", 104.750000)
+    prg.add(2600, "K Cooler 2p (+) freq", 104.670000)
+    prg.add(5100, "K Cooler 2p (+) freq", 104.600000)
+    prg.add(7600, "K Cooler 2p (+) freq", 104.530000)
+    prg.add(10100, "K Cooler 2p (+) freq", 104.450000)
+    prg.add(12600, "K Cooler 2p (+) freq", 104.370000)
+    prg.add(15100, "K Cooler 2p (+) freq", 104.300000)
+    prg.add(17600, "K Cooler 2p (+) freq", 104.220000)
+    prg.add(20099, "K Cooler 2p (+) freq", 104.150000)
+    prg.add(22599, "K Cooler 2p (+) freq", 104.080000)
+    prg.add(25099, "K Cooler 2p (+) freq", 104.000000)
+    prg.add(27599, "K Cooler 2p (+) freq", 103.920000)
+    prg.add(30099, "K Cooler 2p (+) freq", 103.850000)
+    prg.add(32599, "K Cooler 2p (+) freq", 103.780000)
+    prg.add(35100, "K Cooler 2p (+) freq", 103.700000)
+    prg.add(37600, "K Cooler 2p (+) freq", 103.620000)
+    prg.add(40100, "K Cooler 2p (+) freq", 103.550000)
+    prg.add(42600, "K Cooler 2p (+) freq", 103.470000)
+    prg.add(45100, "K Cooler 2p (+) freq", 103.400000)
+    prg.add(47600, "K Cooler 2p (+) freq", 103.330000)
+    prg.add(50100, "K Cooler 2p (+) freq", 103.250000)
+    return prg

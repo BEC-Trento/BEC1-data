@@ -1,5 +1,5 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
-    prg.add(0, "TTL2-12 OFF")
+    prg.add(0, "TTL Repumper GM ON")
     return prg

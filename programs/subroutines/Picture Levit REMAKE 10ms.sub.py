@@ -1,0 +1,27 @@
+prg_comment = ""
+prg_version = "0.7"
+def program(prg, cmd):
+    prg.add(-500000, "IGBT B comp y ON")
+    prg.add(-9500, "B comp y ramp", start_t=0, stop_x=5, n_points=25, start_x=0, stop_t=1, enable=False)
+    prg.add(-9500, "B comp x", 850.0)
+    prg.add(-9000, "B comp y", 1.0000, enable=False)
+    prg.add(-8500, "B comp z", 0.8400)
+    prg.add(60, "IGBT 2 pinch+comp", -10.0000)
+    prg.add(300, "IGBT 5 Open")
+    prg.add(5370, "IGBT 3 Close")
+    prg.add(5380, "IGBT 4 Close")
+    prg.add(5400, "Delta 2 Voltage", 0.0000)
+    prg.add(5410, "Delta 1 Current", 10.000)
+    prg.add(5450, "B comp x", 0.0, enable=False)
+    prg.add(5500, "B comp y ramp", start_t=0, stop_x=0, n_points=20, start_x=5, stop_t=1, enable=False)
+    prg.add(45000, "IGBT B comp z OFF", enable=False)
+    prg.add(77000, "B comp y", 1.0000, enable=False)
+    prg.add(90000, "IGBT 1 pinch", -10.0000)
+    prg.add(90010, "IGBT 2 pinch+comp", -10.0000)
+    prg.add(90020, "IGBT 3 Open")
+    prg.add(90030, "IGBT 4 Open")
+    prg.add(90040, "IGBT 5 Open")
+    prg.add(95056, "Picture NaK.sub")
+    prg.add(4096000, "B comp y", 0.0000)
+    prg.add(4195000, "IGBT B comp y OFF")
+    return prg

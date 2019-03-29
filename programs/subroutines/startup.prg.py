@@ -14,15 +14,15 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(0, 1, 1)
+    iters = np.arange(0, 200, 2)
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        x1 = iters[j]
-        cmd.set_var('x', x1)
+        probe_amp1 = iters[j]
+        cmd.set_var('probe_amp', probe_amp1)
         print('\n')
-        print('Run #%d/%d, with variables:\nx = %g\n'%(j+1, len(iters), x1))
+        print('Run #%d/%d, with variables:\nprobe_amp = %g\n'%(j+1, len(iters), probe_amp1))
         cmd.run(wait_end=True, add_time=100)
         j += 1
         if j == len(iters):

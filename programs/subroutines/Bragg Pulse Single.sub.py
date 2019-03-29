@@ -1,0 +1,27 @@
+prg_comment=""
+prg_version = "0.5.1"
+def program(prg, cmd):
+    prg.add(-20000000, "Na Probe/Push (-) freq", 110.00)
+    prg.add(-19500000, "Na 3D MOT cool (-) freq", 150.00)
+    prg.add(-19200000, "Na 3D MOT cool (+) freq", 150.00)
+    prg.add(-19000000, "Na Probe/Push (+) freq", 110.00)
+    prg.add(-4000000, "Shutter Bragg Open")
+    prg.add(-2990000, "Na Probe/Push (-) Amp", 1)
+    prg.add(-2980000, "Na Probe/Push (+) Amp", 1)
+    prg.add(-500000, "Shutter Bragg Close")
+    prg.add(-57000, "Na Probe/Push (+) OFF")
+    prg.add(-20000, "Na 3D MOT cool (-) OFF")
+    prg.add(-6000, "Na 3D MOT cool", 104)
+    prg.add(-5000, "Na Probe/Push", 1, enable=False)
+    prg.add(-2200, "Na 3D MOT cool (+) Amp", 1000)
+    prg.add(-1800, "Na 3D MOT cool (-) Amp", 1000)
+    prg.add(-1400, "Na Probe/Push (-) Amp", 1000)
+    prg.add(-1000, "Na Probe/Push (+) Amp", 1000)
+    prg.add(0, "Bragg ON")
+    prg.add(50000, "Bragg OFF")
+    prg.add(111750, "Na 3D MOT cool (-) Amp", 1)
+    prg.add(112550, "Na Probe/Push (-) Amp", 1)
+    prg.add(112950, "Na Probe/Push (+) Amp", 1)
+    prg.add(113750, "Na 3D MOT cool (+) Amp", 1)
+    prg.add(148750, "Na Probe/Push (+) ON")
+    return prg
