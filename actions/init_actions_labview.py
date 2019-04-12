@@ -315,16 +315,33 @@ def action_list_init(act_lst):
                 var_formats=dict(n_lut="%d"),
                 categories=["actions", "DDS"],
                 comment="LUT")
-# deleted old Gray molasses and copyed from Fish
+# deleted old Gray molasses and copied from Fish
 # deleted old DDS31 (K cooler) to make room for Gray Molasses from Fish
 
-    act_lst.add("AOM GM Detuning", lib_action.DdsAction,
+#    act_lst.add("AOM GM Detuning", lib_action.DdsAction,
+#                board="DDS31",
+#                parameters=dict(channel=1),
+#                variables=dict(frequency=0),
+#                var_formats=dict(frequency="%.3f"),
+#                categories=["actions", "DDS"],
+#                comment="-100 .. +100 MHz (0.25)")
+    
+    act_lst.add("Na Gray molasses (+) freq", lib_action.DdsAction,
                 board="DDS31",
                 parameters=dict(channel=1),
                 variables=dict(frequency=0),
-                var_formats=dict(frequency="%.3f"),
+                var_formats=dict(frequency="%.2f"),
                 categories=["actions", "DDS"],
-                comment="-100 .. +100 MHz (0.25)")
+                comment="70-129 (0.15) MHz")
+                
+                
+    act_lst.add("Na Gray molasses (-) freq", lib_action.DdsAction,
+                board="DDS31",
+                parameters=dict(channel=2),
+                variables=dict(frequency=0),
+                var_formats=dict(frequency="%.2f"),
+                categories=["actions", "DDS"],
+                comment="70-129 (0.15) MHz")
 
 
     act_lst.add("AOM GM Amp ch1 (+)", lib_action.DdsAction,

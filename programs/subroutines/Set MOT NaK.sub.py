@@ -28,7 +28,6 @@ def program(prg, cmd):
     prg.add(210000, "Na 2D MOT (-) Amp", 1000)
     prg.add(220000, "Na 2D MOT (-) freq", 100.50)
     prg.add(230000, "Na 2D MOT (+) freq", 90.50)
-    prg.add(280000, "AOM GM Detuning", 40.000)
     prg.add(290000, "TTL Repumper GM OFF")
     prg.add(300000, "Na Zeeman slower (-) Amp", 1000, functions=dict(amplitude=lambda x: cmd.get_var('zs_amp'), funct_enable=False))
     prg.add(310000, "Na Zeeman slower (-) freq", 300.0, functions=dict(frequency=lambda x: cmd.get_var('zs_det'), funct_enable=False))

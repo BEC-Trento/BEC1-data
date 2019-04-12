@@ -11,4 +11,5 @@ def program(prg, cmd):
     prg.add(1500000, "Set MOT NaK.sub")
     prg.add(2000000, "Dark Spot MOT load.sub")
     prg.add(2100000, "Config MOT.sub")
+    prg.add(2500000, "All Shutter Open NaK.sub")
     return prg

@@ -39,10 +39,14 @@ def board_list_init(board_lst):
                                   freq_to_lut={1: lambda x: (float(x)-59.75)*1.0/0.25}))
 
 # deleted old DDS31 (K cooler) to make room for Gray Molasses from Fish
+#    board_lst.add("DDS31", lib_board.DdsBoard,
+#                  address=31,
+#                  parameters=dict(amp_to_lut={1: lambda x: 799 + int(x/10), 2: lambda x: 900 + int(x/10)},
+#                                  freq_to_lut={1: lambda x: 401 + int(x/(4*0.125))}))
     board_lst.add("DDS31", lib_board.DdsBoard,
                   address=31,
-                  parameters=dict(amp_to_lut={1: lambda x: 799 + int(x/10), 2: lambda x: 900 + int(x/10)},
-                                  freq_to_lut={1: lambda x: 401 + int(x/(4*0.125))}))
+                  parameters=dict(amp_to_lut={1: lambda x: (int(x)+4000)*1.0/10, 2: lambda x: (int(x)+4000)*1.0/10 + 500},
+                                  freq_to_lut={1: lambda x: (float(x)-69.85)*1.0/0.15 , 2: lambda x: (float(x)-69.85)*1.0/0.15 + 500 }))
 
     board_lst.add("DDS32", lib_board.DdsBoard,
                   address=32,
