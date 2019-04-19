@@ -8,13 +8,13 @@ def program(prg, cmd):
     prg.add(30605000, "Config Field OFF.sub")
     prg.add(30609000, "MOT lights Off TTL short.sub")
     prg.add(30609800, "TTL2-12 ON", enable=False)
-    prg.add(30610800, "GrayMolassesPulse", enable=False)
     prg.add(30610900, "Gray Molasses 2017")
-    prg.add(30710900, "mot imaging subroutine atoms probe bg", functions=dict(time=lambda x: 3066.0900+cmd.get_var('tof')))
-    prg.add(37670600, "Set MOT NaK.sub")
-    prg.add(38170600, "Dark Spot MOT load.sub")
-    prg.add(38270600, "Config MOT.sub")
-    prg.add(39565600, "Shutter Probe Na Open")
+    prg.add(30662000, "Loading_GM_Q50_MTC200A")
+    prg.add(50662000, "Config Field OFF.sub")
+    prg.add(50712000, "mot imaging subroutine atoms probe bg", functions=dict(time=lambda x: 3066.0900+cmd.get_var('tof')))
+    prg.add(57651700, "Set MOT NaK.sub")
+    prg.add(58151700, "Dark Spot MOT load.sub")
+    prg.add(58251700, "Config MOT.sub")
     return prg
 def commands(cmd):
     import numpy as np

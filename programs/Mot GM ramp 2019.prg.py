@@ -24,15 +24,15 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(0, 7, 1)
+    iters = np.arange(0, 0.2, 0.01)
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        tof1 = iters[j]
-        cmd.set_var('tof', tof1)
+        B_comp_y1 = iters[j]
+        cmd.set_var('B_comp_y', B_comp_y1)
         print('\n')
-        print('Run #%d/%d, with variables:\ntof = %g\n'%(j+1, len(iters), tof1))
+        print('Run #%d/%d, with variables:\nB_comp_y = %g\n'%(j+1, len(iters), B_comp_y1))
         cmd.run(wait_end=True, add_time=100)
         j += 1
         if j == len(iters):

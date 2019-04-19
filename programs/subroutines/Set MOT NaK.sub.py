@@ -1,7 +1,6 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
-    prg.add(1000, "Delta 1 Current", 12.000)
     prg.add(1100, "Delta 2 Current", 200.000)
     prg.add(1200, "Delta 1 Voltage", 30.0000)
     prg.add(1300, "Delta 2 Voltage", 0.0000)
@@ -15,6 +14,11 @@ def program(prg, cmd):
     prg.add(27000, "Na 3D MOT cool (+) Amp", 1000, functions=dict(amplitude=lambda x: cmd.get_var('MOT3D_amp')))
     prg.add(27500, "Na 3D MOT cool (-) Amp", 1000, functions=dict(amplitude=lambda x: cmd.get_var('MOT3D_amp')))
     prg.add(32000, "Shutter Gray molasses Close")
+    prg.add(40000, "AOM GM Amp ch1 (+)", 0)
+    prg.add(40500, "Na Gray molasses (+) freq", 80.00)
+    prg.add(41000, "AOM GM Amp ch2 (-)", 0)
+    prg.add(41500, "Na Gray molasses (-) freq", 80.00)
+    prg.add(42000, "Delta 1 Current", 12.000)
     prg.add(100000, "Shutter Repump2 Close")
     prg.add(110000, "Shutter repump Na Open")
     prg.add(120000, "Na Repumper Tune (+) freq", 1712.0, functions=dict(frequency=lambda x: cmd.get_var('Rep_freq')))
@@ -47,4 +51,5 @@ def program(prg, cmd):
     prg.add(450000, "IGBT B comp y ON")
     prg.add(460000, "IGBT B comp z ON")
     prg.add(470000, "Bx Grad OFF")
+    prg.add(480000, "Shutter Gray molasses Open")
     return prg
