@@ -1,6 +1,7 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
+    prg.add(-2000000, "Shutter Push Na Close")
     prg.add(-1200, "Na Probe/Push (+) OFF")
     prg.add(-1000, "Na Zeeman slower (-) Amp", 0)
     prg.add(-500, "Na 2D MOT (+) Amp", 0)

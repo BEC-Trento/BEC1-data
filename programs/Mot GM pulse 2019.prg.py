@@ -5,29 +5,28 @@ def program(prg, cmd):
     prg.add(20000, "Set MOT NaK.sub")
     prg.add(509000, "Dark Spot MOT load.sub")
     prg.add(609000, "Config MOT.sub")
-    prg.add(30605000, "Config Field OFF.sub")
-    prg.add(30609000, "MOT lights Off TTL short.sub")
-    prg.add(30609800, "TTL2-12 ON")
-    prg.add(30610800, "GrayMolassesPulse", enable=False)
-    prg.add(30610900, "Gray Molasses 2017")
-    prg.add(30620000, "TTL12 OFF")
-    prg.add(30710900, "mot imaging subroutine atoms probe bg", functions=dict(time=lambda x: 3066.0900+cmd.get_var('tof')))
-    prg.add(37670600, "Set MOT NaK.sub")
-    prg.add(38170600, "Dark Spot MOT load.sub")
-    prg.add(38270600, "Config MOT.sub")
-    prg.add(39565600, "Shutter Probe Na Open")
+    prg.add(60605000, "Config Field OFF.sub")
+    prg.add(60609000, "MOT lights Off TTL short.sub")
+    prg.add(60609800, "TTL2-12 ON")
+    prg.add(60610800, "GrayMolassesPulse", enable=False)
+    prg.add(60610900, "Gray Molasses 2017")
+    prg.add(60620000, "TTL12 OFF")
+    prg.add(60710900, "mot imaging subroutine atoms probe bg", functions=dict(time=lambda x: 6066.0900+cmd.get_var('tof')))
+    prg.add(67000000, "Set MOT NaK.sub")
+    prg.add(68170600, "Dark Spot MOT load.sub")
+    prg.add(68270600, "Config MOT.sub")
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(0, 1000, 20)
+    iters = np.arange(2, 20, 1)
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        probe_amp1 = iters[j]
-        cmd.set_var('probe_amp', probe_amp1)
+        tof1 = iters[j]
+        cmd.set_var('tof', tof1)
         print('\n')
-        print('Run #%d/%d, with variables:\nprobe_amp = %g\n'%(j+1, len(iters), probe_amp1))
+        print('Run #%d/%d, with variables:\ntof = %g\n'%(j+1, len(iters), tof1))
         cmd.run(wait_end=True, add_time=100)
         j += 1
         if j == len(iters):
