@@ -544,13 +544,20 @@ def action_list_init(act_lst):
                 var_formats=dict(n_lut="%d"),
                 categories=["actions", "DDS"],
                 comment="LUT")
-    act_lst.add("Evaporation uw", lib_action.DdsAction,
-                board="DDS51",
-                parameters=dict(),
-                variables=dict(n_lut=0),
-                var_formats=dict(n_lut="%d"),
+    act_lst.add("Evaporation freq", lib_action.DdsAction,
+                board="DDS50",
+                parameters=dict(channel=1),
+                variables=dict(frequency=0),
+                var_formats=dict(frequency="%d"),
                 categories=["actions", "DDS"],
-                comment="LUT")
+                comment="frequency")
+#    act_lst.add("Evaporation uw", lib_action.DdsAction,
+#                board="DDS51",
+#                parameters=dict(),
+#                variables=dict(n_lut=0),
+#                var_formats=dict(n_lut="%d"),
+#                categories=["actions", "DDS"],
+#                comment="LUT")
 #    act_lst.add("RFO1 Amp", lib_action.DdsAction,
 #                board="DDS52",
 #                parameters=dict(channel=1),
@@ -728,22 +735,22 @@ def action_list_init(act_lst):
                 board="TTL0",
                 parameters=dict(channel=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], status=[False, False, False, False, True, False, False, True, False, True, True, False, False, False, False, False]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL RF OFF", lib_action.DigitalAction,
-                board="TTL0",
-                parameters=dict(channel=[1], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL RF ON", lib_action.DigitalAction,
-                board="TTL0",
-                parameters=dict(channel=[1], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("Trigger LZ OFF", lib_action.DigitalAction,
-                board="TTL0",
-                parameters=dict(channel=[2], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("Trigger LZ ON", lib_action.DigitalAction,
-                board="TTL0",
-                parameters=dict(channel=[2], status=[True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("TTL RF OFF", lib_action.DigitalAction,
+#                board="TTL0",
+#                parameters=dict(channel=[1], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL RF ON", lib_action.DigitalAction,
+#                board="TTL0",
+#                parameters=dict(channel=[1], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Trigger LZ OFF", lib_action.DigitalAction,
+#                board="TTL0",
+#                parameters=dict(channel=[2], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Trigger LZ ON", lib_action.DigitalAction,
+#                board="TTL0",
+#                parameters=dict(channel=[2], status=[True]),
+#                categories=["actions", "TTL"])
     act_lst.add("IGBT 4 Close", lib_action.DigitalAction,
                 board="TTL0",
                 parameters=dict(channel=[3], status=[True]),
@@ -752,14 +759,14 @@ def action_list_init(act_lst):
                 board="TTL0",
                 parameters=dict(channel=[3], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("Trig OFF Stingray 2", lib_action.DigitalAction,
-                board="TTL0",
-                parameters=dict(channel=[4], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("Trig ON Stingray 2", lib_action.DigitalAction,
-                board="TTL0",
-                parameters=dict(channel=[4], status=[True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("Trig OFF Stingray 2", lib_action.DigitalAction,
+#                board="TTL0",
+#                parameters=dict(channel=[4], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Trig ON Stingray 2", lib_action.DigitalAction,
+#                board="TTL0",
+#                parameters=dict(channel=[4], status=[True]),
+#                categories=["actions", "TTL"])
     act_lst.add("Rele 3 Open", lib_action.DigitalAction,
                 board="TTL0",
                 parameters=dict(channel=[5], status=[False]),
@@ -768,14 +775,14 @@ def action_list_init(act_lst):
                 board="TTL0",
                 parameters=dict(channel=[5], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL broken OFF", lib_action.DigitalAction,
-                board="TTL0",
-                parameters=dict(channel=[6], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL broken ON", lib_action.DigitalAction,
-                board="TTL0",
-                parameters=dict(channel=[6], status=[True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("TTL broken OFF", lib_action.DigitalAction,
+#                board="TTL0",
+#                parameters=dict(channel=[6], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL broken ON", lib_action.DigitalAction,
+#                board="TTL0",
+#                parameters=dict(channel=[6], status=[True]),
+#                categories=["actions", "TTL"])
     act_lst.add("Rele 5 Open", lib_action.DigitalAction,
                 board="TTL0",
                 parameters=dict(channel=[7], status=[False]),
@@ -824,14 +831,14 @@ def action_list_init(act_lst):
                 board="TTL0",
                 parameters=dict(channel=[12], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL0-13 broken OFF", lib_action.DigitalAction,
-                board="TTL0",
-                parameters=dict(channel=[13], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL0-13 broken ON", lib_action.DigitalAction,
-                board="TTL0",
-                parameters=dict(channel=[13], status=[True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("TTL0-13 broken OFF", lib_action.DigitalAction,
+#                board="TTL0",
+#                parameters=dict(channel=[13], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL0-13 broken ON", lib_action.DigitalAction,
+#                board="TTL0",
+#                parameters=dict(channel=[13], status=[True]),
+#                categories=["actions", "TTL"])
     act_lst.add("Rele 4 Open", lib_action.DigitalAction,
                 board="TTL0",
                 parameters=dict(channel=[14], status=[False]),
@@ -848,142 +855,142 @@ def action_list_init(act_lst):
                 board="TTL0",
                 parameters=dict(channel=[15], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("RF02 OFF", lib_action.DigitalAction,
-                board="TTL0",
-                parameters=dict(channel=[16], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("RF02 ON", lib_action.DigitalAction,
-                board="TTL0",
-                parameters=dict(channel=[16], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL1 OFF", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[1], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL1 ON", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[1], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL2 OFF", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[2], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL2 ON", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[2], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL3 OFF", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[3], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL3 ON", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[3], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL4 OFF", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[4], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL4 ON", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[4], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL5 OFF", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[5], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL5 ON", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[5], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL6 OFF", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[6], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL6 ON", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[6], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL7 OFF", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[7], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL7 ON", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[7], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL8 OFF", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[8], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL8 ON", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[8], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL9 OFF", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[9], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL9 ON", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[9], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL10 OFF", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[10], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL10 ON", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[10], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL11 OFF", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[11], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL11 ON", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[11], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL12 OFF", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[12], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL12 ON", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[12], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL13 OFF", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[13], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL13 ON", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[13], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL14 OFF", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[14], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL14 ON", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[14], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL15 OFF", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[15], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL15 ON", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[15], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL16 OFF", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[16], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL16 ON", lib_action.DigitalAction,
-                board="TTL1",
-                parameters=dict(channel=[16], status=[True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("RF02 OFF", lib_action.DigitalAction,
+#                board="TTL0",
+#                parameters=dict(channel=[16], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("RF02 ON", lib_action.DigitalAction,
+#                board="TTL0",
+#                parameters=dict(channel=[16], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL1 OFF", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[1], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL1 ON", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[1], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL2 OFF", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[2], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL2 ON", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[2], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL3 OFF", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[3], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL3 ON", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[3], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL4 OFF", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[4], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL4 ON", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[4], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL5 OFF", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[5], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL5 ON", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[5], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL6 OFF", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[6], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL6 ON", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[6], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL7 OFF", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[7], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL7 ON", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[7], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL8 OFF", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[8], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL8 ON", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[8], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL9 OFF", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[9], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL9 ON", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[9], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL10 OFF", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[10], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL10 ON", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[10], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL11 OFF", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[11], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL11 ON", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[11], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL12 OFF", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[12], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL12 ON", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[12], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL13 OFF", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[13], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL13 ON", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[13], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL14 OFF", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[14], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL14 ON", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[14], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL15 OFF", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[15], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL15 ON", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[15], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL16 OFF", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[16], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL16 ON", lib_action.DigitalAction,
+#                board="TTL1",
+#                parameters=dict(channel=[16], status=[True]),
+#                categories=["actions", "TTL"])
     act_lst.add("Initialize 0 TTL2", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], status=[False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False]),
@@ -1000,14 +1007,14 @@ def action_list_init(act_lst):
                 board="TTL2",
                 parameters=dict(channel=[1], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("RFO Sweep Trig 2 OFF", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[2], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("RFO Sweep Trig 2 ON", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[2], status=[True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("RFO Sweep Trig 2 OFF", lib_action.DigitalAction,
+#                board="TTL2",
+#                parameters=dict(channel=[2], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("RFO Sweep Trig 2 ON", lib_action.DigitalAction,
+#                board="TTL2",
+#                parameters=dict(channel=[2], status=[True]),
+#                categories=["actions", "TTL"])
     act_lst.add("Bcomp y Sign Minus", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[3], status=[True]),
@@ -1016,30 +1023,38 @@ def action_list_init(act_lst):
                 board="TTL2",
                 parameters=dict(channel=[3], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("Pulse 2 uw ON", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[4], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("Pulse 2 uw OFF", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[4], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL2 5 OFF", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[5], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL2 5 ON", lib_action.DigitalAction,
+#    act_lst.add("Pulse 2 uw ON", lib_action.DigitalAction,
+#                board="TTL2",
+#                parameters=dict(channel=[4], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Pulse 2 uw OFF", lib_action.DigitalAction,
+#                board="TTL2",
+#                parameters=dict(channel=[4], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL2 5 OFF", lib_action.DigitalAction,
+#                board="TTL2",
+#                parameters=dict(channel=[5], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL2 5 ON", lib_action.DigitalAction,
+#                board="TTL2",
+#                parameters=dict(channel=[5], status=[True]),
+#                categories=["actions", "TTL"])
+    act_lst.add("Shutter Gray molasses Open", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[5], status=[True]),
+                categories=["actions", "TTL"])
+    act_lst.add("Shutter Gray molasses Close", lib_action.DigitalAction,
+                board="TTL2",
+                parameters=dict(channel=[5], status=[False]),
                 categories=["actions", "TTL"])
     act_lst.add("Mirrors Imaging", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[6, 7, 8], status=[True, True, False]),
                 categories=["actions", "TTL"])
-    act_lst.add("Mirrors Imaging Bragg", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[6, 7, 8], status=[True, False, True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("Mirrors Imaging Bragg", lib_action.DigitalAction,
+#                board="TTL2",
+#                parameters=dict(channel=[6, 7, 8], status=[True, False, True]),
+#                categories=["actions", "TTL"])
     act_lst.add("Mirrors MOT", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[6, 7, 8], status=[False, False, False]),
@@ -1052,7 +1067,6 @@ def action_list_init(act_lst):
                 board="TTL2",
                 parameters=dict(channel=[9], status=[True]),
                 categories=["actions", "TTL"])
-
     act_lst.add("TTL2-6 OFF", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[6], status=[False]),
@@ -1069,36 +1083,36 @@ def action_list_init(act_lst):
                 board="TTL2",
                 parameters=dict(channel=[7], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL2-8 OFF", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[8], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL2-8 ON", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[8], status=[True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("TTL2-8 OFF", lib_action.DigitalAction,
+#                board="TTL2",
+#                parameters=dict(channel=[8], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL2-8 ON", lib_action.DigitalAction,
+#                board="TTL2",
+#                parameters=dict(channel=[8], status=[True]),
+#                categories=["actions", "TTL"])
 
-    act_lst.add("TTL2-10 OFF", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[10], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL2-10 ON", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[10], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL2-11 OFF", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[11], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL2-11 ON", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[11], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL2-12 OFF", lib_action.DigitalAction,
+#    act_lst.add("TTL2-10 OFF", lib_action.DigitalAction,
+#                board="TTL2",
+#                parameters=dict(channel=[10], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL2-10 ON", lib_action.DigitalAction,
+#                board="TTL2",
+#                parameters=dict(channel=[10], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL2-11 OFF", lib_action.DigitalAction,
+#                board="TTL2",
+#                parameters=dict(channel=[11], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL2-11 ON", lib_action.DigitalAction,
+#                board="TTL2",
+#                parameters=dict(channel=[11], status=[True]),
+#                categories=["actions", "TTL"])
+    act_lst.add("Scope 2 Trigger OFF", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[12], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL2-12 ON", lib_action.DigitalAction,
+    act_lst.add("Scope 2 Trigger ON", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[12], status=[True]),
                 categories=["actions", "TTL"])
@@ -1110,14 +1124,14 @@ def action_list_init(act_lst):
                 board="TTL2",
                 parameters=dict(channel=[13], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL2-14 OFF", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[14], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL2-14 ON", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[14], status=[True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("TTL2-14 OFF", lib_action.DigitalAction,
+#                board="TTL2",
+#                parameters=dict(channel=[14], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL2-14 ON", lib_action.DigitalAction,
+#                board="TTL2",
+#                parameters=dict(channel=[14], status=[True]),
+#                categories=["actions", "TTL"])
     act_lst.add("TTL Dark Spot OFF", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[15], status=[False]),
@@ -1126,14 +1140,14 @@ def action_list_init(act_lst):
                 board="TTL2",
                 parameters=dict(channel=[15], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("TTL2-16 OFF", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[16], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL2-16 ON", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[16], status=[True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("TTL2-16 OFF", lib_action.DigitalAction,
+#                board="TTL2",
+#                parameters=dict(channel=[16], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL2-16 ON", lib_action.DigitalAction,
+#                board="TTL2",
+#                parameters=dict(channel=[16], status=[True]),
+#                categories=["actions", "TTL"])
     act_lst.add("Initialize 0 TTL3", lib_action.DigitalAction,
                 board="TTL3",
                 parameters=dict(channel=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], status=[False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]),
@@ -1182,30 +1196,30 @@ def action_list_init(act_lst):
                 board="TTL3",
                 parameters=dict(channel=[5], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("Shutter Bragg Close", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[6], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("Shutter Bragg Open", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[6], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("Shutter Repump2 Close", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[6], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("Shutter Repump2 Open", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[6], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("Repumper D1 OFF", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[7], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("Repumper D1 ON", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[7], status=[True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("Shutter Bragg Close", lib_action.DigitalAction,
+#                board="TTL3",
+#                parameters=dict(channel=[6], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Shutter Bragg Open", lib_action.DigitalAction,
+#                board="TTL3",
+#                parameters=dict(channel=[6], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Shutter Repump2 Close", lib_action.DigitalAction,
+#                board="TTL3",
+#                parameters=dict(channel=[6], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Shutter Repump2 Open", lib_action.DigitalAction,
+#                board="TTL3",
+#                parameters=dict(channel=[6], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Repumper D1 OFF", lib_action.DigitalAction,
+#                board="TTL3",
+#                parameters=dict(channel=[7], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Repumper D1 ON", lib_action.DigitalAction,
+#                board="TTL3",
+#                parameters=dict(channel=[7], status=[True]),
+#                categories=["actions", "TTL"])
     act_lst.add("TTL Repumper GM OFF", lib_action.DigitalAction,
                 board="TTL3",
                 parameters=dict(channel=[8], status=[False]),
@@ -1214,54 +1228,47 @@ def action_list_init(act_lst):
                 board="TTL3",
                 parameters=dict(channel=[8], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("Shutter Gray molasses Open", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[5], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("Shutter Gray molasses Close", lib_action.DigitalAction,
-                board="TTL2",
-                parameters=dict(channel=[5], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("Shutter Bragg D1 Open", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[8, 9], status=[True, False]),
-                categories=["actions", "TTL"])
-    act_lst.add("Shutter Bragg D1 Close", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[8, 9], status=[False, True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL3-10 OFF", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[10], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL3-10 ON", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[10], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL3-16 OFF", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[16], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL3-16 ON", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[16], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("Bragg burst OFF", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[16], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("Bragg burst ON", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[16], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL3-13 OFF", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[13], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL3-13 ON", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[13], status=[True]),
-                categories=["actions", "TTL"])
+    
+#    act_lst.add("Shutter Bragg D1 Open", lib_action.DigitalAction,
+#                board="TTL3",
+#                parameters=dict(channel=[8, 9], status=[True, False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Shutter Bragg D1 Close", lib_action.DigitalAction,
+#                board="TTL3",
+#                parameters=dict(channel=[8, 9], status=[False, True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL3-10 OFF", lib_action.DigitalAction,
+#                board="TTL3",
+#                parameters=dict(channel=[10], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL3-10 ON", lib_action.DigitalAction,
+#                board="TTL3",
+#                parameters=dict(channel=[10], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL3-16 OFF", lib_action.DigitalAction,
+#                board="TTL3",
+#                parameters=dict(channel=[16], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL3-16 ON", lib_action.DigitalAction,
+#                board="TTL3",
+#                parameters=dict(channel=[16], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Bragg burst OFF", lib_action.DigitalAction,
+#                board="TTL3",
+#                parameters=dict(channel=[16], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Bragg burst ON", lib_action.DigitalAction,
+#                board="TTL3",
+#                parameters=dict(channel=[16], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL3-13 OFF", lib_action.DigitalAction,
+#                board="TTL3",
+#                parameters=dict(channel=[13], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL3-13 ON", lib_action.DigitalAction,
+#                board="TTL3",
+#                parameters=dict(channel=[13], status=[True]),
+#                categories=["actions", "TTL"])
     act_lst.add("Breakpoint Na Table TTL OFF", lib_action.DigitalAction,
                 board="TTL3",
                 parameters=dict(channel=[14], status=[False]),
@@ -1286,14 +1293,14 @@ def action_list_init(act_lst):
                 board="TTL3",
                 parameters=dict(channel=[12], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("Na Probe/Push Freq Sweep OFF", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[11], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("Na Probe/Push Freq Sweep ON", lib_action.DigitalAction,
-                board="TTL3",
-                parameters=dict(channel=[11], status=[True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("Na Probe/Push Freq Sweep OFF", lib_action.DigitalAction,
+#                board="TTL3",
+#                parameters=dict(channel=[11], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Na Probe/Push Freq Sweep ON", lib_action.DigitalAction,
+#                board="TTL3",
+#                parameters=dict(channel=[11], status=[True]),
+#                categories=["actions", "TTL"])
     act_lst.add("Initialize 0 TTL4", lib_action.DigitalAction,
                 board="TTL4",
                 parameters=dict(channel=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], status=[False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False]),
@@ -1302,22 +1309,22 @@ def action_list_init(act_lst):
                 board="TTL4",
                 parameters=dict(channel=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], status=[True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True]),
                 categories=["actions", "TTL"])
-    act_lst.add("Trigger uw sweep OFF", lib_action.DigitalAction,
-                board="TTL4",
-                parameters=dict(channel=[1], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("Trigger uw sweep ON", lib_action.DigitalAction,
-                board="TTL4",
-                parameters=dict(channel=[1], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("Trigger uw amp OFF", lib_action.DigitalAction,
-                board="TTL4",
-                parameters=dict(channel=[2], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("Trigger uw amp ON", lib_action.DigitalAction,
-                board="TTL4",
-                parameters=dict(channel=[2], status=[True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("Trigger uw sweep OFF", lib_action.DigitalAction,
+#                board="TTL4",
+#                parameters=dict(channel=[1], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Trigger uw sweep ON", lib_action.DigitalAction,
+#                board="TTL4",
+#                parameters=dict(channel=[1], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Trigger uw amp OFF", lib_action.DigitalAction,
+#                board="TTL4",
+#                parameters=dict(channel=[2], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Trigger uw amp ON", lib_action.DigitalAction,
+#                board="TTL4",
+#                parameters=dict(channel=[2], status=[True]),
+#                categories=["actions", "TTL"])
     act_lst.add("Pulse MOT Na ON", lib_action.DigitalAction,
                 board="TTL4",
                 parameters=dict(channel=[3], status=[False]),
@@ -1326,31 +1333,31 @@ def action_list_init(act_lst):
                 board="TTL4",
                 parameters=dict(channel=[3], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("Pulse MOT K OFF", lib_action.DigitalAction,
-                board="TTL4",
-                parameters=dict(channel=[4], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("Pulse MOT K ON", lib_action.DigitalAction,
-                board="TTL4",
-                parameters=dict(channel=[4], status=[True]),
-                categories=["actions", "TTL"])
-    act_lst.add("Optical Levit OFF", lib_action.DigitalAction,
-                board="TTL4",
-                parameters=dict(channel=[5], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("Optical Levit ON", lib_action.DigitalAction,
-                board="TTL4",
-                parameters=dict(channel=[5], status=[True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("Pulse MOT K OFF", lib_action.DigitalAction,
+#                board="TTL4",
+#                parameters=dict(channel=[4], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Pulse MOT K ON", lib_action.DigitalAction,
+#                board="TTL4",
+#                parameters=dict(channel=[4], status=[True]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Optical Levit OFF", lib_action.DigitalAction,
+#                board="TTL4",
+#                parameters=dict(channel=[5], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Optical Levit ON", lib_action.DigitalAction,
+#                board="TTL4",
+#                parameters=dict(channel=[5], status=[True]),
+#                categories=["actions", "TTL"])
 #2017-05-25
-    act_lst.add("TTL Pinning OFF", lib_action.DigitalAction,
-                board="TTL4",
-                parameters=dict(channel=[5], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("TTL Pinning ON", lib_action.DigitalAction,
-                board="TTL4",
-                parameters=dict(channel=[5], status=[True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("TTL Pinning OFF", lib_action.DigitalAction,
+#                board="TTL4",
+#                parameters=dict(channel=[5], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("TTL Pinning ON", lib_action.DigitalAction,
+#                board="TTL4",
+#                parameters=dict(channel=[5], status=[True]),
+#                categories=["actions", "TTL"])
 
     act_lst.add("Shutter Optical Levit Close", lib_action.DigitalAction,
                 board="TTL4",
@@ -1376,14 +1383,14 @@ def action_list_init(act_lst):
                 board="TTL4",
                 parameters=dict(channel=[7], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("Bottom Evaporation OFF", lib_action.DigitalAction,
-                board="TTL4",
-                parameters=dict(channel=[9], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("Bottom Evaporation ON", lib_action.DigitalAction,
-                board="TTL4",
-                parameters=dict(channel=[9], status=[True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("Bottom Evaporation OFF", lib_action.DigitalAction,
+#                board="TTL4",
+#                parameters=dict(channel=[9], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Bottom Evaporation ON", lib_action.DigitalAction,
+#                board="TTL4",
+#                parameters=dict(channel=[9], status=[True]),
+#                categories=["actions", "TTL"])
     act_lst.add("IGBT B comp z OFF", lib_action.DigitalAction,
                 board="TTL4",
                 parameters=dict(channel=[10], status=[False]),
@@ -1408,11 +1415,11 @@ def action_list_init(act_lst):
                 board="TTL4",
                 parameters=dict(channel=[12], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("Trig Slow Stingray OFF", lib_action.DigitalAction,
+    act_lst.add("Scope 1 Trigger OFF", lib_action.DigitalAction,
                 board="TTL4",
                 parameters=dict(channel=[13], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("Trig Slow Stingray ON", lib_action.DigitalAction,
+    act_lst.add("Scope 1 Trigger ON", lib_action.DigitalAction,
                 board="TTL4",
                 parameters=dict(channel=[13], status=[True]),
                 categories=["actions", "TTL"])
@@ -1432,13 +1439,13 @@ def action_list_init(act_lst):
                 board="TTL4",
                 parameters=dict(channel=[15], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("RFO Sweep Trig OFF", lib_action.DigitalAction,
-                board="TTL4",
-                parameters=dict(channel=[16], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("RFO Sweep Trig ON", lib_action.DigitalAction,
-                board="TTL4",
-                parameters=dict(channel=[16], status=[True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("RFO Sweep Trig OFF", lib_action.DigitalAction,
+#                board="TTL4",
+#                parameters=dict(channel=[16], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("RFO Sweep Trig ON", lib_action.DigitalAction,
+#                board="TTL4",
+#                parameters=dict(channel=[16], status=[True]),
+#                categories=["actions", "TTL"])
 
 

@@ -6,5 +6,5 @@ def program(prg, cmd):
     prg.add(-1800040, "Shutter EOM Na Close")
     prg.add(-1800029, "Shutter 3DMOT cool Na Close")
     prg.add(-1800020, "Shutter Push Na Close")
-    prg.add(-1800010, "Shutter Bragg Close")
+    prg.add(-1800010, "Shutter Gray molasses Close")
     return prg

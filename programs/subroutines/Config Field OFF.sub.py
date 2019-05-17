@@ -6,5 +6,5 @@ def program(prg, cmd):
     prg.add(20, "IGBT 3 Open")
     prg.add(30, "IGBT 4 Open")
     prg.add(50, "IGBT 6 Open")
-    prg.add(1060, "IGBT 5 Open")
+    prg.add(60, "IGBT 5 Open")
     return prg

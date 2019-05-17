@@ -1,10 +1,6 @@
 import importlib.util
+from pathlib import Path
 from pprint import pprint
-
-try:
-    from pathlib import Path
-except ImportError:  # @#$%#$ python2
-    from pathlib2 import Path
 
 
 class Renamer:
@@ -101,7 +97,7 @@ if __name__ == '__main__':
     program = Path.cwd() / 'programs/BEC_May_2019.prg.py'
 
     r = Renamer(program)
-    r.rename('Na Repumper MOT Amp', 'TTL Repumper MOT OFF')
+    r.rename('banana', 'Scope 2 Trigger ON')
 
     # print()
     #

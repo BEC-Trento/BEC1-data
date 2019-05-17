@@ -4,6 +4,17 @@ def action_list_init(action_list):
 
 # 2017-04-10 brand newer FunctionRamps
 
+#'fstart={}, fend={}, tau={}'.format(cmd.get_var('f_evap_start'), cmd.get_var('f_evap_end'), cmd.get_var('evap_tau'))
+
+    action_list.add("Evaporation ramp", lib_ramp.FunctionRamp,
+                    categories=["func"],
+                    parameters=dict(act_name="Evaporation freq", act_var_name="frequency", act_parameters={}),
+                    variables=dict(start_t=0, stop_t=5000, n_points=500,
+                                   func="(fstart - fend)*exp(-t/tau) + fend", 
+                                   func_args="fstart=45e6, fend=25e6, tau=1"),
+                    var_formats=dict(start_t="%.4f", stop_t="%.4f", n_points="%d", func="%s", func_args="%s"),
+                    comment="evaporation ramp")
+
     action_list.add("Dipole y Func", lib_ramp.FunctionRamp,
                     categories=["func"],
                     parameters=dict(act_name="Dipole Trap y DAC V", act_var_name="value", act_parameters={}),
@@ -29,6 +40,13 @@ def action_list_init(action_list):
                     comment="time")  
 
 # 2017-04-10 brand new TTLPulse ramps
+    
+    action_list.add("Evaporation linear ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="Evaporation freq", act_var_name="frequency", act_parameters={}),
+                    variables=dict(start_x=36e6, stop_x=10e6, start_t=0, stop_t=5000, n_points=500),
+                    var_formats=dict(start_x="%.4f", stop_x="%.4f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="time")  
 
     action_list.add("Pulse uw Ramp", lib_ramp.LinearRamp,
                     categories=["ramps"],
