@@ -2,11 +2,14 @@ prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
     prg.add(-5001000, "Na Probe/Push (+) OFF")
-    prg.add(-4999990, "Scope 1 Trigger ON")
+    prg.add(-4999990, "Scope 1 Trigger ON", enable=False)
     prg.add(-4980000, "Shutter Probe Na Open")
     prg.add(-2990000, "Shutter repump Na Open")
     prg.add(-2700000, "TTL Dark Spot OFF")
     prg.add(-2600000, "TTL Repumper MOT OFF")
+    prg.add(-150000, "B comp x", 0.0, functions=dict(value=lambda x: cmd.get_var('Bx_GM')))
+    prg.add(-149000, "B comp y", 4.0000, functions=dict(value=lambda x: cmd.get_var('By_img')))
+    prg.add(-148000, "B comp z", 0.0000, functions=dict(value=lambda x: cmd.get_var('Bz_GM')))
     prg.add(-17000, "Na Probe/Push (-) Amp", 1000, functions=dict(amplitude=lambda x: cmd.get_var('probe_amp')))
     prg.add(-16000, "Na Probe/Push (+) Amp", 1000, functions=dict(amplitude=lambda x: cmd.get_var('probe_amp')))
     prg.add(-15000, "Na Probe/Push (+) freq", 115.00, functions=dict(frequency=lambda x: 110+cmd.get_var('probe_det')/2))

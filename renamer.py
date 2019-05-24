@@ -94,10 +94,10 @@ class Renamer:
 
 
 if __name__ == '__main__':
-    program = Path.cwd() / 'programs/BEC_May_2019.prg.py'
+    program = Path.cwd() / 'programs/BEC_May_2019_Ioffe_evaporation.prg.py'
 
     r = Renamer(program)
-    r.rename('banana', 'Scope 2 Trigger ON')
+    r.rename('IGBT 6 Close', 'IGBT 2 Close')
 
     # print()
     #

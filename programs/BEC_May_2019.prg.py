@@ -13,12 +13,12 @@ def program(prg, cmd):
     prg.add(105166899, "All AOM On.sub", functions=dict(time=lambda x: 10015.6899+cmd.get_var('QuadRampTime'), funct_enable=False))
     prg.add(110000000, "Scope 2 Trigger OFF")
     prg.add(110010000, "Scope 1 Trigger OFF")
-    prg.add(110167000, "Evaporation ramp", start_t=0.0000, func_args="fstart=45e6, fend=25e6, tau=1", n_points=500, func="(fstart - fend)*exp(-t/tau) + fend", stop_t=5000.0000, functions=dict(func_args=lambda x: 'fstart={}, fend={}, tau={}'.format(cmd.get_var('f_evap_start'), cmd.get_var('f_evap_end'), cmd.get_var('evap_tau'))))
+    prg.add(110167000, "Evaporation ramp", start_t=0.0000, func_args="fstart=45e6, fend=25e6, tau=1", n_points=500, func="(fstart - fend)*exp(-t/tau) + fend", stop_t=5000.0000, functions=dict(func_args=lambda x: 'fstart={}, fend={}, tau={}'.format(cmd.get_var('f_evap_start'), cmd.get_var('f_evap_end'), cmd.get_var('evap_tau'))), enable=False)
     prg.add(110167000, "Evaporation linear ramp", start_t=0.0000, stop_x=10000000.0000, n_points=500, start_x=36000000.0000, stop_t=5000.0000, functions=dict(stop_t=lambda x: cmd.get_var('linear_evap_time')), enable=False)
     prg.add(125166899, "Quad_RampDOWN", functions=dict(time=lambda x: 10515.6899+cmd.get_var('QuadRampTime') + +cmd.get_var('linear_evap_time')))
     prg.add(127167899, "Config Field OFF.sub", functions=dict(time=lambda x: 10716.6899+cmd.get_var('QuadRampTime')+cmd.get_var('linear_evap_time')))
     prg.add(127217899, "BEC_imaging", functions=dict(time=lambda x: 10715.6899+cmd.get_var('QuadRampTime')+cmd.get_var('tof')+cmd.get_var('linear_evap_time')))
-    prg.add(133741899, "DarkSpotMOT_19.sub", enable=False)
+    prg.add(133741899, "DarkSpotMOT_19.sub")
     return prg
 def commands(cmd):
     import numpy as np

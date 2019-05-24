@@ -121,7 +121,7 @@ def board_list_init(board_lst):
     board_lst.add("ANG61", lib_board.AnalogBoard,
                   address=61,
                   parameters=dict(
-                    ang_to_dig={1: lambda x: float(x)*32.767*1.0/10}))
+                    ang_to_dig={1: lambda x: float(x)*32767*1.0/10}))
                     
     board_lst.add("ANG62", lib_board.AnalogBoard,
                   address=62,

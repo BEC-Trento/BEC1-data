@@ -4,14 +4,16 @@ def action_list_init(action_list):
 
 # 2017-04-10 brand newer FunctionRamps
 
-#'fstart={}, fend={}, tau={}'.format(cmd.get_var('f_evap_start'), cmd.get_var('f_evap_end'), cmd.get_var('evap_tau'))
+#'fstart={}, fend={}, tau={}'.format(cmd.get_var('evap1_fstart')*1e6, cmd.get_var('evap1_fend')*1e6, cmd.get_var('evap1_tau'))
+#'fstart={}, fend={}, tau={}'.format(cmd.get_var('evap2_fstart')*1e6, cmd.get_var('evap2_fend')*1e6, cmd.get_var('evap2_tau'))
+
 
     action_list.add("Evaporation ramp", lib_ramp.FunctionRamp,
                     categories=["func"],
                     parameters=dict(act_name="Evaporation freq", act_var_name="frequency", act_parameters={}),
                     variables=dict(start_t=0, stop_t=5000, n_points=500,
                                    func="(fstart - fend)*exp(-t/tau) + fend", 
-                                   func_args="fstart=45e6, fend=25e6, tau=1"),
+                                   func_args="fstart=40e6, fend=20e6, tau=1"),
                     var_formats=dict(start_t="%.4f", stop_t="%.4f", n_points="%d", func="%s", func_args="%s"),
                     comment="evaporation ramp")
 

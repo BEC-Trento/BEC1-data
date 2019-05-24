@@ -2,6 +2,9 @@ prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
     prg.add(0, "Delta 2 Current", 200.000)
+    prg.add(100, "B comp x", 1.4, functions=dict(value=lambda x: cmd.get_var('Bx_MOT')))
+    prg.add(200, "B comp y", 0.0000, functions=dict(value=lambda x: cmd.get_var('By_MOT')))
+    prg.add(300, "B comp z", 0.8000, functions=dict(value=lambda x: cmd.get_var('Bz_MOT')))
     prg.add(500, "Delta 1 Voltage", 30.0000)
     prg.add(1000, "Delta 2 Voltage", 0.0000)
     prg.add(1500, "Mirrors MOT")
@@ -42,9 +45,6 @@ def program(prg, cmd):
     prg.add(20000, "Bcomp y Sign Minus", enable=False)
     prg.add(20000, "Bcomp y Sign Plus")
     prg.add(20500, "Bcomp z Sign Plus")
-    prg.add(21000, "B comp x", 700.0, functions=dict(value=lambda x: cmd.get_var('B_comp_x')))
-    prg.add(21500, "B comp y", 0.0000, functions=dict(value=lambda x: cmd.get_var('B_comp_y')))
-    prg.add(22000, "B comp z", 0.8000, functions=dict(value=lambda x: cmd.get_var('B_comp_z')))
     prg.add(22500, "IGBT B comp x ON")
     prg.add(23000, "IGBT B comp y ON")
     prg.add(23500, "IGBT B comp z ON")

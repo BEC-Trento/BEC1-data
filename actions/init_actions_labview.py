@@ -614,20 +614,20 @@ def action_list_init(act_lst):
                 var_formats=dict(value="%.1f"),
                 categories=["actions", "analog"],
                 comment="mA")
-    act_lst.add("IGBT 1 pinch", lib_action.AnalogAction,
-                board="ANG62",
-                parameters=dict(),
-                variables=dict(value=0),
-                var_formats=dict(value="%.4f"),
-                categories=["actions", "analog"],
-                comment="V")
-    act_lst.add("IGBT 2 pinch+comp", lib_action.AnalogAction,
-                board="ANG63",
-                parameters=dict(),
-                variables=dict(value=0),
-                var_formats=dict(value="%.4f"),
-                categories=["actions", "analog"],
-                comment="V")
+#    act_lst.add("IGBT 1 pinch", lib_action.AnalogAction,
+#                board="ANG62",
+#                parameters=dict(),
+#                variables=dict(value=0),
+#                var_formats=dict(value="%.4f"),
+#                categories=["actions", "analog"],
+#                comment="V")
+#    act_lst.add("IGBT 2 pinch+comp", lib_action.AnalogAction,
+#                board="ANG63",
+#                parameters=dict(),
+#                variables=dict(value=0),
+#                var_formats=dict(value="%.4f"),
+#                categories=["actions", "analog"],
+#                comment="V")
     act_lst.add("Delta 1 Voltage", lib_action.AnalogAction,
                 board="ANG64",
                 parameters=dict(),
@@ -1423,11 +1423,11 @@ def action_list_init(act_lst):
                 board="TTL4",
                 parameters=dict(channel=[13], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("IGBT 6 Open", lib_action.DigitalAction,
+    act_lst.add("IGBT 2 Open", lib_action.DigitalAction,
                 board="TTL4",
                 parameters=dict(channel=[14], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("IGBT 6 Close", lib_action.DigitalAction,
+    act_lst.add("IGBT 2 Close", lib_action.DigitalAction,
                 board="TTL4",
                 parameters=dict(channel=[14], status=[True]),
                 categories=["actions", "TTL"])

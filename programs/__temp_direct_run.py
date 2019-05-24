@@ -1,5 +1,5 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
-    prg.add(0, "TTL Dark Spot ON")
+    prg.add(0, "Shutter EOM Na Close")
     return prg
