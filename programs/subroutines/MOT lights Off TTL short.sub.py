@@ -13,5 +13,4 @@ def program(prg, cmd):
     prg.add(1000, "Na Repumper Tune (+) freq", 1712.0)
     prg.add(1500, "Na Repumper2 (+) Amp", 1000)
     prg.add(1600, "Na Probe/Push (-) Amp", 1000, functions=dict(amplitude=lambda x: cmd.get_var('probe_amp')))
-    prg.add(1610, "Trigger LZ OFF")
     return prg

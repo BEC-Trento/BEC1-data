@@ -8,7 +8,7 @@ def program(prg, cmd):
     prg.add(-2700000, "TTL Dark Spot OFF")
     prg.add(-2600000, "TTL Repumper MOT OFF")
     prg.add(-150000, "B comp x", 0.0, functions=dict(value=lambda x: cmd.get_var('Bx_GM')))
-    prg.add(-149000, "B comp y", 4.0000, functions=dict(value=lambda x: cmd.get_var('By_img')))
+    prg.add(-149000, "B comp y", 4.0000, functions=dict(value=lambda x: cmd.get_var('By_GM')))
     prg.add(-148000, "B comp z", 0.0000, functions=dict(value=lambda x: cmd.get_var('Bz_GM')))
     prg.add(-17000, "Na Probe/Push (-) Amp", 1000, functions=dict(amplitude=lambda x: cmd.get_var('probe_amp')))
     prg.add(-16000, "Na Probe/Push (+) Amp", 1000, functions=dict(amplitude=lambda x: cmd.get_var('probe_amp')))
