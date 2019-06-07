@@ -4,18 +4,37 @@ def action_list_init(action_list):
 
 # 2017-04-10 brand newer FunctionRamps
 
+#'a={}, b={}, duration={}, tau={}'.format(cmd.get_var('evap1_fstart')*1e6, cmd.get_var('evap1_fend')*1e6, cmd.get_var('evap1_time')*1e-3, cmd.get_var('evap1_tau'))
+#cmd.get_var('evap1_time')
+
+#20000.1+cmd.get_var('evap1_time')
+#'a={}, b={}, duration={}, tau={}'.format(cmd.get_var('evap1_fend')*1e6, cmd.get_var('evap2_fend')*1e6, cmd.get_var('evap2_time')*1e-3, cmd.get_var('evap2_tau'))
+#cmd.get_var('evap2_time')
+
+    action_list.add(
+        "Evaporation ramp", lib_ramp.FunctionRamp, categories=["func"],
+        parameters=dict(act_name="Evaporation freq", act_var_name="frequency", act_parameters={}),
+        variables=dict(start_t=0, stop_t=5000, n_points=500,
+                       func="(b - a * exp(-duration / tau) + (a - b) * exp(-t / tau)) / (1 - exp(-duration / tau))", 
+                       func_args="a=40e6, b=4e6, duration=10, tau=1"),
+        var_formats=dict(start_t="%.4f", stop_t="%.4f", n_points="%d", func="%s", func_args="%s"),
+        comment="evaporation ramp")
+
 #'fstart={}, fend={}, tau={}'.format(cmd.get_var('evap1_fstart')*1e6, cmd.get_var('evap1_fend')*1e6, cmd.get_var('evap1_tau'))
+#cmd.get_var('evap1_time')
+
+#20000.1+cmd.get_var('evap1_time')
 #'fstart={}, fend={}, tau={}'.format(cmd.get_var('evap2_fstart')*1e6, cmd.get_var('evap2_fend')*1e6, cmd.get_var('evap2_tau'))
+#cmd.get_var('evap2_time')
 
-
-    action_list.add("Evaporation ramp", lib_ramp.FunctionRamp,
-                    categories=["func"],
-                    parameters=dict(act_name="Evaporation freq", act_var_name="frequency", act_parameters={}),
-                    variables=dict(start_t=0, stop_t=5000, n_points=500,
-                                   func="(fstart - fend)*exp(-t/tau) + fend", 
-                                   func_args="fstart=40e6, fend=20e6, tau=1"),
-                    var_formats=dict(start_t="%.4f", stop_t="%.4f", n_points="%d", func="%s", func_args="%s"),
-                    comment="evaporation ramp")
+#    action_list.add("Evaporation ramp", lib_ramp.FunctionRamp,
+#                    categories=["func"],
+#                    parameters=dict(act_name="Evaporation freq", act_var_name="frequency", act_parameters={}),
+#                    variables=dict(start_t=0, stop_t=5000, n_points=500,
+#                                   func="(fstart - fend)*exp(-t/tau) + fend", 
+#                                   func_args="fstart=40e6, fend=20e6, tau=1"),
+#                    var_formats=dict(start_t="%.4f", stop_t="%.4f", n_points="%d", func="%s", func_args="%s"),
+#                    comment="evaporation ramp")
 
     action_list.add("Dipole y Func", lib_ramp.FunctionRamp,
                     categories=["func"],
