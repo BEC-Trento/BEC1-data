@@ -21,18 +21,20 @@ def program(prg, cmd):
     prg.add(232001000, "Config Field OFF.sub", functions=dict(time=lambda x: 20000+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown_time')*0+cmd.get_var('hold_time')))
     prg.add(232051000, "BEC_imaging", functions=dict(time=lambda x: 20000+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown_time')*0+cmd.get_var('hold_time')+cmd.get_var('tof')))
     prg.add(258575000, "DarkSpotMOT_19.sub", functions=dict(time=lambda x: 20000+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown_time')*0+cmd.get_var('hold_time')+cmd.get_var('tof')+1000))
+    prg.add(259990000, "Mirror x RIGHT Out", enable=False)
+    prg.add(259990000, "Mirror z BOTTOM Out", enable=False)
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(0, 1, 1)
+    iters = np.arange(-0.3, -0.1, 0.015)
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        x1 = iters[j]
-        cmd.set_var('x', x1)
+        Bx_bottom1 = iters[j]
+        cmd.set_var('Bx_bottom', Bx_bottom1)
         print('\n')
-        print('Run #%d/%d, with variables:\nx = %g\n'%(j+1, len(iters), x1))
+        print('Run #%d/%d, with variables:\nBx_bottom = %g\n'%(j+1, len(iters), Bx_bottom1))
         cmd.run(wait_end=True, add_time=100)
         j += 1
         if j == len(iters):

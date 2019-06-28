@@ -1,7 +1,7 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
-    prg.add(0, "Delta 2 Current", 200.000, enable=False)
+    prg.add(0, "Mirrors MOT")
     prg.add(100, "B comp x", 1.4, functions=dict(value=lambda x: cmd.get_var('Bx_MOT')))
     prg.add(200, "B comp y", 0.0000, functions=dict(value=lambda x: cmd.get_var('By_MOT')))
     prg.add(300, "B comp z", 0.8000, functions=dict(value=lambda x: cmd.get_var('Bz_MOT')))
@@ -42,13 +42,9 @@ def program(prg, cmd):
     prg.add(18500, "Na Probe/Push (+) freq", 115.00, functions=dict(frequency=lambda x: 110+cmd.get_var('push_det')/2))
     prg.add(19000, "Na Probe/Push (-) Amp", 1000, functions=dict(amplitude=lambda x: cmd.get_var('push_amp'), funct_enable=False))
     prg.add(19500, "Na Probe/Push (+) Amp", 1000)
-    prg.add(20000, "Bcomp y Sign Minus", enable=False)
-    prg.add(20000, "Bcomp y Sign Plus")
-    prg.add(20500, "Bcomp z Sign Plus")
     prg.add(22500, "IGBT B comp x ON")
     prg.add(23000, "IGBT B comp y ON")
     prg.add(23500, "IGBT B comp z ON")
-    prg.add(24000, "Bx Grad OFF")
     prg.add(24500, "Shutter Gray molasses Open")
     prg.add(25000, "Config MOT.sub")
     return prg
