@@ -1,6 +1,7 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
+    prg.add(0, "Na Probe/Push (+) Amp", 600)
     prg.add(10000, "Initialize 0 TTL and Synchronize.sub")
     prg.add(50000, "DarkSpotMOT_19.sub")
     prg.add(1000000, "Scope 1 Trigger ON")
@@ -20,7 +21,7 @@ def program(prg, cmd):
     prg.add(231010000, "Config MOT.sub", functions=dict(time=lambda x: 20000+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown_time')*0), enable=False)
     prg.add(232001000, "Config Field OFF.sub", functions=dict(time=lambda x: 20000+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown_time')*0+cmd.get_var('hold_time')))
     prg.add(232051000, "BEC_imaging", functions=dict(time=lambda x: 20000+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown_time')*0+cmd.get_var('hold_time')+cmd.get_var('tof')))
-    prg.add(258575000, "DarkSpotMOT_19.sub", functions=dict(time=lambda x: 20000+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown_time')*0+cmd.get_var('hold_time')+cmd.get_var('tof')+1000))
+    prg.add(258575000, "DarkSpotMOT_19.sub", functions=dict(time=lambda x: 20000+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown_time')*0+cmd.get_var('hold_time')+cmd.get_var('tof')+1000), enable=False)
     prg.add(259990000, "Mirror x RIGHT Out", enable=False)
     prg.add(259990000, "Mirror z BOTTOM Out", enable=False)
     return prg

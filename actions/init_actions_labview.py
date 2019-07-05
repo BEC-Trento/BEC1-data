@@ -1031,14 +1031,14 @@ def action_list_init(act_lst):
 #                board="TTL2",
 #                parameters=dict(channel=[4], status=[False]),
 #                categories=["actions", "TTL"])
-#    act_lst.add("TTL2 5 OFF", lib_action.DigitalAction,
-#                board="TTL2",
-#                parameters=dict(channel=[5], status=[False]),
-#                categories=["actions", "TTL"])
-#    act_lst.add("TTL2 5 ON", lib_action.DigitalAction,
-#                board="TTL2",
-#                parameters=dict(channel=[5], status=[True]),
-#                categories=["actions", "TTL"])
+    act_lst.add("TTL2 4 OFF", lib_action.DigitalAction,
+                board="TTL2",
+                parameters=dict(channel=[4], status=[False]),
+                categories=["actions", "TTL"])
+    act_lst.add("TTL2 4 ON", lib_action.DigitalAction,
+                board="TTL2",
+                parameters=dict(channel=[4], status=[True]),
+                categories=["actions", "TTL"])
     act_lst.add("Shutter Gray molasses Open", lib_action.DigitalAction,
                 board="TTL2",
                 parameters=dict(channel=[5], status=[True]),
