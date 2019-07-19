@@ -1,9 +1,8 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
-    prg.add(0, "TTL Repumper MOT OFF")
-    prg.add(10000, "TTL Repumper MOT ON")
-    prg.add(20000, "TTL Repumper MOT OFF")
-    prg.add(30000, "B comp x", 0.0)
-    prg.add(40000, "B comp y", 0.4000)
+    prg.add(-15167, "B comp y", 1.0000, functions=dict(value=lambda x: cmd.get_var('By_OP')))
+    prg.add(-10531, "B comp x", 1.6, functions=dict(value=lambda x: cmd.get_var('Bx_OP')))
+    prg.add(135, "TTL Repumper MOT ON", enable=False)
+    prg.add(1135, "TTL Repumper MOT OFF", enable=False)
     return prg
