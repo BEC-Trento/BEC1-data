@@ -25,7 +25,7 @@ def program(prg, cmd):
     prg.add(9500, "Shutter repump Na Open")
     prg.add(10000, "Na Repumper Tune (+) freq", 1712.0, functions=dict(frequency=lambda x: cmd.get_var('Rep_freq')))
     prg.add(10500, "Na Repumper1 (+) Amp", 1000)
-    prg.add(11000, "Na Repumper2 (+) Amp", 1000, functions=dict(amplitude=lambda x: cmd.get_var('Rep_amp')))
+    prg.add(11000, "Na Repumper2 (+) Amp", 1000, functions=dict(amplitude=lambda x: cmd.get_var('DS_amp')))
     prg.add(11500, "TTL Dark Spot ON")
     prg.add(12000, "TTL Repumper MOT OFF")
     prg.add(12500, "Shutter EOM Na Open")

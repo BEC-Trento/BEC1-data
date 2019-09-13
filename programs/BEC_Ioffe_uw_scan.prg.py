@@ -30,3 +30,19 @@ def program(prg, cmd):
     prg.add(170020000, "All AOM On.sub", functions=dict(time=lambda x: 10015.6899+cmd.get_var('QuadRampTime'), funct_enable=False))
     prg.add(170020000, "DarkSpotMOT_19.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('hold_time')+cmd.get_var('tof')), enable=False)
     return prg
+def commands(cmd):
+    import numpy as np
+    iters = np.arange(1, 50, 3)
+    np.random.shuffle(iters)
+    j = 0
+    while(cmd.running):
+        print('\n-------o-------')
+        marconi1_pulsetime1 = iters[j]
+        cmd.set_var('marconi1_pulsetime', marconi1_pulsetime1)
+        print('\n')
+        print('Run #%d/%d, with variables:\nmarconi1_pulsetime = %g\n'%(j+1, len(iters), marconi1_pulsetime1))
+        cmd.run(wait_end=True, add_time=100)
+        j += 1
+        if j == len(iters):
+            cmd.stop()
+    return cmd

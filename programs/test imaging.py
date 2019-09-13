@@ -1,27 +1,27 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
-    prg.add(0, "Initialize 0 TTL and Synchronize.sub")
-    prg.add(1400000, "Set MOT NaK.sub")
-    prg.add(1900000, "Dark Spot MOT load.sub")
-    prg.add(2000000, "Config MOT.sub")
-    prg.add(4000000, "Shutter Probe Na Open")
-    prg.add(7000100, "TTL Repumper MOT OFF", enable=False)
-    prg.add(7001000, "TTL Repumper MOT ON", enable=False)
-    prg.add(7002000, "TTL Repumper MOT OFF", enable=False)
-    prg.add(8800000, "Na Probe/Push (+) OFF")
-    prg.add(8820000, "Trig ON Stingray 1")
-    prg.add(8821000, "Trig OFF Stingray 1")
-    prg.add(9470000, "Na Probe/Push (+) ON")
-    prg.add(9470100, "Na Probe/Push (+) OFF")
-    prg.add(9620000, "TTL Repumper MOT ON")
-    prg.add(9620100, "TTL Repumper MOT OFF")
-    prg.add(9630000, "Trig ON Stingray 1")
-    prg.add(9631000, "Trig OFF Stingray 1")
-    prg.add(9640000, "Na Probe/Push (+) ON")
-    prg.add(9640100, "Na Probe/Push (+) OFF")
-    prg.add(9650000, "Shutter Probe Na Close")
-    prg.add(10820000, "Trig ON Stingray 1")
-    prg.add(10821000, "Trig OFF Stingray 1")
-    prg.add(12620000, "Na Probe/Push (+) ON")
+    prg.add(10000, "Initialize 0 TTL and Synchronize.sub")
+    prg.add(1000000, "Mirrors Imaging")
+    prg.add(10000000, "BEC_imaging")
+    prg.add(10000512, "Scope 1 Trigger ON")
+    prg.add(10000562, "Scope 1 Trigger OFF")
+    prg.add(15000000, "Na Probe/Push (+) ON")
+    prg.add(15010000, "Shutter Probe Na Open")
     return prg
+def commands(cmd):
+    import numpy as np
+    iters = np.arange(-0.5, 0, 0.05)
+    np.random.shuffle(iters)
+    j = 0
+    while(cmd.running):
+        print('\n-------o-------')
+        Bx_bottom1 = iters[j]
+        cmd.set_var('Bx_bottom', Bx_bottom1)
+        print('\n')
+        print('Run #%d/%d, with variables:\nBx_bottom = %g\n'%(j+1, len(iters), Bx_bottom1))
+        cmd.run(wait_end=True, add_time=100)
+        j += 1
+        if j == len(iters):
+            cmd.stop()
+    return cmd
