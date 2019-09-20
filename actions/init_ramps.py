@@ -103,7 +103,13 @@ def action_list_init(action_list):
                     categories=["ramps"],
                     parameters=dict(act_name="B comp x", act_var_name="value"),
                     variables=dict(start_x=0, stop_x=0, start_t=0, stop_t=0, n_points=1),
-                    comment="prova")
+                    comment="")
+
+    action_list.add("B grad x ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="B grad x", act_var_name="value"),
+                    variables=dict(start_x=0, stop_x=0, start_t=0, stop_t=0, n_points=1),
+                    comment="")
     
     action_list.add("B comp y ramp", lib_ramp.LinearRamp,
                     categories=["ramps"],

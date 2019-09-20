@@ -1,13 +1,13 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
-    prg.add(-2600, "TTL Repumper MOT ON")
-    prg.add(-2600, "TTL Repumper MOT OFF", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('Rep_pulsetime')))
+    prg.add(-1600, "TTL Repumper MOT ON")
+    prg.add(-1600, "TTL Repumper MOT OFF", functions=dict(time=lambda x: x + 1e-3*cmd.get_var('Rep_pulsetime')))
     prg.add(-1500, "Trig ON Stingray 1")
     prg.add(-500, "Trig OFF Stingray 1")
-    prg.add(-200, "Scope 2 Trigger OFF", enable=False)
-    prg.add(-160, "Scope 2 Trigger ON", enable=False)
-    prg.add(-10, "Scope 2 Trigger OFF", enable=False)
+    prg.add(-200, "Scope 1 Trigger OFF")
+    prg.add(-160, "Scope 1 Trigger ON")
+    prg.add(-10, "Scope 1 Trigger OFF")
     prg.add(0, "Na Probe/Push (+) ON")
     prg.add(0, "Na Probe/Push (+) OFF", functions=dict(time=lambda x: x + cmd.get_var('probe_pulsetime')*1e-3))
     prg.add(999910, "Trig ON Stingray 1")

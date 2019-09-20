@@ -47,10 +47,10 @@ def board_list_init(board_lst):
 #                  address=26,
 #                  parameters=dict(amp_to_lut={1: lambda x: (int(x)+4000)*1.0/10, 2: lambda x: (int(x)+4000)*1.0/10 + 500},
 #                                  freq_to_lut={1: lambda x: (float(x)-59.75)*1.0/0.25, 2: lambda x: (float(x)-59.75)*1.0/0.25 + 500}))
-#    board_lst.add("DDS27", lib_board.DdsBoard,
-#                  address=27,
-#                  parameters=dict(amp_to_lut={1: lambda x: (int(x)+4000)*1.0/10, 2: lambda x: (int(x)+4000)*1.0/10 + 500},
-#                                  freq_to_lut={1: lambda x: (float(x)-59.75)*1.0/0.25, 2: lambda x: (float(x)-126.9975)*1.0/0.0025 + 500}))
+    board_lst.add("DDS27", lib_board.DdsBoard,
+                  address=27,
+                  parameters=dict(amp_to_lut={1: lambda x: (int(x)+4000)*1.0/10, 2: lambda x: (int(x)+4000)*1.0/10 + 500},
+                                  freq_to_lut={1: lambda x: (float(x)-59.75)/0.25, 2: lambda x: (float(x)-0.49625)/0.00375 + 500}))
 #    board_lst.add("DDS30", lib_board.DdsBoard,
 #                  address=30,
 #                  parameters=dict(amp_to_lut={1: lambda x: (int(x)+4000)*1.0/10},
@@ -177,7 +177,7 @@ def board_list_init(board_lst):
     board_lst.add("ANG72", lib_board.AnalogBoard,
                   address=72,
                   parameters=dict(
-                    ang_to_dig={1: lambda x: float(x)*32767*1.0/5000.0}))
+                    ang_to_dig={1: lambda x: float(x)*32767*1.0/5.0}))
                     
     board_lst.add("ANG73", lib_board.AnalogBoard,
                   address=73,

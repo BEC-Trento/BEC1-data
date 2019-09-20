@@ -259,41 +259,41 @@ def action_list_init(act_lst):
 #                var_formats=dict(n_lut="%d"),
 #                categories=["actions", "DDS"],
 #                comment="LUT")
-#    act_lst.add("Optical Levit (+) freq", lib_action.DdsAction,
-#                board="DDS27",
-#                parameters=dict(channel=1),
-#                variables=dict(frequency=0),
-#                var_formats=dict(frequency="%.4f"),
-#                categories=["actions", "DDS"],
-#                comment="60-159 (0.25) MHz")
-#    act_lst.add("Optical Levit (+) Amp", lib_action.DdsAction,
-#                board="DDS27",
-#                parameters=dict(channel=1),
-#                variables=dict(amplitude=0),
-#                var_formats=dict(amplitude="%d"),
-#                categories=["actions", "DDS"],
-#                comment="1,10,20,...1000")
-#    act_lst.add("Optical Levit (-) freq", lib_action.DdsAction,
-#                board="DDS27",
-#                parameters=dict(channel=2),
-#                variables=dict(frequency=0),
-#                var_formats=dict(frequency="%.4f"),
-#                categories=["actions", "DDS"],
-#                comment="127-128 (0.0025) MHz")
-#    act_lst.add("Optical Levit (-) Amp", lib_action.DdsAction,
-#                board="DDS27",
-#                parameters=dict(channel=2),
-#                variables=dict(amplitude=0),
-#                var_formats=dict(amplitude="%d"),
-#                categories=["actions", "DDS"],
-#                comment="1,10,20,...1000")
-#    act_lst.add("Optical Levit", lib_action.DdsAction,
-#                board="DDS27",
-#                parameters=dict(),
-#                variables=dict(n_lut=0),
-#                var_formats=dict(n_lut="%d"),
-#                categories=["actions", "DDS"],
-#                comment="LUT")
+    act_lst.add("Green Light AOM freq", lib_action.DdsAction,
+                board="DDS27",
+                parameters=dict(channel=1),
+                variables=dict(frequency=0),
+                var_formats=dict(frequency="%.4f"),
+                categories=["actions", "DDS"],
+                comment="60-159 (0.25) MHz")
+    act_lst.add("Green Light AOM amp", lib_action.DdsAction,
+                board="DDS27",
+                parameters=dict(channel=1),
+                variables=dict(amplitude=0),
+                var_formats=dict(amplitude="%d"),
+                categories=["actions", "DDS"],
+                comment="1,10,20,...1000")
+    act_lst.add("RF pulse freq", lib_action.DdsAction,
+                board="DDS27",
+                parameters=dict(channel=2),
+                variables=dict(frequency=0),
+                var_formats=dict(frequency="%.4f"),
+                categories=["actions", "DDS"],
+                comment="0.5 - 2 (0.003) MHz")
+    act_lst.add("RF pulse amp", lib_action.DdsAction,
+                board="DDS27",
+                parameters=dict(channel=2),
+                variables=dict(amplitude=0),
+                var_formats=dict(amplitude="%d"),
+                categories=["actions", "DDS"],
+                comment="1,10,20,...1000")
+    act_lst.add("DDS27 n_lut", lib_action.DdsAction,
+                board="DDS27",
+                parameters=dict(),
+                variables=dict(n_lut=0),
+                var_formats=dict(n_lut="%d"),
+                categories=["actions", "DDS"],
+                comment="LUT")
 #    act_lst.add("K Lock (+) freq", lib_action.DdsAction,
 #                board="DDS30",
 #                parameters=dict(channel=1),
@@ -691,13 +691,13 @@ def action_list_init(act_lst):
                 var_formats=dict(value="%.4f"),
                 categories=["actions", "analog", "OBSOLETE"],
                 comment="0 - 5V")
-    act_lst.add("Fluo Lock", lib_action.AnalogAction,
+    act_lst.add("B grad x", lib_action.AnalogAction,
                 board="ANG72",
-                parameters=dict(scale=1, offset=-49.10),
+                parameters=dict(offset=-0.07, scale=0.5),
                 variables=dict(value=0),
                 var_formats=dict(value="%.4f"),
                 categories=["actions", "analog",],
-                comment="0 - 5000 V")                        
+                comment="0 - 5V")                        
     act_lst.add("Pinning Lock", lib_action.AnalogAction,
                 board="ANG74",
                 parameters=dict(),
@@ -1083,14 +1083,14 @@ def action_list_init(act_lst):
                 board="TTL2",
                 parameters=dict(channel=[6, 7, 8], status=[True, True, True]),
                 categories=["actions", "TTL"])
-#    act_lst.add("Bx Grad OFF", lib_action.DigitalAction,
-#                board="TTL2",
-#                parameters=dict(channel=[9], status=[False]),
-#                categories=["actions", "TTL"])
-#    act_lst.add("Bx Grad ON", lib_action.DigitalAction,
-#                board="TTL2",
-#                parameters=dict(channel=[9], status=[True]),
-#                categories=["actions", "TTL"])
+    act_lst.add("IGBT B grad x OFF", lib_action.DigitalAction,
+                board="TTL2",
+                parameters=dict(channel=[9], status=[False]),
+                categories=["actions", "TTL"])
+    act_lst.add("IGBT B grad x ON", lib_action.DigitalAction,
+                board="TTL2",
+                parameters=dict(channel=[9], status=[True]),
+                categories=["actions", "TTL"])
 #    act_lst.add("TTL2-6 OFF", lib_action.DigitalAction,
 #                board="TTL2",
 #                parameters=dict(channel=[6], status=[False]),
@@ -1357,14 +1357,14 @@ def action_list_init(act_lst):
                 board="TTL4",
                 parameters=dict(channel=[3], status=[True]),
                 categories=["actions", "TTL"])
-#    act_lst.add("Pulse MOT K OFF", lib_action.DigitalAction,
-#                board="TTL4",
-#                parameters=dict(channel=[4], status=[False]),
-#                categories=["actions", "TTL"])
-#    act_lst.add("Pulse MOT K ON", lib_action.DigitalAction,
-#                board="TTL4",
-#                parameters=dict(channel=[4], status=[True]),
-#                categories=["actions", "TTL"])
+    act_lst.add("RF pulse OFF", lib_action.DigitalAction,
+                board="TTL4",
+                parameters=dict(channel=[4], status=[False]),
+                categories=["actions", "TTL"])
+    act_lst.add("RF pulse ON", lib_action.DigitalAction,
+                board="TTL4",
+                parameters=dict(channel=[4], status=[True]),
+                categories=["actions", "TTL"])
 #    act_lst.add("Optical Levit OFF", lib_action.DigitalAction,
 #                board="TTL4",
 #                parameters=dict(channel=[5], status=[False]),
@@ -1383,14 +1383,14 @@ def action_list_init(act_lst):
 #                parameters=dict(channel=[5], status=[True]),
 #                categories=["actions", "TTL"])
 
-#    act_lst.add("Shutter Optical Levit Close", lib_action.DigitalAction,
-#                board="TTL4",
-#                parameters=dict(channel=[6], status=[False]),
-#                categories=["actions", "TTL"])
-#    act_lst.add("Shutter Optical Levit Open", lib_action.DigitalAction,
-#                board="TTL4",
-#                parameters=dict(channel=[6], status=[True]),
-#                categories=["actions", "TTL"])
+    act_lst.add("Shutter Dark Spot Close", lib_action.DigitalAction,
+                board="TTL4",
+                parameters=dict(channel=[6], status=[False]),
+                categories=["actions", "TTL"])
+    act_lst.add("Shutter Dark Spot Open", lib_action.DigitalAction,
+                board="TTL4",
+                parameters=dict(channel=[6], status=[True]),
+                categories=["actions", "TTL"])
     act_lst.add("Trig OFF Stingray 1", lib_action.DigitalAction,
                 board="TTL4",
                 parameters=dict(channel=[7, 8], status=[False, False]),

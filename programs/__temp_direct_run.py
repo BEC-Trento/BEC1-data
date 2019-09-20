@@ -5,6 +5,7 @@ def program(prg, cmd):
     prg.add(100, "B comp x", 1.4, functions=dict(value=lambda x: cmd.get_var('Bx_MOT')))
     prg.add(200, "B comp y", 0.0000, functions=dict(value=lambda x: cmd.get_var('By_MOT')))
     prg.add(300, "B comp z", 0.8000, functions=dict(value=lambda x: cmd.get_var('Bz_MOT')))
+    prg.add(400, "B grad x", 0.0000)
     prg.add(500, "Delta 1 Voltage", 6.0000)
     prg.add(1000, "Delta 2 Voltage", 0.0000, enable=False)
     prg.add(1500, "Mirrors MOT")
@@ -45,6 +46,7 @@ def program(prg, cmd):
     prg.add(22500, "IGBT B comp x ON")
     prg.add(23000, "IGBT B comp y ON")
     prg.add(23500, "IGBT B comp z ON")
+    prg.add(24000, "IGBT B grad x OFF")
     prg.add(24500, "Shutter Gray molasses Open")
     prg.add(25000, "Config MOT.sub")
     return prg

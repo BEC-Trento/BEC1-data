@@ -2,6 +2,7 @@ prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
     prg.add(10000, "Initialize 0 TTL and Synchronize.sub")
+    prg.add(100000, "Na 3D MOT cool (-) OFF")
     prg.add(1000000, "Mirrors Imaging")
     prg.add(10000000, "BEC_imaging")
     prg.add(10000512, "Scope 1 Trigger ON")
