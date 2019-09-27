@@ -5,14 +5,14 @@ def program(prg, cmd):
     prg.add(50000, "DarkSpotMOT_19.sub")
     prg.add(1000000, "Scope 1 Trigger ON", enable=False)
     prg.add(1010000, "Scope 1 Trigger OFF", enable=False)
-    prg.add(99943111, "MOT lights Off TTL.sub")
-    prg.add(99956301, "Config Field OFF.sub")
-    prg.add(99958001, "Gray Molasses 2017")
-    prg.add(99994000, "Scope 2 Trigger ON")
-    prg.add(99994100, "Scope 2 Trigger OFF")
-    prg.add(100054100, "Setup_imaging_GM")
-    prg.add(100054100, "BEC_imaging_ready", functions=dict(time=lambda x: x+cmd.get_var('tof')))
-    prg.add(110003200, "DarkSpotMOT_19.sub", enable=False)
+    prg.add(109943111, "MOT lights Off TTL.sub")
+    prg.add(109956301, "Config Field OFF.sub")
+    prg.add(109958001, "Gray Molasses 2017")
+    prg.add(109994000, "Scope 2 Trigger ON")
+    prg.add(109994100, "Scope 2 Trigger OFF")
+    prg.add(110054100, "Setup_imaging_GM")
+    prg.add(110054100, "BEC_imaging_ready", functions=dict(time=lambda x: x+cmd.get_var('tof')))
+    prg.add(120003200, "DarkSpotMOT_19.sub", enable=False)
     return prg
 def commands(cmd):
     import numpy as np
