@@ -1,13 +1,16 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
-    prg.add(-310, "TTL Repumper MOT ON", functions=dict(time=lambda x: x - 1e-3*cmd.get_var('Rep_pulsetime')))
-    prg.add(-310, "TTL Repumper MOT OFF")
-    prg.add(-300, "Trig ON Stingray 1")
+    prg.add(-2970000, "Shutter repump Na Close")
+    prg.add(-310, "TTL Repumper MOT ON", functions=dict(time=lambda x: x - 1e-3*cmd.get_var('Rep_pulsetime')), enable=False)
+    prg.add(-310, "TTL Repumper MOT OFF", enable=False)
+    prg.add(-304, "Trig ON Stingray 1")
+    prg.add(-100, "Pulse uw ON", functions=dict(time=lambda x: x - 1e-3*cmd.get_var('marconi1_pulsetime')))
+    prg.add(-100, "Pulse uw OFF")
     prg.add(-10, "Scope 1 Trigger ON")
     prg.add(0, "Na Probe/Push (+) ON")
     prg.add(0, "Na Probe/Push (+) OFF", functions=dict(time=lambda x: x + cmd.get_var('probe_pulsetime')*1e-3))
-    prg.add(0, "Setup_imaging")
+    prg.add(0, "Setup_microwave_imaging")
     prg.add(700, "Trig OFF Stingray 1")
     prg.add(990, "Scope 1 Trigger OFF")
     prg.add(999910, "Trig ON Stingray 1")

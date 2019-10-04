@@ -1,8 +1,9 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
-    prg.add(0, "Scope 1 Trigger ON")
-    prg.add(10, "Pulse uw ON")
-    prg.add(50, "Pulse uw OFF")
-    prg.add(500, "Scope 1 Trigger OFF")
+    prg.add(30000000, "Na Probe x (+) freq", 120.00)
+    prg.add(50000000, "Na Probe x (+) freq", 100.00)
+    prg.add(70000000, "Na Probe x (+) freq", 120.00)
+    prg.add(90000000, "Na Probe x (+) freq", 100.00)
+    prg.add(110000000, "Na Probe x (+) freq", 110.00)
     return prg

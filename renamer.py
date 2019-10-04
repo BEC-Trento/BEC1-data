@@ -51,7 +51,7 @@ class Renamer:
         # keep only unique elements
         self.subroutines = set(self.subroutines)
 
-    def rename(self, old, new):
+    def rename(self, old, new, dry_run=False):
         """Renames an action from <old> to <new> name in all subroutines
         that use it.
         """
@@ -66,7 +66,7 @@ class Renamer:
         # for sub in self.subroutines:
         #     print(f'- {sub.stem}')
 
-        def _rename(_file):
+        def _rename(_file, dry_run):
             with open(_file) as f:
                 # lines = [line.replace(old, new) for line in f]
 
@@ -79,25 +79,26 @@ class Renamer:
 
                     lines.append(line)
 
-            with open(_file, 'w') as f:
-                for line in lines:
-                    f.write(line)
+            if not dry_run:
+                with open(_file, 'w') as f:
+                    for line in lines:
+                        f.write(line)
 
         # first rename at the top file
         print(f'- {self.program.stem}')
-        _rename(self.program)
+        _rename(self.program, dry_run)
 
         # then all others
         for sub in self.subroutines:
             print(f'- {sub.stem}')
-            _rename(sub)
+            _rename(sub, dry_run)
 
 
 if __name__ == '__main__':
     program = Path.cwd() / 'programs/BEC_May_2019_Ioffe_evaporation.prg.py'
 
     r = Renamer(program)
-    r.rename('IGBT 6 Close', 'IGBT 2 Close')
+    r.rename('Na Probe/Push (+) OFF', 'Na Push OFF', dry_run=True)
 
     # print()
     #

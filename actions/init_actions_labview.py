@@ -154,6 +154,43 @@ def action_list_init(act_lst):
                 var_formats=dict(n_lut="%d"),
                 categories=["actions", "DDS"],
                 comment="LUT")
+
+    act_lst.add("Na Probe z (+) freq", lib_action.DdsAction,
+                board="DDS37",
+                parameters=dict(channel=1),
+                variables=dict(frequency=0),
+                var_formats=dict(frequency="%.2f"),
+                categories=["actions", "DDS"],
+                comment="60-159 (0.25) MHz")                
+    act_lst.add("Na Probe z (+) amp", lib_action.DdsAction,
+                board="DDS37",
+                parameters=dict(channel=1),
+                variables=dict(amplitude=0),
+                var_formats=dict(amplitude="%d"),
+                categories=["actions", "DDS"],
+                comment="1,10,20,...1000")
+    act_lst.add("Na Probe x (+) freq", lib_action.DdsAction,
+                board="DDS37",
+                parameters=dict(channel=2),
+                variables=dict(frequency=0),
+                var_formats=dict(frequency="%.2f"),
+                categories=["actions", "DDS"],
+                comment="60-159 (0.25) MHz")
+    act_lst.add("Na Probe x (+) amp", lib_action.DdsAction,
+                board="DDS37",
+                parameters=dict(channel=2),
+                variables=dict(amplitude=0),
+                var_formats=dict(amplitude="%d"),
+                categories=["actions", "DDS"],
+                comment="1,10,20,...1000")
+    act_lst.add("Na Probe x/z", lib_action.DdsAction,
+                board="DDS37",
+                parameters=dict(),
+                variables=dict(n_lut=0),
+                var_formats=dict(n_lut="%d"),
+                categories=["actions", "DDS"],
+                comment="LUT")
+                                
     act_lst.add("Na 3D MOT cool (-) freq", lib_action.DdsAction,
                 board="DDS24",
                 parameters=dict(channel=1),
@@ -1305,6 +1342,10 @@ def action_list_init(act_lst):
                 board="TTL3",
                 parameters=dict(channel=[15], status=[False]),
                 categories=["actions", "TTL"])
+#    act_lst.add("Na Push OFF", lib_action.DigitalAction,
+#                board="TTL3",
+#                parameters=dict(channel=[15], status=[False]),
+#                categories=["actions", "TTL"])
     act_lst.add("Na Probe/Push (+) ON", lib_action.DigitalAction,
                 board="TTL3",
                 parameters=dict(channel=[15], status=[True]),
