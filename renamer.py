@@ -95,10 +95,32 @@ class Renamer:
 
 
 if __name__ == '__main__':
-    program = Path.cwd() / 'programs/BEC_May_2019_Ioffe_evaporation.prg.py'
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-n', "--dry-run", action="store_true", default=False)
+    args = parser.parse_args()
 
-    r = Renamer(program)
-    r.rename('Na Probe/Push (+) OFF', 'Na Push OFF', dry_run=True)
+#    program = Path.cwd() / 'programs/BEC_May_2019_Ioffe_evaporation.prg.py'
+#    program = Path.cwd() / 'programs/subroutines/BEC_imaging_ready.py'
+    program = Path.cwd() / 'programs/test imaging.py'
+#    program = Path.cwd() / 'programs/MOT_GM_May_2019.prg.py'
+    
+    actions = [
+        # fuck exp-control yet another time
+        ('Shutter Probe Na Close', 'Shutter Probe/Push Close'),
+        ('Shutter Probe Na Open',  'Shutter Probe/Push Open'),
+        ('Na Probe/Push (+) ON',   'TTL Push ON'),
+        ('Na Probe/Push (+) OFF',  'TTL Push OFF'),
+        ('Na Probe/Push (+) freq', 'Na Push (+) freq'),
+        ('Na Probe/Push (+) Amp',  'Na Push (+) amp'),
+        ('Na Probe/Push (-) Amp',  'Na Probe/Push (-) amp')
+    ]
+    
+    if args.dry_run:
+        print("--- DRY RUN ---")
+    for old, new in actions:
+        r = Renamer(program)
+        r.rename(old, new, dry_run=args.dry_run)
 
     # print()
     #

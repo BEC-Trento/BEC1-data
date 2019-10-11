@@ -8,15 +8,16 @@ def program(prg, cmd):
     prg.add(9001000, "Trig OFF Stingray 1", enable=False)
     prg.add(9990000, "Synchronize.sub", enable=False)
     prg.add(10000000, "BEC_imaging")
-    prg.add(10000000, "DMD_imaging", enable=False)
-    prg.add(10000000, "BEC_microwave_imaging", enable=False)
+    prg.add(10000000, "BEC_fast_imaging_uw_z", enable=False)
     prg.add(10000512, "Scope 1 Trigger ON", enable=False)
     prg.add(10000562, "Scope 1 Trigger OFF", enable=False)
-    prg.add(20000000, "Na Probe/Push (+) ON")
-    prg.add(20010000, "Shutter Probe Na Open")
-    prg.add(20020000, "Na Probe/Push (+) Amp", 1000)
-    prg.add(20030000, "Na Probe/Push (-) Amp", 1000)
-    prg.add(60000000, "Na Probe/Push (+) ON")
+    prg.add(10010000, "Scope 2 Trigger ON")
+    prg.add(10011000, "Scope 2 Trigger OFF")
+    prg.add(30000000, "TTL Probe y ON")
+    prg.add(30010000, "Shutter Probe/Push Open")
+    prg.add(30020000, "Na Probe/Push (-) amp", 1000)
+    prg.add(30030000, "Na Probe y (+) amp", 1000)
+    prg.add(70000000, "TTL Probe y ON", enable=False)
     return prg
 def commands(cmd):
     import numpy as np

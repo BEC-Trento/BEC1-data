@@ -1,0 +1,27 @@
+prg_comment = ""
+prg_version = "0.7"
+def program(prg, cmd):
+    prg.add(-10000, "Setup_microwave_imaging_z")
+    prg.add(-500, "TTL Probe z ON", functions=dict(time=lambda x: x - cmd.get_var('probe_z_pulsetime')*1e-3))
+    prg.add(-500, "TTL Probe z OFF")
+    prg.add(-100, "Trig ON Stingray z", functions=dict(time=lambda x: x - cmd.get_var('cam4_ExposureTime')*1e-3))
+    prg.add(-10, "Scope 1 Trigger ON")
+    prg.add(0, "Pulse uw ON")
+    prg.add(0, "Pulse uw OFF", functions=dict(time=lambda x: x + cmd.get_var('marconi1_pulsetime')*1e-3))
+    prg.add(34, "Trig ON Stingray z")
+    prg.add(400, "Trig OFF Stingray z", functions=dict(time=lambda x: x - cmd.get_var('cam4_ExposureTime')*1e-3))
+    prg.add(1000, "TTL Probe z ON")
+    prg.add(1000, "TTL Probe z OFF", functions=dict(time=lambda x: x + cmd.get_var('probe_z_pulsetime')*1e-3))
+    prg.add(1400, "Trig OFF Stingray z")
+    prg.add(20000, "Scope 1 Trigger OFF")
+    prg.add(50000, "Trig ON Stingray z", functions=dict(time=lambda x: x + cmd.get_var('cam4_ExposureTime')*1e-3))
+    prg.add(51390, "Trig OFF Stingray z", functions=dict(time=lambda x: x + cmd.get_var('cam4_ExposureTime')*1e-3))
+    prg.add(51490, "TTL Probe z ON", functions=dict(time=lambda x: x + cmd.get_var('cam4_ExposureTime')*1e-3))
+    prg.add(51490, "TTL Probe z OFF", functions=dict(time=lambda x: x + cmd.get_var('cam4_ExposureTime')*1e-3 + cmd.get_var('probe_z_pulsetime')*1e-3))
+    prg.add(118290, "Na Probe/Push (-) amp", 0, functions=dict(time=lambda x: x + 2*cmd.get_var('cam4_ExposureTime')*1e-3))
+    prg.add(119290, "Na Probe z (+) freq", 60.00, functions=dict(time=lambda x: x + 2*cmd.get_var('cam4_ExposureTime')*1e-3))
+    prg.add(120290, "Trig ON Stingray z", functions=dict(time=lambda x: x + 2*cmd.get_var('cam4_ExposureTime')*1e-3))
+    prg.add(121290, "Trig OFF Stingray z", functions=dict(time=lambda x: x + 2*cmd.get_var('cam4_ExposureTime')*1e-3))
+    prg.add(1082204, "Shutter Probe/Push Close", functions=dict(time=lambda x: x + 2*cmd.get_var('cam4_ExposureTime')*1e-3))
+    prg.add(3896300, "TTL Probe z ON", functions=dict(time=lambda x: x + 2*cmd.get_var('cam4_ExposureTime')*1e-3))
+    return prg

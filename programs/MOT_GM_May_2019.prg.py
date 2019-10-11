@@ -16,15 +16,15 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(1, 11, 2)
+    iters = [100, 200, 400, 600, 800, 1000]
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        tof1 = iters[j]
-        cmd.set_var('tof', tof1)
+        push_amp1 = iters[j]
+        cmd.set_var('push_amp', push_amp1)
         print('\n')
-        print('Run #%d/%d, with variables:\ntof = %g\n'%(j+1, len(iters), tof1))
+        print('Run #%d/%d, with variables:\npush_amp = %g\n'%(j+1, len(iters), push_amp1))
         cmd.run(wait_end=True, add_time=100)
         j += 1
         if j == len(iters):

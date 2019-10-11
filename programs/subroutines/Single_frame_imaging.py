@@ -6,7 +6,7 @@ def program(prg, cmd):
     prg.add(-1500, "Trig ON Stingray 1")
     prg.add(-500, "Trig OFF Stingray 1")
     prg.add(-100, "Scope 1 Trigger ON", enable=False)
-    prg.add(0, "Na Probe/Push (+) ON")
-    prg.add(0, "Na Probe/Push (+) OFF", functions=dict(time=lambda x: x + cmd.get_var('probe_pulsetime')*1e-3))
+    prg.add(0, "TTL Probe y ON")
+    prg.add(0, "TTL Probe y OFF", functions=dict(time=lambda x: x + cmd.get_var('probe_pulsetime')*1e-3))
     prg.add(9900, "Scope 1 Trigger OFF", enable=False)
     return prg

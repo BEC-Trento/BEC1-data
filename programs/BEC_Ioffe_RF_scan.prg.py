@@ -37,20 +37,20 @@ def program(prg, cmd):
     prg.add(170010000, "RF pulse amp", 0, functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('hold_time')+cmd.get_var('sync_delay_time')+cmd.get_var('tof')), enable=False)
     prg.add(170020000, "All AOM On.sub", functions=dict(time=lambda x: 10015.6899+cmd.get_var('QuadRampTime'), funct_enable=False))
     prg.add(170020000, "DarkSpotMOT_19.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('hold_time')+cmd.get_var('sync_delay_time')+cmd.get_var('tof')), enable=False)
-    prg.add(170030000, "Na Probe/Push (+) freq", 60.00)
+    prg.add(170030000, "Na Push (+) freq", 60.00)
     prg.add(170035000, "Na Probe/Push (-) freq", 60.00)
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(18, 30, 2)
+    iters = np.arange(1.7686e+09, 1.7692e+09, 20000)
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        marconi1_pulsetime1 = iters[j]
-        cmd.set_var('marconi1_pulsetime', marconi1_pulsetime1)
+        marconi1_freq1 = iters[j]
+        cmd.set_var('marconi1_freq', marconi1_freq1)
         print('\n')
-        print('Run #%d/%d, with variables:\nmarconi1_pulsetime = %g\n'%(j+1, len(iters), marconi1_pulsetime1))
+        print('Run #%d/%d, with variables:\nmarconi1_freq = %g\n'%(j+1, len(iters), marconi1_freq1))
         cmd.run(wait_end=True, add_time=100)
         j += 1
         if j == len(iters):

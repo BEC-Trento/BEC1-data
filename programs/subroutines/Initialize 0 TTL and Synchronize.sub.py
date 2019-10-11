@@ -9,7 +9,7 @@ def program(prg, cmd):
     prg.add(13300, "Initialize 0 TTL3", enable=False)
     prg.add(13400, "Initialize 0 TTL4", enable=False)
     prg.add(18450, "Na 3D MOT cool (-) ON", enable=False)
-    prg.add(18500, "Na Probe/Push (+) ON", enable=False)
+    prg.add(18500, "TTL Push ON", enable=False)
     prg.add(18550, "Pulse MOT Na OFF", enable=False)
     prg.add(23100, "Breakpoint Main Table TTL OFF")
     prg.add(23200, "Breakpoint Na Table TTL OFF")
