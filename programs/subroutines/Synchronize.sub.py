@@ -5,8 +5,10 @@ def program(prg, cmd):
     prg.add(-20900, "Breakpoint Na Table TTL OFF")
     prg.add(-20500, "Breakpoint Main Table TTL ON")
     prg.add(-20400, "Breakpoint Na Table TTL ON")
-    prg.add(-400, "Breakpoint Main Table TTL OFF")
-    prg.add(-300, "Breakpoint Na Table TTL OFF")
+    prg.add(-400, "Breakpoint Main Table TTL OFF", enable=False)
+    prg.add(-300, "Breakpoint Na Table TTL OFF", enable=False)
     prg.add(-250, "BREAKPOINT")
     prg.add(100, "NOP")
+    prg.add(500000, "Breakpoint Main Table TTL OFF")
+    prg.add(501000, "Breakpoint Na Table TTL OFF")
     return prg

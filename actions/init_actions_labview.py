@@ -1274,14 +1274,14 @@ def action_list_init(act_lst):
                 board="ttl3",
                 parameters=dict(channel=[5], status=[True]),
                 categories=["actions", "TTL"])
-#    act_lst.add("Shutter Bragg Close", lib_action.DigitalAction,
-#                board="ttl3",
-#                parameters=dict(channel=[6], status=[False]),
-#                categories=["actions", "TTL"])
-#    act_lst.add("Shutter Bragg Open", lib_action.DigitalAction,
-#                board="ttl3",
-#                parameters=dict(channel=[6], status=[True]),
-#                categories=["actions", "TTL"])
+    act_lst.add("Shutter Dark Spot Close", lib_action.DigitalAction,
+                board="ttl3",
+                parameters=dict(channel=[6], status=[False]),
+                categories=["actions", "TTL"])
+    act_lst.add("Shutter Dark Spot Open", lib_action.DigitalAction,
+                board="ttl3",
+                parameters=dict(channel=[6], status=[True]),
+                categories=["actions", "TTL"])
 #    act_lst.add("Shutter Repump2 Close", lib_action.DigitalAction,
 #                board="ttl3",
 #                parameters=dict(channel=[6], status=[False]),
@@ -1393,8 +1393,10 @@ def action_list_init(act_lst):
                 categories=["actions", "TTL"])
     act_lst.add("Trig ON Stingray z", lib_action.DigitalAction,
                 board="ttl4",
+                variables=dict(comment="'image0'"),
                 parameters=dict(channel=[1], status=[True]),
-                categories=["actions", "TTL"])
+                categories=["actions", "TTL"],
+                )
 #    act_lst.add("Trigger uw amp OFF", lib_action.DigitalAction,
 #                board="ttl4",
 #                parameters=dict(channel=[2], status=[False]),
@@ -1437,30 +1439,44 @@ def action_list_init(act_lst):
 #                parameters=dict(channel=[5], status=[True]),
 #                categories=["actions", "TTL"])
 
-    act_lst.add("Shutter Dark Spot Close", lib_action.DigitalAction,
-                board="ttl4",
-                parameters=dict(channel=[6], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("Shutter Dark Spot Open", lib_action.DigitalAction,
-                board="ttl4",
-                parameters=dict(channel=[6], status=[True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("Shutter Dark Spot Close", lib_action.DigitalAction,
+#                board="ttl4",
+#                parameters=dict(channel=[6], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Shutter Dark Spot Open", lib_action.DigitalAction,
+#                board="ttl4",
+#                parameters=dict(channel=[6], status=[True]),
+#                categories=["actions", "TTL"])
     act_lst.add("Trig OFF Stingray 1", lib_action.DigitalAction,
                 board="ttl4",
-                parameters=dict(channel=[7, 8], status=[False, False]),
+                parameters=dict(channel=[8], status=[False]),
                 categories=["actions", "TTL"])
     act_lst.add("Trig ON Stingray 1", lib_action.DigitalAction,
                 board="ttl4",
-                parameters=dict(channel=[7, 8], status=[True, True]),
+                variables=dict(comment="'image0'"),
+                var_formats=dict(comment="%s"),
+                parameters=dict(channel=[8], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("Trig Extra Hamamatsu OFF", lib_action.DigitalAction,
+                
+    act_lst.add("Trig OFF Stingray x", lib_action.DigitalAction,
                 board="ttl4",
                 parameters=dict(channel=[7], status=[False]),
                 categories=["actions", "TTL"])
-    act_lst.add("Trig Extra Hamamatsu ON", lib_action.DigitalAction,
+    act_lst.add("Trig ON Stingray x", lib_action.DigitalAction,
                 board="ttl4",
+                variables=dict(comment="'image0'"),
+                var_formats=dict(comment="%s"),
                 parameters=dict(channel=[7], status=[True]),
                 categories=["actions", "TTL"])
+                
+#    act_lst.add("Trig Extra Hamamatsu OFF", lib_action.DigitalAction,
+#                board="ttl4",
+#                parameters=dict(channel=[7], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Trig Extra Hamamatsu ON", lib_action.DigitalAction,
+#                board="ttl4",
+#                parameters=dict(channel=[7], status=[True]),
+#                categories=["actions", "TTL"])
 #    act_lst.add("Bottom Evaporation OFF", lib_action.DigitalAction,
 #                board="ttl4",
 #                parameters=dict(channel=[9], status=[False]),

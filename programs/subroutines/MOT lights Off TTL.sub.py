@@ -21,4 +21,5 @@ def program(prg, cmd):
     prg.add(145000, "Shutter 3DMOT cool Na Close")
     prg.add(150000, "Shutter Probe/Push Close")
     prg.add(160000, "Shutter repump Na Close")
+    prg.add(170000, "Shutter Dark Spot Close")
     return prg

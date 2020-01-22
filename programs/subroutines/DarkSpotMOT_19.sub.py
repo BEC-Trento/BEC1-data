@@ -22,6 +22,7 @@ def program(prg, cmd):
     prg.add(7500, "AOM GM Amp ch2 (-)", 0)
     prg.add(8000, "Na Gray molasses (-) freq", 80.00)
     prg.add(8500, "Delta 1 Current", 12.000, functions=dict(value=lambda x: cmd.get_var('MOT_current')))
+    prg.add(9000, "Shutter Dark Spot Open")
     prg.add(9500, "Shutter repump Na Open")
     prg.add(10000, "Na Repumper Tune (+) freq", 1712.0, functions=dict(frequency=lambda x: cmd.get_var('Rep_freq')))
     prg.add(10500, "Na Repumper1 (+) Amp", 1000)
@@ -51,3 +52,21 @@ def program(prg, cmd):
     prg.add(24500, "Shutter Gray molasses Open")
     prg.add(25000, "Config MOT.sub")
     return prg
+def commands(cmd):
+    import numpy as np
+    iters = np.arange(-9, 15, 2)
+    np.random.shuffle(iters)
+    j = 0
+    while(cmd.running):
+        print('\n-------o-------')
+        probe_det = iters[j]
+        cmd.set_var('probe_det', probe_det)
+        print('\n')
+        print('Run #%d/%d, with variables:\nprobe_det = %g\n'%(j+1, len(iters), probe_det))
+        cmd._system.run_number = j
+        cmd.run(wait_end=True, add_time=100)
+        j += 1
+        if j == len(iters):
+            cmd._system.run_number = 0
+            cmd.stop()
+    return cmd

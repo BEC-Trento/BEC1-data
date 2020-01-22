@@ -2,6 +2,13 @@ import libraries.ttlpulse as lib_ttlpulse
 
 def action_list_init(action_list):
 
+    action_list.add("Scope 1 Trigger Pulse", lib_ttlpulse.TTLPulse,
+                    categories=["ttl pulses"],
+                    parameters=dict(act_on_name="Scope 1 Trigger ON", act_off_name="Scope 1 Trigger OFF"),
+                    variables=dict(pulse_t=0.01, polarity=1),
+                    var_formats=dict(pulse_t="%.5f", polarity="%d"),
+                    comment="ttl pulse")
+                    
     action_list.add("Pulse uw", lib_ttlpulse.TTLPulse,
                     categories=["ttl pulses"],
                     parameters=dict(act_on_name="Pulse uw ON", act_off_name="Pulse uw OFF"),
@@ -19,16 +26,30 @@ def action_list_init(action_list):
     action_list.add("Pulse Trig Stingray 1", lib_ttlpulse.TTLPulse,
                     categories=["ttl pulses"],
                     parameters=dict(act_on_name="Trig ON Stingray 1", act_off_name="Trig OFF Stingray 1"),
-                    variables=dict(pulse_t=0.1, polarity=1),
-                    var_formats=dict(pulse_t="%.5f", polarity="%d"),
-                    comment="ttl pulse")
+                    variables=dict(pulse_t=0.1, polarity=1, comment="image0"),
+                    var_formats=dict(pulse_t="%.5f", polarity="%d", comment="%s"),
+                    )
                     
-    action_list.add("Pulse Trig Stingray 2", lib_ttlpulse.TTLPulse,
+    action_list.add("Pulse Trig Stingray y", lib_ttlpulse.TTLPulse,
                     categories=["ttl pulses"],
-                    parameters=dict(act_on_name="Trig ON Stingray 2", act_off_name="Trig OFF Stingray 2"),
-                    variables=dict(pulse_t=0.1, polarity=1),
-                    var_formats=dict(pulse_t="%.5f", polarity="%d"),
-                    comment="ttl pulse")
+                    parameters=dict(act_on_name="Trig ON Stingray 1", act_off_name="Trig OFF Stingray 1"),
+                    variables=dict(pulse_t=0.1, polarity=1, comment="image0"),
+                    var_formats=dict(pulse_t="%.5f", polarity="%d", comment="%s"),
+                    )
+                    
+    action_list.add("Pulse Trig Stingray x", lib_ttlpulse.TTLPulse,
+                    categories=["ttl pulses"],
+                    parameters=dict(act_on_name="Trig ON Stingray x", act_off_name="Trig OFF Stingray x"),
+                    variables=dict(pulse_t=0.1, polarity=1, comment="image0"),
+                    var_formats=dict(pulse_t="%.5f", polarity="%d", comment="%s"),
+                    )
+                    
+    action_list.add("Pulse Trig Stingray z", lib_ttlpulse.TTLPulse,
+                    categories=["ttl pulses"],
+                    parameters=dict(act_on_name="Trig ON Stingray z", act_off_name="Trig OFF Stingray z"),
+                    variables=dict(pulse_t=0.1, polarity=1, comment="image0"),
+                    var_formats=dict(pulse_t="%.5f", polarity="%d", comment="%s"),
+                    )
 
     action_list.add("Pulse Trig Extra Hamamatsu", lib_ttlpulse.TTLPulse,
                     categories=["ttl pulses"],
@@ -50,14 +71,21 @@ def action_list_init(action_list):
                     variables=dict(pulse_t=0.1, polarity=1),
                     var_formats=dict(pulse_t="%.5f", polarity="%d"),
                     comment="ttl pulse")
-                    
-    action_list.add("Pulse Probe Na", lib_ttlpulse.TTLPulse,
+
+    action_list.add("Pulse Probe y", lib_ttlpulse.TTLPulse,
                     categories=["ttl pulses"],
-                    parameters=dict(act_on_name="Na Probe/Push (+) ON", act_off_name="Na Probe/Push (+) OFF"),
+                    parameters=dict(act_on_name="TTL Probe y ON", act_off_name="TTL Probe y OFF"),
                     variables=dict(pulse_t=0.1, polarity=1),
                     var_formats=dict(pulse_t="%.5f", polarity="%d"),
                     comment="ttl pulse")
-                    
+
+    action_list.add("Pulse Probe z", lib_ttlpulse.TTLPulse,
+                    categories=["ttl pulses"],
+                    parameters=dict(act_on_name="TTL Probe z ON", act_off_name="TTL Probe z OFF"),
+                    variables=dict(pulse_t=0.1, polarity=1),
+                    var_formats=dict(pulse_t="%.5f", polarity="%d"),
+                    comment="ttl pulse")
+
     action_list.add("Pulse Freq sweep Probe Na", lib_ttlpulse.TTLPulse,
                     categories=["ttl pulses"],
                     parameters=dict(act_on_name="Na Probe/Push Freq Sweep ON", act_off_name="Na Probe/Push Freq Sweep OFF"),

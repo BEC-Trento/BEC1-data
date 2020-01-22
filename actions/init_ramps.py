@@ -261,6 +261,13 @@ def action_list_init(action_list):
 
 # Time repetition ramps:
 
+    action_list.add("Single_frame_imaging ramp", lib_ramp.LinearRamp,
+                    categories=["ramps"],
+                    parameters=dict(act_name="Single_frame_imaging"),
+                    variables=dict(start_x=1, stop_x=0, start_t=0, stop_t=100, n_points=100),
+                    var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
+                    comment="time")
+
     action_list.add("RFO Trig Sweep burst", lib_ramp.LinearRamp,
                     categories=["ramps"],
                     parameters=dict(act_name="RFO Sweep Trig Pulse"),
