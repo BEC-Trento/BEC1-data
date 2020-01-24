@@ -21,23 +21,24 @@ def program(prg, cmd):
     prg.add(230000000, "Evaporation_quad_rampdown_3ramps")
     prg.add(230000000, "Scope 1 Trigger Pulse", polarity=1, pulse_t=0.00486, functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('evap3_time')+cmd.get_var('hold_time') - 0.00123))
     prg.add(230000000, "Pulse uw", polarity=1, pulse_t=0.00200, functions=dict(pulse_t=lambda x: 1e-3 * cmd.get_var('marconi1_pulsetime'), time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('evap3_time')+cmd.get_var('hold_time')))
-    prg.add(230000000, "Setup_imaging", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('evap3_time')+cmd.get_var('hold_time')+cmd.get_var('hold_time_2')))
-    prg.add(230000000, "Single_frame_imaging", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('evap3_time')+cmd.get_var('hold_time')+cmd.get_var('hold_time_2')))
+    prg.add(230000000, "Setup_imaging", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('evap3_time')+cmd.get_var('hold_time')+cmd.get_var('hold_time_F2')))
+    prg.add(230000000, "Single_frame_imaging", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('evap3_time')+cmd.get_var('hold_time')+cmd.get_var('hold_time_F2')))
     prg.add(230020000, "Config Levitation", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('evap3_time')+cmd.get_var('hold_time')+cmd.get_var('hold_time_2')))
     prg.add(230020000, "Config Field OFF.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('evap3_time')+cmd.get_var('hold_time')+cmd.get_var('hold_time_2')+cmd.get_var('tof')-1))
+    prg.add(230020000, "Scope 1 Trigger Pulse", polarity=1, pulse_t=0.01000, functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('evap3_time')+cmd.get_var('hold_time')+cmd.get_var('hold_time_2')+cmd.get_var('tof')-0.00154), enable=False)
     prg.add(230020000, "BEC_imaging", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('evap3_time')+cmd.get_var('hold_time')+cmd.get_var('hold_time_2')+cmd.get_var('tof')))
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(1, 50, 2)
+    iters = np.arange(35, 200, 10)
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        marconi1_pulsetime = iters[j]
-        cmd.set_var('marconi1_pulsetime', marconi1_pulsetime)
+        hold_time_2 = iters[j]
+        cmd.set_var('hold_time_2', hold_time_2)
         print('\n')
-        print('Run #%d/%d, with variables:\nmarconi1_pulsetime = %g\n'%(j+1, len(iters), marconi1_pulsetime))
+        print('Run #%d/%d, with variables:\nhold_time_2 = %g\n'%(j+1, len(iters), hold_time_2))
         cmd._system.run_number = j
         cmd.run(wait_end=True, add_time=100)
         j += 1

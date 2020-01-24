@@ -1,14 +1,11 @@
 cam1_ExposureTime: 70000
 cam1_Height: 600
-cam1_OffsetX: 510
+cam1_OffsetX: 610
 cam1_OffsetY: 380
-cam1_PixelFormat: Mono16
 cam1_Width: 600
+
 cam4_ExposureTime: 70000
-cam4_Gain: 10
 cam4_Height: 800
-cam4_IIDCMode: Mode0
 cam4_OffsetX: 0
 cam4_OffsetY: 200
-cam4_PixelFormat: Mono16
 cam4_Width: 1624

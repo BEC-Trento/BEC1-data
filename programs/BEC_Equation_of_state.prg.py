@@ -30,8 +30,11 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    L = [np.arange(3, 4, 0.1)]*3
-    iters = np.round(np.concatenate(L), 1)
+    n = 20
+    i1 = np.random.uniform(0.7, 1.2, n)
+    i2 = np.random.uniform(1.5, 2.5, n)
+    i3 = np.random.uniform(3, 4, n)
+    iters = np.round(np.concatenate([i1, i2, i3]), 1)
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):

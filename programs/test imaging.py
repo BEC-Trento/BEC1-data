@@ -9,18 +9,17 @@ def program(prg, cmd):
     prg.add(9000000, "Trig ON Stingray 1", "'ciao'", enable=False)
     prg.add(9001000, "Trig OFF Stingray 1", enable=False)
     prg.add(9990000, "Synchronize.sub", enable=False)
-    prg.add(9999990, "Scope 1 Trigger ON")
+    prg.add(10000000, "Scope 1 Trigger Pulse", polarity=1, pulse_t=0.01448, functions=dict(time=lambda x: x-0.00154))
     prg.add(10000000, "Setup_imaging")
     prg.add(10000000, "BEC_fast_imaging_uw_z", enable=False)
     prg.add(10000000, "BEC_imaging_z", enable=False)
-    prg.add(10000000, "Imaging_uw_movie")
+    prg.add(10000000, "Imaging_uw_movie", enable=False)
     prg.add(10000000, "Single_frame_imaging", enable=False)
     prg.add(10000000, "Single_frame_imaging_z", enable=False)
-    prg.add(10000000, "BEC_imaging", enable=False)
-    prg.add(10001346, "Scope 1 Trigger OFF")
+    prg.add(10000000, "BEC_imaging")
     prg.add(10200001, "Setup_tof_imaging", enable=False)
     prg.add(11000000, "BEC_imaging", enable=False)
-    prg.add(35200001, "open_probe", enable=False)
+    prg.add(35200001, "open_probe")
     return prg
 def commands(cmd):
     import numpy as np
