@@ -54,15 +54,22 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(-9, 15, 2)
+    pars = {'a2': 5.0779488145493465e-05,}
+    _s0 = lambda x, a2: a2*x**2
+    probe_z_amp_arr = np.arange(15, 100, 10)
+    s0 = _s0(probe_z_amp_arr, **pars)
+    probe_z_pulsetime_arr = 5 * 5 / s0
+    probe_z_pulsetime_arr = probe_z_pulsetime_arr.clip(0.4).round(1)
+    iters = list(zip(probe_z_amp_arr, probe_z_pulsetime_arr))
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        probe_det = iters[j]
-        cmd.set_var('probe_det', probe_det)
+        probe_z_amp, probe_z_pulsetime = iters[j]
+        cmd.set_var('probe_z_amp', probe_z_amp)
+        cmd.set_var('probe_z_pulsetime', probe_z_pulsetime)
         print('\n')
-        print('Run #%d/%d, with variables:\nprobe_det = %g\n'%(j+1, len(iters), probe_det))
+        print('Run #%d/%d, with variables:\nprobe_z_amp = %g\nprobe_z_pulsetime = %g\n'%(j+1, len(iters), probe_z_amp, probe_z_pulsetime))
         cmd._system.run_number = j
         cmd.run(wait_end=True, add_time=100)
         j += 1
