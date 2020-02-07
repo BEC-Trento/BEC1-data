@@ -3,7 +3,7 @@ prg_version = "0.7"
 def program(prg, cmd):
     prg.add(10000, "Initialize 0 TTL and Synchronize.sub")
     prg.add(50000, "DarkSpotMOT_19.sub")
-    prg.add(1111100, "Green Light AOM amp", 1000)
+    prg.add(1111100, "Green Light AOM amp", 1000, enable=False)
     prg.add(209000000, "Synchronize.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('hold_time')), enable=False)
     prg.add(209943111, "MOT lights Off TTL.sub")
     prg.add(209947301, "Config Field OFF.sub")
