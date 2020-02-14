@@ -6,6 +6,7 @@ def program(prg, cmd):
     prg.add(200, "B comp y", 0.0000, functions=dict(value=lambda x: cmd.get_var('By_MOT')))
     prg.add(300, "B comp z", 0.8000, functions=dict(value=lambda x: cmd.get_var('Bz_MOT')))
     prg.add(400, "B grad x", 0.0000)
+    prg.add(450, "IGBT B grad x OFF")
     prg.add(500, "Delta 1 Voltage", 6.0000)
     prg.add(1000, "Delta 2 Voltage", 0.0000, enable=False)
     prg.add(1500, "Mirrors MOT")

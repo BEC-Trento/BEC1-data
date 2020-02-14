@@ -17,9 +17,10 @@ def program(prg, cmd):
     prg.add(10000000, "Single_frame_imaging", enable=False)
     prg.add(10000000, "Single_frame_imaging_z")
     prg.add(10000000, "BEC_imaging", enable=False)
-    prg.add(10200001, "Setup_tof_imaging", enable=False)
-    prg.add(11000000, "BEC_imaging", enable=False)
-    prg.add(35200001, "open_probe", enable=False)
+    prg.add(11000000, "BEC_imaging_double", enable=False)
+    prg.add(11200001, "Setup_tof_imaging", enable=False)
+    prg.add(12000000, "BEC_imaging", enable=False)
+    prg.add(36200001, "open_probe", enable=False)
     return prg
 def commands(cmd):
     import numpy as np
