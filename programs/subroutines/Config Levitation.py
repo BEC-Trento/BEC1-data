@@ -1,6 +1,7 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
+    prg.add(-20000, "B comp x", 0.0, functions=dict(value=lambda x: cmd.get_var('Bx_GM')+cmd.get_var('Bx_bottom') + cmd.get_var('Bx_levit')), enable=False)
     prg.add(-2050, "IGBT 4 Close")
     prg.add(-2040, "Delta 1 Voltage", 1.6000)
     prg.add(0, "IGBT 2 Open")

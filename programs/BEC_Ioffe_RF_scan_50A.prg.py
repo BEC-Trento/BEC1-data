@@ -30,19 +30,15 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    pulsetime = np.arange(0.5, 3, 0.5)
-    hold_time = np.arange(0, 60, 2)
-    marconi1_pulsetime_arr, hold_time_2_arr = np.meshgrid(pulsetime, hold_time)
-    iters = list(zip(marconi1_pulsetime_arr.ravel(), hold_time_2_arr.ravel()))
+    iters = np.arange(5, 600, 40)
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        marconi1_pulsetime, hold_time_2 = iters[j]
-        cmd.set_var('marconi1_pulsetime', marconi1_pulsetime)
+        hold_time_2 = iters[j]
         cmd.set_var('hold_time_2', hold_time_2)
         print('\n')
-        print('Run #%d/%d, with variables:\nmarconi1_pulsetime = %g\nhold_time_2 = %g\n'%(j+1, len(iters), marconi1_pulsetime, hold_time_2))
+        print('Run #%d/%d, with variables:\nhold_time_2 = %g\n'%(j+1, len(iters), hold_time_2))
         cmd._system.run_number = j
         cmd.run(wait_end=True, add_time=100)
         j += 1

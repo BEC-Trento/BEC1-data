@@ -15,8 +15,9 @@ def program(prg, cmd):
     prg.add(10000000, "BEC_imaging_z", enable=False)
     prg.add(10000000, "Imaging_uw_movie", enable=False)
     prg.add(10000000, "Single_frame_imaging", enable=False)
-    prg.add(10000000, "Single_frame_imaging_z")
+    prg.add(10000000, "Single_frame_imaging_z", enable=False)
     prg.add(10000000, "BEC_imaging", enable=False)
+    prg.add(10000000, "Imaging_single_shot_reconstruction")
     prg.add(11000000, "BEC_imaging_double", enable=False)
     prg.add(11200001, "Setup_tof_imaging", enable=False)
     prg.add(12000000, "BEC_imaging", enable=False)
@@ -24,15 +25,15 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(10, 50, 10)
+    iters = np.arange(0, 1, 1)
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        probe_z_amp = iters[j]
-        cmd.set_var('probe_z_amp', probe_z_amp)
+        repeat = iters[j]
+        cmd.set_var('repeat', repeat)
         print('\n')
-        print('Run #%d/%d, with variables:\nprobe_z_amp = %g\n'%(j+1, len(iters), probe_z_amp))
+        print('Run #%d/%d, with variables:\nrepeat = %g\n'%(j+1, len(iters), repeat))
         cmd._system.run_number = j
         cmd.run(wait_end=True, add_time=100)
         j += 1

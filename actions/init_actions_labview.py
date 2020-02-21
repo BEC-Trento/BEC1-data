@@ -1397,14 +1397,14 @@ def action_list_init(act_lst):
                 parameters=dict(channel=[1], status=[True]),
                 categories=["actions", "TTL"],
                 )
-#    act_lst.add("Trigger uw amp OFF", lib_action.DigitalAction,
-#                board="ttl4",
-#                parameters=dict(channel=[2], status=[False]),
-#                categories=["actions", "TTL"])
-#    act_lst.add("Trigger uw amp ON", lib_action.DigitalAction,
-#                board="ttl4",
-#                parameters=dict(channel=[2], status=[True]),
-#                categories=["actions", "TTL"])
+    act_lst.add("Green TTL OFF", lib_action.DigitalAction,
+                board="ttl4",
+                parameters=dict(channel=[2], status=[False]),
+                categories=["actions", "TTL"])
+    act_lst.add("Green TTL ON", lib_action.DigitalAction,
+                board="ttl4",
+                parameters=dict(channel=[2], status=[True]),
+                categories=["actions", "TTL"])
     act_lst.add("Pulse MOT Na ON", lib_action.DigitalAction,
                 board="ttl4",
                 parameters=dict(channel=[3], status=[False]),
