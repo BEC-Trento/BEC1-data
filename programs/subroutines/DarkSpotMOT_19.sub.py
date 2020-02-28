@@ -5,7 +5,7 @@ def program(prg, cmd):
     prg.add(100, "B comp x", 1.4, functions=dict(value=lambda x: cmd.get_var('Bx_MOT')))
     prg.add(200, "B comp y", 0.0000, functions=dict(value=lambda x: cmd.get_var('By_MOT')))
     prg.add(300, "B comp z", 0.8000, functions=dict(value=lambda x: cmd.get_var('Bz_MOT')))
-    prg.add(400, "B grad x", 0.0000)
+    prg.add(400, "B grad x", 0.2000)
     prg.add(450, "IGBT B grad x OFF")
     prg.add(500, "Delta 1 Voltage", 6.0000)
     prg.add(1000, "Delta 2 Voltage", 0.0000, enable=False)
@@ -53,28 +53,3 @@ def program(prg, cmd):
     prg.add(24500, "Shutter Gray molasses Open")
     prg.add(25000, "Config MOT.sub")
     return prg
-def commands(cmd):
-    import numpy as np
-    pars = {'a2': 5.0779488145493465e-05,}
-    _s0 = lambda x, a2: a2*x**2
-    probe_z_amp_arr = np.arange(15, 100, 10)
-    s0 = _s0(probe_z_amp_arr, **pars)
-    probe_z_pulsetime_arr = 5 * 5 / s0
-    probe_z_pulsetime_arr = probe_z_pulsetime_arr.clip(0.4).round(1)
-    iters = list(zip(probe_z_amp_arr, probe_z_pulsetime_arr))
-    np.random.shuffle(iters)
-    j = 0
-    while(cmd.running):
-        print('\n-------o-------')
-        probe_z_amp, probe_z_pulsetime = iters[j]
-        cmd.set_var('probe_z_amp', probe_z_amp)
-        cmd.set_var('probe_z_pulsetime', probe_z_pulsetime)
-        print('\n')
-        print('Run #%d/%d, with variables:\nprobe_z_amp = %g\nprobe_z_pulsetime = %g\n'%(j+1, len(iters), probe_z_amp, probe_z_pulsetime))
-        cmd._system.run_number = j
-        cmd.run(wait_end=True, add_time=100)
-        j += 1
-        if j == len(iters):
-            cmd._system.run_number = 0
-            cmd.stop()
-    return cmd

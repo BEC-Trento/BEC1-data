@@ -30,15 +30,15 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(5, 600, 40)
+    iters = np.arange(120, 200, 3)
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        hold_time_2 = iters[j]
-        cmd.set_var('hold_time_2', hold_time_2)
+        marconi1_pulsetime = iters[j]
+        cmd.set_var('marconi1_pulsetime', marconi1_pulsetime)
         print('\n')
-        print('Run #%d/%d, with variables:\nhold_time_2 = %g\n'%(j+1, len(iters), hold_time_2))
+        print('Run #%d/%d, with variables:\nmarconi1_pulsetime = %g\n'%(j+1, len(iters), marconi1_pulsetime))
         cmd._system.run_number = j
         cmd.run(wait_end=True, add_time=100)
         j += 1

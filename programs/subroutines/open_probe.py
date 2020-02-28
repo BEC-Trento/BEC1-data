@@ -14,5 +14,5 @@ def program(prg, cmd):
     prg.add(156245, "Shutter repump Na Open")
     prg.add(185000, "Na Repumper1 (+) Amp", 800, functions=dict(amplitude=lambda x: cmd.get_var('Rep_amp')))
     prg.add(195000, "Na Repumper2 (+) Amp", 800, functions=dict(amplitude=lambda x: cmd.get_var('Rep_amp')))
-    prg.add(205000, "TTL Repumper MOT ON")
+    prg.add(20005000, "TTL Repumper MOT ON")
     return prg
