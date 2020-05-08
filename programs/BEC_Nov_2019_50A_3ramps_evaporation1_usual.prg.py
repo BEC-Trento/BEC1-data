@@ -35,15 +35,15 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(5, 15, 2)
+    iters = np.arange(-0.3, -0.1, 0.02)
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        probe_det = iters[j]
-        cmd.set_var('probe_det', probe_det)
+        Bx_bottom = iters[j]
+        cmd.set_var('Bx_bottom', Bx_bottom)
         print('\n')
-        print('Run #%d/%d, with variables:\nprobe_det = %g\n'%(j+1, len(iters), probe_det))
+        print('Run #%d/%d, with variables:\nBx_bottom = %g\n'%(j+1, len(iters), Bx_bottom))
         cmd._system.run_number = j
         cmd.run(wait_end=True, add_time=100)
         j += 1
