@@ -27,7 +27,7 @@ def program(prg, cmd):
     prg.add(190000010, "B grad x kick", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+ cmd.get_var('rf_pulse_time')), enable=False)
     prg.add(190000010, "Evaporation_setfull", ch0_amp=1000, ch0_freq=0.000, ch1_freq=24000000.000, ch0_phase=0.000, ch1_phase=0.000, ch1_amp=1, functions=dict(ch0_freq=lambda x: cmd.get_var('rf_freq1')*1e6, time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')), enable=False)
     prg.add(190000010, "Evaporation_setfull", ch0_amp=1, ch0_freq=0.000, ch1_freq=24000000.000, ch0_phase=0.000, ch1_phase=0.000, ch1_amp=1, functions=dict(ch0_freq=lambda x: cmd.get_var('rf_freq1')*1e6, time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('rf_pulse_time')), enable=False)
-    prg.add(190000010, "Setup_imaging", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+ cmd.get_var('rf_pulse_time')-50.017))
+    prg.add(190000010, "Setup_imaging", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+ cmd.get_var('rf_pulse_time')-50))
     prg.add(190000010, "Single_frame_imaging", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+ cmd.get_var('t1')), enable=False)
     prg.add(190000010, "Config Field OFF.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')), enable=False)
     prg.add(190000010, "BEC_imaging", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('hold_time')+cmd.get_var('tof')), enable=False)
@@ -35,15 +35,15 @@ def program(prg, cmd):
     prg.add(190005010, "Config Levitation", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+  cmd.get_var('rf_pulse_time')), enable=False)
     prg.add(190005010, "Config Field OFF.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+ cmd.get_var('rf_pulse_time')+cmd.get_var('tof')-1))
     prg.add(190005010, "BEC_imaging", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time') + cmd.get_var('rf_pulse_time') +cmd.get_var('tof')))
-    prg.add(195005010, "Pulse uw OFF", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time') + cmd.get_var('rf_pulse_time') +cmd.get_var('tof')))
     prg.add(195005010, "BEC_imaging_z", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('tof')), enable=False)
+    prg.add(198005010, "Pulse uw OFF", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time') + cmd.get_var('rf_pulse_time') +cmd.get_var('tof')))
     prg.add(205005010, "Config Field OFF.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')), enable=False)
     prg.add(215005010, "DarkSpotMOT_19.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('hold_time')+cmd.get_var('tof')), enable=False)
     prg.add(215305010, "open_probe", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('hold_time')+cmd.get_var('tof')), enable=False)
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(1.77163e+09, 1.77168e+09, 10000)
+    iters = np.arange(1.77171e+09, 1.77176e+09, 8000)
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):

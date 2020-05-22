@@ -1533,13 +1533,13 @@ def action_list_init(act_lst):
                 board="ttl4",
                 parameters=dict(channel=[15], status=[True]),
                 categories=["actions", "TTL"])
-#    act_lst.add("RFO Sweep Trig OFF", lib_action.DigitalAction,
-#                board="ttl4",
-#                parameters=dict(channel=[16], status=[False]),
-#                categories=["actions", "TTL"])
-#    act_lst.add("RFO Sweep Trig ON", lib_action.DigitalAction,
-#                board="ttl4",
-#                parameters=dict(channel=[16], status=[True]),
-#                categories=["actions", "TTL"])
+    act_lst.add("RF Sweep Trig OFF", lib_action.DigitalAction,
+                board="ttl4",
+                parameters=dict(channel=[16], status=[False]),
+                categories=["actions", "TTL"])
+    act_lst.add("RF Sweep Trig ON", lib_action.DigitalAction,
+                board="ttl4",
+                parameters=dict(channel=[16], status=[True]),
+                categories=["actions", "TTL"])
 
 
