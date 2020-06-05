@@ -724,7 +724,7 @@ def action_list_init(act_lst):
                 var_formats=dict(value="%.4f"),
                 categories=["actions", "analog"],
                 comment="0 - 10V")
-    act_lst.add("Dipole Trap x DAC V", lib_action.AnalogAction,
+    act_lst.add("RF sweep DAC V", lib_action.AnalogAction,
                 board="ang70",
                 parameters=dict(),
                 variables=dict(value=0),

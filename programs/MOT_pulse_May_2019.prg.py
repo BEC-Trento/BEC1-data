@@ -4,9 +4,9 @@ def program(prg, cmd):
     prg.add(0, "Initialize 0 TTL and Synchronize.sub")
     prg.add(40000, "Scope 1 Trigger ON")
     prg.add(50000, "DarkSpotMOT_19.sub")
-    prg.add(10104200, "Config Field OFF.sub", enable=False)
-    prg.add(10200000, "TTL Dark Spot OFF", enable=False)
-    prg.add(10300000, "Scope 1 Trigger OFF")
+    prg.add(30104200, "Config Field OFF.sub", enable=False)
+    prg.add(30200000, "TTL Dark Spot OFF", enable=False)
+    prg.add(30300000, "Scope 1 Trigger OFF")
     return prg
 def commands(cmd):
     import numpy as np

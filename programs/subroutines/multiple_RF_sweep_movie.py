@@ -9,8 +9,27 @@ def program(prg, cmd):
         prg.add(t_sweep, "Rf Sweep Siglent" ) #siglent sweep
         #single frame imaging at time t_im
         frame_name = 'image%d'%n
-        prg.add(t_im-300, "Trig ON Stingray 1", frame_name)
-        prg.add(t_im, "Probe y AOM TTL")
+        prg.add(t_im-540, "Trig ON Stingray 1", frame_name)
+        prg.add(1.0*t_im, "Probe y AOM TTL")
         prg.add(t_im+100, "Trig OFF Stingray 1")
+        
+        
+    # probe: only probe
+    t_probe = 1e4*cmd.get_var('n_frames') * (cmd.get_var('siglent1_sweep_time') +cmd.get_var('tof_frame') + cmd.get_var('t_wait'))+1e4*(cmd.get_var('siglent1_sweep_time')+cmd.get_var('tof_frame'))
+    
+    frame_name = 'probe'
+    prg.add(t_probe-540, "Trig ON Stingray 1", frame_name)
+    prg.add(t_probe, "Probe y AOM TTL")
+    prg.add(t_probe+100, "Trig OFF Stingray 1")
+
+    
+    # dark: no probe pulse
+    t_dark= t_probe + 1e4*111
+    frame_name = 'dark'
+#   print(name, t)
+    prg.add(t_dark-1e4*20, "Shutter Probe/Push Close") #close the shutter 20 ms before the stingray trigger
+    prg.add(t_dark-540, "Trig ON Stingray 1", frame_name)
+    prg.add(t_dark+100, "Trig OFF Stingray 1")   
+
 
     return prg
