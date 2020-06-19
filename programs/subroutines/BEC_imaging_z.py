@@ -12,6 +12,6 @@ def program(prg, cmd):
     prg.add(1001410, "Probe z AOM TTL")
     prg.add(1010000, "Na Probe/Push (-) amp", 0)
     prg.add(1011000, "Na Probe z (+) amp", 0)
+    prg.add(1851934, "Shutter Probe/Push Close")
     prg.add(2016500, "Pulse Trig Stingray z", comment="dark", polarity=1, pulse_t=0.10000)
-    prg.add(3851934, "Shutter Probe/Push Close")
     return prg

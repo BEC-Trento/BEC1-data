@@ -11,7 +11,7 @@ def program(prg, cmd):
         frame_name = 'image%d'%n
         prg.add(t_im-700, "Trig ON Stingray 1", frame_name)
         prg.add(1.0*t_im, "Probe y AOM TTL")
-        prg.add(t_im+100, "Trig OFF Stingray 1")
+        prg.add(t_im+120, "Trig OFF Stingray 1")
         
         
     # probe: only probe
@@ -20,7 +20,7 @@ def program(prg, cmd):
     frame_name = 'probe'
     prg.add(t_probe-700, "Trig ON Stingray 1", frame_name)
     prg.add(t_probe, "Probe y AOM TTL")
-    prg.add(t_probe+100, "Trig OFF Stingray 1")
+    prg.add(t_probe+120, "Trig OFF Stingray 1")
 
     
     # dark: no probe pulse
@@ -29,7 +29,7 @@ def program(prg, cmd):
 #   print(name, t)
     prg.add(t_dark-1e4*20, "Shutter Probe/Push Close") #close the shutter 20 ms before the stingray trigger
     prg.add(t_dark-700, "Trig ON Stingray 1", frame_name)
-    prg.add(t_dark+100, "Trig OFF Stingray 1")   
+    prg.add(t_dark+120, "Trig OFF Stingray 1")   
 
 
     return prg

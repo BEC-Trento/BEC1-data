@@ -16,3 +16,20 @@ def program(prg, cmd):
     prg.add(195000, "Na Repumper2 (+) Amp", 800, functions=dict(amplitude=lambda x: cmd.get_var('Rep_amp')))
     prg.add(20005000, "TTL Repumper MOT ON")
     return prg
+def commands(cmd):
+    import numpy as np
+    iters = np.arange(0, 14, 3)
+    j = 0
+    while(cmd.running):
+        print('\n-------o-------')
+        cam2_position = iters[j]
+        cmd.set_var('cam2_position', cam2_position)
+        print('\n')
+        print('Run #%d/%d, with variables:\ncam2_position = %g\n'%(j+1, len(iters), cam2_position))
+        cmd._system.run_number = j
+        cmd.run(wait_end=True, add_time=100)
+        j += 1
+        if j == len(iters):
+            cmd._system.run_number = 0
+            cmd.stop()
+    return cmd
