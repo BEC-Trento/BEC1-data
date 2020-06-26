@@ -102,6 +102,8 @@ linewidth: 4
 marconi1_amp: 19
 marconi1_freq: 1771640000.0
 marconi1_pulsetime: 8
+movie_n_frames: 1
+movie_time_interval: 10
 n_frames: 40
 probe_amp: 300
 probe_det: 3
@@ -131,7 +133,7 @@ t_movie_start: 537
 t_sweep_start: 10
 t_wait: 8
 time_green: 50
-tof: 10
+tof: 26
 tof2: 50
 tof_frame: 10.5
 zs_amp: 1000
