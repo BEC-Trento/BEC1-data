@@ -2,6 +2,14 @@ prg_comment = ""
 prg_version = "0.7"
 
 def program(prg, cmd):
+
+    frame_name = 'probe0'
+    t_probe0 = -3 * 1e4
+    t_trig = 1e4*(cmd.get_var('siglent1_sweep_time')+cmd.get_var('tof_frame') - 23)
+    prg.add(t_trig - 700, "Trig ON Stingray 1", frame_name)
+    prg.add(t_probe0, "Probe y AOM TTL")
+    prg.add(t_trig + 120, "Trig OFF Stingray 1")
+    
     for n in range(0, cmd.get_var("n_frames")):
 #        t_im=1e4*(cmd.get_var('tof_frame')+cmd.get_var('siglent1_sweep_time'))*(n+1)
         t_sweep=1e4*(cmd.get_var('siglent1_sweep_time')+cmd.get_var('tof_frame')+cmd.get_var('t_wait'))*n

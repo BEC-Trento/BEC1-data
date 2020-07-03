@@ -107,13 +107,18 @@ if __name__ == '__main__':
     
     actions = [
         # fuck exp-control yet another time
-        ('Shutter Probe Na Close', 'Shutter Probe/Push Close'),
-        ('Shutter Probe Na Open',  'Shutter Probe/Push Open'),
-        ('Na Probe/Push (+) ON',   'TTL Push ON'),
-        ('Na Probe/Push (+) OFF',  'TTL Push OFF'),
-        ('Na Probe/Push (+) freq', 'Na Push (+) freq'),
-        ('Na Probe/Push (+) Amp',  'Na Push (+) amp'),
-        ('Na Probe/Push (-) Amp',  'Na Probe/Push (-) amp')
+#        ('Trig ON Stingray 1', 'Trig ON Stingray x'),
+#        ('Trig OFF Stingray 1', 'Trig OFF Stingray x'),
+#        ('Pulse Trig Stingray 1', 'Pulse Trig Stingray x'),
+        ('BEC_imaging_double', 'BEC_imaging_xz'),
+
+#        ('Shutter Probe Na Close', 'Shutter Probe/Push Close'),
+#        ('Shutter Probe Na Open',  'Shutter Probe/Push Open'),
+#        ('Na Probe/Push (+) ON',   'TTL Push ON'),
+#        ('Na Probe/Push (+) OFF',  'TTL Push OFF'),
+#        ('Na Probe/Push (+) freq', 'Na Push (+) freq'),
+#        ('Na Probe/Push (+) Amp',  'Na Push (+) amp'),
+#        ('Na Probe/Push (-) Amp',  'Na Probe/Push (-) amp')
     ]
     
     if args.dry_run:

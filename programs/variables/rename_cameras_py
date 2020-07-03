@@ -1,0 +1,26 @@
+#!/usr/bin/env python
+
+import os
+
+filenames = os.listdir('.')
+filenames = [f for f in filenames if f.endswith('.yaml')]
+
+print(filenames)
+
+new_cameras = [
+    ('cam1', 'cam_y1'),
+    ('cam2', 'cam_y2'),
+    ('cam3', 'cam_x1'),
+    ('cam4', 'cam_z1'),
+]
+
+
+for filename in filenames:
+    with open(filename, 'r') as f:
+        variables = f.read()
+        
+    for old_cam, new_cam in new_cameras:
+        variables = variables.replace(old_cam, new_cam)
+    with open(filename, 'w') as f:
+        f.write(variables)
+

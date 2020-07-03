@@ -1,11 +1,11 @@
-cam1_ExposureTime: 70000
-cam1_Height: 600
-cam1_OffsetX: 610
-cam1_OffsetY: 380
-cam1_Width: 600
+cam_y1_ExposureTime: 70000
+cam_y1_Height: 600
+cam_y1_OffsetX: 610
+cam_y1_OffsetY: 380
+cam_y1_Width: 600
 
-cam4_ExposureTime: 70000
-cam4_Height: 800
-cam4_OffsetX: 0
-cam4_OffsetY: 200
-cam4_Width: 1624
+cam_z1_ExposureTime: 70000
+cam_z1_Height: 800
+cam_z1_OffsetX: 0
+cam_z1_OffsetY: 200
+cam_z1_Width: 1624

@@ -40,9 +40,9 @@ def angle_line(X, Y, Y0, width, alpha):
 
 # --- start
 # get some default values
-x0 = globals().get('x0', 0)
-width = globals().get('width', 10)
-alpha = globals().get('alpha', 45)
+#x0 = globals().get('x0', 0)
+#width = globals().get('width', 10)
+#alpha = globals().get('alpha', 45)
 
 im = vertical_line(X, Y, x0, width)
 im += angle_line(X, Y, x0, width, alpha)

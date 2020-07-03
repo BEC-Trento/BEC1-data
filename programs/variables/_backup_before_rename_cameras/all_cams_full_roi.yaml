@@ -1,0 +1,20 @@
+cam1_ExposureTime: 70000
+cam1_Height: 1234
+cam1_OffsetX: 0
+cam1_OffsetY: 0
+cam1_PixelFormat: Mono16
+cam1_Width: 1624
+
+cam3_ExposureTime: 70000
+cam3_Height: 1234
+cam3_OffsetX: 0
+cam3_OffsetY: 0
+cam3_PixelFormat: Mono16
+cam3_Width: 1624
+
+cam4_ExposureTime: 70000
+cam4_Height: 1234
+cam4_OffsetX: 0
+cam4_OffsetY: 0
+cam4_PixelFormat: Mono16
+cam4_Width: 1624
