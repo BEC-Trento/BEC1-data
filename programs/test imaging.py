@@ -15,6 +15,7 @@ def program(prg, cmd):
     prg.add(10000000, "Single_frame_imaging", enable=False)
     prg.add(10000000, "Single_frame_imaging_z", enable=False)
     prg.add(10000000, "BEC_imaging")
+    prg.add(10000000, "BEC_imaging_field_lock", enable=False)
     prg.add(10000000, "BEC_imaging_z", enable=False)
     prg.add(10000000, "BEC_imaging_x", enable=False)
     prg.add(10000000, "BEC_imaging_xz", enable=False)
