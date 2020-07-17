@@ -5,7 +5,7 @@ def program(prg, cmd):
 
     frame_name = 'probe0'
     t_probe0 = -3 * 1e4
-    t_trig = 1e4*(cmd.get_var('siglent1_sweep_time')+cmd.get_var('tof_frame') - 23)
+    t_trig = 1e4*(cmd.get_var('siglent1_sweep_time')+cmd.get_var('tof_frame') - 24)
     prg.add(t_trig - 700, "Trig ON Stingray 1", frame_name)
     prg.add(t_probe0, "Probe y AOM TTL")
     prg.add(t_trig + 120, "Trig OFF Stingray 1")
@@ -15,6 +15,7 @@ def program(prg, cmd):
         t_sweep=1e4*(cmd.get_var('siglent1_sweep_time')+cmd.get_var('tof_frame')+cmd.get_var('t_wait'))*n
         t_im=t_sweep+1e4*(cmd.get_var('siglent1_sweep_time')+cmd.get_var('tof_frame'))
         prg.add(t_sweep, "Rf Sweep Siglent" ) #siglent sweep
+        prg.add(t_sweep+0.1e4, "Pulse uw", pulse_t = cmd.get_var('tof_frame'))
         #single frame imaging at time t_im
         frame_name = 'image%d'%n
         prg.add(t_im-700, "Trig ON Stingray 1", frame_name)

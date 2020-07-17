@@ -110,9 +110,9 @@ marconi1_pulsetime: 300
 movie_n_frames: 1
 movie_time_interval: 10
 n_frames: 20
-probe_amp: 300
+probe_amp: 1000
 probe_det: 3
-probe_pulsetime: 3
+probe_pulsetime: 8
 probe_push_amp: 1000
 probe_z_amp: 1000
 probe_z_det: 2

@@ -6,7 +6,7 @@ def program(prg, cmd):
     prg.add(-320, "Pulse uw ON", functions=dict(time=lambda x: x - 1e-3*cmd.get_var('marconi1_pulsetime')), enable=False)
     prg.add(-320, "Pulse uw OFF", enable=False)
     prg.add(-310, "Pulse Probe y", polarity=1, pulse_t=0.10000, functions=dict(pulse_t=lambda x: cmd.get_var('probe_pulsetime')*1e-3), enable=False)
-    prg.add(-310, "Repumper AOM TTL", enable=False)
+    prg.add(-310, "Repumper AOM TTL")
     prg.add(0, "Probe y AOM TTL")
     prg.add(4, "Scope 1 Trigger Pulse", polarity=1, pulse_t=0.00564, enable=False)
     prg.add(999916, "Pulse Trig Stingray 1", comment="probe", polarity=1, pulse_t=0.14400)
