@@ -28,6 +28,8 @@ def program(prg, cmd):
     prg.add(230052440, "Single_frame_imaging", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('sync_time')+cmd.get_var('evap3_time')+ cmd.get_var('siglent1_sweep_time') +cmd.get_var('tof')), enable=False)
     prg.add(230052440, "multiple_RF_sweep_movie", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('sync_time')+cmd.get_var('evap3_time')+cmd.get_var('t_movie_start')))
     prg.add(230052440, "RF sweep DAC V", 0.0000, functions=dict(value=lambda x: cmd.get_var('DAC_V'), time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('sync_time')+cmd.get_var('evap3_time')+cmd.get_var('t_movie_start')-50.0123), enable=False)
+    prg.add(230052440, "Config Levitation", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('sync_time')+cmd.get_var('evap3_time')+cmd.get_var('t_movie_start') + cmd.get_var('siglent1_sweep_time') +1.032), enable=False)
+    prg.add(230052440, "Config Field OFF.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('sync_time')+cmd.get_var('evap3_time')+cmd.get_var('t_movie_start') + cmd.get_var('siglent1_sweep_time') +cmd.get_var('tof_frame')-1), enable=False)
     prg.add(230052449, "BEC_imaging", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('sync_time')+cmd.get_var('evap3_time')+cmd.get_var('t_movie_start') + cmd.get_var('siglent1_sweep_time') +cmd.get_var('tof_frame')), enable=False)
     prg.add(232557440, "RF sweep DAC V", 0.0000, functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time') +cmd.get_var('sync_time')+cmd.get_var('evap3_time') + cmd.get_var('t_movie_start')+cmd.get_var('n_frames') * (cmd.get_var('siglent1_sweep_time') +cmd.get_var('tof_frame') + cmd.get_var('t_wait'))), enable=False)
     prg.add(233557440, "Pulse uw OFF", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time') +cmd.get_var('sync_time')+cmd.get_var('evap3_time')+cmd.get_var('t_movie_start')+cmd.get_var('n_frames') * (cmd.get_var('siglent1_sweep_time') +cmd.get_var('tof_frame') + cmd.get_var('t_wait'))), enable=False)
@@ -38,15 +40,15 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(100, 1000, 100)
+    iters = np.arange(-200, 200, 50)
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        evap3_time = iters[j]
-        cmd.set_var('evap3_time', evap3_time)
+        t_movie_start = iters[j]
+        cmd.set_var('t_movie_start', t_movie_start)
         print('\n')
-        print('Run #%d/%d, with variables:\nevap3_time = %g\n'%(j+1, len(iters), evap3_time))
+        print('Run #%d/%d, with variables:\nt_movie_start = %g\n'%(j+1, len(iters), t_movie_start))
         cmd._system.run_number = j
         cmd.run(wait_end=True, add_time=100)
         j += 1
