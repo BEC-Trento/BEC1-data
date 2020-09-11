@@ -52,4 +52,5 @@ def program(prg, cmd):
     prg.add(24000, "IGBT B grad x OFF")
     prg.add(24500, "Shutter Gray molasses Open")
     prg.add(25000, "Config MOT.sub")
+    prg.add(15025000, "MOT lights Off TTL.sub", enable=False)
     return prg
