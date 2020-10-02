@@ -12,13 +12,16 @@ def program(prg, cmd):
     
     for n in range(0, cmd.get_var("n_frames")):
 #        t_im=1e4*(cmd.get_var('tof_frame')+cmd.get_var('siglent1_sweep_time'))*(n+1)
-        t_sweep=1e4*(cmd.get_var('siglent1_sweep_time')+cmd.get_var('tof_frame')+cmd.get_var('t_wait'))*n
-        t_im=t_sweep+1e4*(cmd.get_var('siglent1_sweep_time')+cmd.get_var('tof_frame'))
+        t_sweep = n * 1e4*(cmd.get_var('siglent1_sweep_time')+cmd.get_var('tof_frame')+cmd.get_var('t_wait'))
+        t_uw = t_sweep + 1e4*(cmd.get_var('siglent1_sweep_time') + 0.1)
+        t_im = t_sweep + 1e4*(cmd.get_var('siglent1_sweep_time')+cmd.get_var('tof_frame'))
+
         prg.add(t_sweep, "Rf Sweep Siglent" ) #siglent sweep
-        prg.add(t_sweep+0.1e4, "Pulse uw", pulse_t = cmd.get_var('tof_frame'))
+        prg.add(t_uw, "Pulse uw", pulse_t = cmd.get_var('tof_frame'))
         #single frame imaging at time t_im
         frame_name = 'image%d'%n
         prg.add(t_im-700, "Trig ON Stingray 1", frame_name)
+        # prg.add(1.0*t_im - 0.031 * 1e4, "Repumper AOM TTL")
         prg.add(1.0*t_im, "Probe y AOM TTL")
         prg.add(t_im+120, "Trig OFF Stingray 1")
         

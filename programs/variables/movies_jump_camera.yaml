@@ -1,0 +1,20 @@
+cam_y1_ExposureTime: 19800
+cam_y1_Height: 170
+cam_y1_OffsetX: 770
+cam_y1_OffsetY: 650
+cam_y1_PixelFormat: Mono16
+cam_y1_Width: 200
+
+marconi1_amp: -23
+marconi1_freq: 1771665000
+
+siglent1_amp: 0.6
+siglent1_direction: up
+siglent1_freq: 1.0575
+siglent1_freq_width: 0.025
+siglent1_function: set_sweep
+siglent1_sweep_time: 2.5
+
+t_wait: 27.5
+tof_frame: 10
+
