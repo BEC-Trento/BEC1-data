@@ -40,15 +40,15 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(1.03, 1.09, 0.01)
+    iters = np.arange(10, 82, 5)
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        siglent1_freq = iters[j]
-        cmd.set_var('siglent1_freq', siglent1_freq)
+        evap3_time = iters[j]
+        cmd.set_var('evap3_time', evap3_time)
         print('\n')
-        print('Run #%d/%d, with variables:\nsiglent1_freq = %g\n'%(j+1, len(iters), siglent1_freq))
+        print('Run #%d/%d, with variables:\nevap3_time = %g\n'%(j+1, len(iters), evap3_time))
         cmd._system.run_number = j
         cmd.run(wait_end=True, add_time=100)
         j += 1
