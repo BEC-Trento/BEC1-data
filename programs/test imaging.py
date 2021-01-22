@@ -14,9 +14,9 @@ def program(prg, cmd):
     prg.add(10000000, "Imaging_uw_movie", enable=False)
     prg.add(10000000, "Single_frame_imaging", enable=False)
     prg.add(10000000, "Single_frame_imaging_z", enable=False)
-    prg.add(10000000, "BEC_imaging", enable=False)
+    prg.add(10000000, "BEC_imaging")
     prg.add(10000000, "BEC_imaging_field_lock", enable=False)
-    prg.add(10000000, "BEC_imaging_z")
+    prg.add(10000000, "BEC_imaging_z", enable=False)
     prg.add(10000000, "BEC_imaging_x", enable=False)
     prg.add(10000000, "BEC_imaging_xz", enable=False)
     prg.add(10000000, "BEC_imaging_xy", enable=False)
@@ -25,7 +25,7 @@ def program(prg, cmd):
     prg.add(10000000, "multiple_RF_sweep_movie", enable=False)
     prg.add(11200001, "Setup_tof_imaging", enable=False)
     prg.add(12000000, "BEC_imaging", enable=False)
-    prg.add(36200001, "open_probe")
+    prg.add(36200001, "open_probe", enable=False)
     return prg
 def commands(cmd):
     import numpy as np

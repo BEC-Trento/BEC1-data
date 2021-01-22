@@ -32,17 +32,17 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(1.1, 1.34, 0.005)
+    iters = np.arange(-0.121, -0.12, 0.0005)
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        evap2_fend = iters[j]
-        cmd.set_var('evap2_fend', evap2_fend)
+        Bx_bottom = iters[j]
+        cmd.set_var('Bx_bottom', Bx_bottom)
         print('\n')
-        print('Run #%d/%d, with variables:\nevap2_fend = %g\n'%(j+1, len(iters), evap2_fend))
+        print('Run #%d/%d, with variables:\nBx_bottom = %g\n'%(j+1, len(iters), Bx_bottom))
         cmd._system.run_number = j
-        cmd.run(wait_end=True, add_time=101)
+        cmd.run(wait_end=True, add_time=100)
         j += 1
         if j == len(iters):
             cmd._system.run_number = 0

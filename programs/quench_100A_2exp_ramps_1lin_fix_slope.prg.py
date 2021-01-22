@@ -35,17 +35,19 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(300, 1000, 75)
+    t_movie_start_arr, repeat_arr = np.mgrid[0:1000:80, 0:5:1, ]
+    iters = list(zip(t_movie_start_arr.ravel(), repeat_arr.ravel()))
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        t_movie_start = iters[j]
+        t_movie_start, repeat = iters[j]
         cmd.set_var('t_movie_start', t_movie_start)
+        cmd.set_var('repeat', repeat)
         print('\n')
-        print('Run #%d/%d, with variables:\nt_movie_start = %g\n'%(j+1, len(iters), t_movie_start))
+        print('Run #%d/%d, with variables:\nt_movie_start = %g\nrepeat = %g\n'%(j+1, len(iters), t_movie_start, repeat))
         cmd._system.run_number = j
-        cmd.run(wait_end=True, add_time=101)
+        cmd.run(wait_end=True, add_time=100)
         j += 1
         if j == len(iters):
             cmd._system.run_number = 0
