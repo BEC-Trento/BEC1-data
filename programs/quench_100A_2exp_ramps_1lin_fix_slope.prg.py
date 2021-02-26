@@ -35,7 +35,7 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    t_movie_start_arr, repeat_arr = np.mgrid[0:1000:80, 0:5:1, ]
+    t_movie_start_arr, repeat_arr = np.mgrid[160:221:10, 0:1:1, ]
     iters = list(zip(t_movie_start_arr.ravel(), repeat_arr.ravel()))
     np.random.shuffle(iters)
     j = 0

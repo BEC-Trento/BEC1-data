@@ -56,5 +56,6 @@ def program(prg, cmd):
     prg.add(42000, "Na Gray molasses (-) freq", 87.50)
     prg.add(44000, "AOM GM Amp ch1 (+)", 1000)
     prg.add(46000, "AOM GM Amp ch2 (-)", 1000)
-    prg.add(15025000, "MOT lights Off TTL.sub", enable=False)
+    prg.add(1046000, "open_probe")
+    prg.add(16025000, "MOT lights Off TTL.sub")
     return prg
