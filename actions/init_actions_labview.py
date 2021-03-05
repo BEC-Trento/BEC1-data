@@ -1421,6 +1421,14 @@ def action_list_init(act_lst):
                 board="ttl4",
                 parameters=dict(channel=[4], status=[True]),
                 categories=["actions", "TTL"])
+    act_lst.add("Scope 4 Trigger ON", lib_action.DigitalAction,
+                board="ttl4",
+                parameters=dict(channel=[5], status=[False]),
+                categories=["actions", "TTL"])
+    act_lst.add("Scope 4 Trigger OFF", lib_action.DigitalAction,
+                board="ttl4",
+                parameters=dict(channel=[5], status=[True]),
+                categories=["actions", "TTL"])
 #    act_lst.add("Optical Levit OFF", lib_action.DigitalAction,
 #                board="ttl4",
 #                parameters=dict(channel=[5], status=[False]),

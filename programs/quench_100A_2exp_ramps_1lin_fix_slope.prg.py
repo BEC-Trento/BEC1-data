@@ -3,6 +3,7 @@ prg_version = "0.7"
 def program(prg, cmd):
     prg.add(10000, "Initialize 0 TTL and Synchronize.sub")
     prg.add(50000, "DarkSpotMOT_19.sub")
+    prg.add(100000000, "Scope 4 Trigger Pulse", polarity=1, pulse_t=0.01230)
     prg.add(209000000, "Synchronize.sub", enable=False)
     prg.add(209943111, "MOT lights Off TTL.sub")
     prg.add(209947301, "Config Field OFF.sub")
@@ -35,17 +36,15 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    t_movie_start_arr, repeat_arr = np.mgrid[160:221:10, 0:1:1, ]
-    iters = list(zip(t_movie_start_arr.ravel(), repeat_arr.ravel()))
+    iters = np.arange(25, 301, 50)
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        t_movie_start, repeat = iters[j]
+        t_movie_start = iters[j]
         cmd.set_var('t_movie_start', t_movie_start)
-        cmd.set_var('repeat', repeat)
         print('\n')
-        print('Run #%d/%d, with variables:\nt_movie_start = %g\nrepeat = %g\n'%(j+1, len(iters), t_movie_start, repeat))
+        print('Run #%d/%d, with variables:\nt_movie_start = %g\n'%(j+1, len(iters), t_movie_start))
         cmd._system.run_number = j
         cmd.run(wait_end=True, add_time=100)
         j += 1

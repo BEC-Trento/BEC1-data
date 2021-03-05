@@ -15,6 +15,13 @@ def action_list_init(action_list):
                     variables=dict(pulse_t=0.0123, polarity=1),
                     var_formats=dict(pulse_t="%.5f", polarity="%d"),
                     comment="ttl pulse")
+                    
+    action_list.add("Scope 4 Trigger Pulse", lib_ttlpulse.TTLPulse,
+                    categories=["ttl pulses"],
+                    parameters=dict(act_on_name="Scope 4 Trigger ON", act_off_name="Scope 4 Trigger OFF"),
+                    variables=dict(pulse_t=0.0123, polarity=1),
+                    var_formats=dict(pulse_t="%.5f", polarity="%d"),
+                    comment="ttl pulse")                    
                                         
     action_list.add("Pulse uw", lib_ttlpulse.TTLPulse,
                     categories=["ttl pulses"],
