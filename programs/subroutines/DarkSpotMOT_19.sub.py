@@ -53,5 +53,5 @@ def program(prg, cmd):
     prg.add(24500, "Shutter Gray molasses Open")
     prg.add(25000, "Config MOT.sub")
     prg.add(15025000, "MOT lights Off TTL.sub", enable=False)
-    prg.add(50000000, "Scope 4 Trigger Pulse", polarity=1, pulse_t=0.01230)
+    prg.add(50000000, "Scope 4 Trigger Pulse", polarity=1, pulse_t=0.01230, enable=False)
     return prg

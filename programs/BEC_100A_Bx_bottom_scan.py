@@ -43,7 +43,7 @@ def commands(cmd):
         print('\n')
         print('Run #%d/%d, with variables:\nrepeat = %g\n'%(j+1, len(iters), repeat))
         cmd._system.run_number = j
-        cmd.run(wait_end=True, add_time=100)
+        cmd.run(wait_end=True, add_time=101)
         j += 1
         if j == len(iters):
             cmd._system.run_number = 0

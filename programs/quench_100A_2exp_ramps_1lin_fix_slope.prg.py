@@ -36,15 +36,15 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(25, 301, 50)
+    iters = np.arange(5, 221, 15)
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        t_movie_start = iters[j]
-        cmd.set_var('t_movie_start', t_movie_start)
+        evap3_time = iters[j]
+        cmd.set_var('evap3_time', evap3_time)
         print('\n')
-        print('Run #%d/%d, with variables:\nt_movie_start = %g\n'%(j+1, len(iters), t_movie_start))
+        print('Run #%d/%d, with variables:\nevap3_time = %g\n'%(j+1, len(iters), evap3_time))
         cmd._system.run_number = j
         cmd.run(wait_end=True, add_time=100)
         j += 1
