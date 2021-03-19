@@ -4,7 +4,7 @@ def program(prg, cmd):
     prg.add(-702680, "Pulse Trig Stingray x", comment="F1", polarity=1, pulse_t=0.10000, enable=False)
     prg.add(-1000, "Pulse Trig Stingray x", comment="atoms", polarity=1, pulse_t=0.10540)
     prg.add(-310, "Pulse Probe y", polarity=1, pulse_t=0.10000, functions=dict(pulse_t=lambda x: cmd.get_var('probe_pulsetime')*1e-3), enable=False)
-    prg.add(-310, "Repumper AOM TTL")
+    prg.add(-310, "Repumper AOM TTL", enable=False)
     prg.add(-310, "Pulse uw ON", functions=dict(time=lambda x: x - 1e-3*cmd.get_var('marconi1_pulsetime')), enable=False)
     prg.add(-310, "Pulse uw OFF", enable=False)
     prg.add(0, "Probe y AOM TTL")

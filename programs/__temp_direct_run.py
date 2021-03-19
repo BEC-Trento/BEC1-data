@@ -1,5 +1,5 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
-    prg.add(0, "Shutter repump Na Close")
+    prg.add(0, "Dipole Trap y AOM (-) freq", 90.00)
     return prg
