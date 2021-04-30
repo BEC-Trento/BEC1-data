@@ -53,5 +53,26 @@ def program(prg, cmd):
     prg.add(24500, "Shutter Gray molasses Open")
     prg.add(25000, "Config MOT.sub")
     prg.add(15025000, "MOT lights Off TTL.sub", enable=False)
-    prg.add(50000000, "Scope 4 Trigger Pulse", polarity=1, pulse_t=0.01230, enable=False)
+    prg.add(16025000, "open_probe", enable=False)
+    prg.add(51000000, "Scope 4 Trigger Pulse", polarity=1, pulse_t=0.01230, enable=False)
     return prg
+def commands(cmd):
+    import numpy as np
+    push_amp_arr, repeat_arr = np.mgrid[250:600:100, 0:2:1, ]
+    iters = list(zip(push_amp_arr.ravel(), repeat_arr.ravel()))
+    np.random.shuffle(iters)
+    j = 0
+    while(cmd.running):
+        print('\n-------o-------')
+        push_amp, repeat = iters[j]
+        cmd.set_var('push_amp', push_amp)
+        cmd.set_var('repeat', repeat)
+        print('\n')
+        print('Run #%d/%d, with variables:\npush_amp = %g\nrepeat = %g\n'%(j+1, len(iters), push_amp, repeat))
+        cmd._system.run_number = j
+        cmd.run(wait_end=True, add_time=100)
+        j += 1
+        if j == len(iters):
+            cmd._system.run_number = 0
+            cmd.stop()
+    return cmd
