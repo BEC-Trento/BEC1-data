@@ -721,16 +721,16 @@ def action_list_init(act_lst):
                 board="ang69",
                 parameters=dict(),
                 variables=dict(value=0),
-                var_formats=dict(value="%.4f"),
+                var_formats=dict(value="%.3f"),
                 categories=["actions", "analog"],
-                comment="0 - 10V")
-    act_lst.add("Dipole Trap x Dac V", lib_action.AnalogAction,
+                comment="0 - 8V")
+    act_lst.add("Dipole Trap x DAC V", lib_action.AnalogAction,
                 board="ang70",
                 parameters=dict(),
                 variables=dict(value=0),
-                var_formats=dict(value="%.4f"),
+                var_formats=dict(value="%.3f"),
                 categories=["actions", "analog"],
-                comment="0 - 10V")
+                comment="0 - 4V")
     act_lst.add("Analog71", lib_action.AnalogAction,
                 board="ang71",
                 parameters=dict(),

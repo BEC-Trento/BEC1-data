@@ -230,7 +230,7 @@ def action_list_init(action_list):
                     parameters=dict(act_name="Dipole Trap x DAC V", act_var_name="value"),
                     variables=dict(start_x=0, stop_x=1, start_t=0, stop_t=100, n_points=100),
                     var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
-                    comment="Tom")
+                    comment="2021")
 
                     
     action_list.add("Dipole Trap y ramp", lib_ramp.LinearRamp,
@@ -238,7 +238,7 @@ def action_list_init(action_list):
                     parameters=dict(act_name="Dipole Trap y DAC V", act_var_name="value"),
                     variables=dict(start_x=0, stop_x=1, start_t=0, stop_t=100, n_points=100),
                     var_formats=dict(start_x="%.3f", stop_x="%.3f", start_t="%.4f", stop_t="%.4f", n_points="%d"),
-                    comment="Tom")
+                    comment="2021")
                    
 
     action_list.add("RFO FM amp ramp", lib_ramp.LinearRamp,

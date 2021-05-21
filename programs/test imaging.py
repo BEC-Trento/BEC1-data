@@ -26,7 +26,7 @@ def program(prg, cmd):
     prg.add(10402349, "BEC_imaging", enable=False)
     prg.add(11400001, "Setup_tof_imaging", enable=False)
     prg.add(12200000, "BEC_imaging", enable=False)
-    prg.add(36400001, "open_probe", enable=False)
+    prg.add(36400001, "open_probe")
     prg.add(36419001, "Shutter EOM Na Open", enable=False)
     prg.add(40000000, "EMPTY")
     return prg
