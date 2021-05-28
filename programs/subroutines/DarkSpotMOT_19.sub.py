@@ -53,8 +53,9 @@ def program(prg, cmd):
     prg.add(24500, "Shutter Gray molasses Open")
     prg.add(25000, "Config MOT.sub")
     prg.add(15025000, "MOT lights Off TTL.sub", enable=False)
-    prg.add(16025000, "open_probe", enable=False)
-    prg.add(51000000, "Scope 4 Trigger Pulse", polarity=1, pulse_t=0.01230, enable=False)
+    prg.add(115025000, "Mirrors Imaging", enable=False)
+    prg.add(116025000, "open_probe", enable=False)
+    prg.add(151000000, "Scope 4 Trigger Pulse", polarity=1, pulse_t=0.01230, enable=False)
     return prg
 def commands(cmd):
     import numpy as np

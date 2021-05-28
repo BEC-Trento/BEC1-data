@@ -1,5 +1,6 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
-    prg.add(20000, "Dipole Trap x ramp", start_t=0.0000, stop_x=1.000, n_points=100, start_x=0.000, stop_t=100.0000)
+    prg.add(0, "Scope 1 Trigger Pulse", polarity=1, pulse_t=0.01000)
+    prg.add(170, "Pulse uw", polarity=1, pulse_t=0.00200, functions=dict(pulse_t=lambda x: cmd.get_var('marconi1_pulsetime')))
     return prg
