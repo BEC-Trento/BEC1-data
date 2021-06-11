@@ -605,6 +605,20 @@ def action_list_init(act_lst):
                 var_formats=dict(amplitude="%d"),
                 categories=["actions", "DDS"],
                 comment="amplitude")
+    act_lst.add("RF_freq", lib_action.DdsAction,
+                board="dds50",
+                parameters=dict(channel=2),
+                variables=dict(frequency=0),
+                var_formats=dict(frequency="%d"),
+                categories=["actions", "DDS"],
+                comment="frequency")
+    act_lst.add("RF_amp", lib_action.DdsAction,
+                board="dds50",
+                parameters=dict(channel=2),
+                variables=dict(amplitude=0),
+                var_formats=dict(amplitude="%d"),
+                categories=["actions", "DDS"],
+                comment="amplitude")
 #    act_lst.add("Evaporation uw", lib_action.DdsAction,
 #                board="dds51",
 #                parameters=dict(),

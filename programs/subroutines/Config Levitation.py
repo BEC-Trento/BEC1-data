@@ -9,5 +9,5 @@ def program(prg, cmd):
     prg.add(40, "Delta 1 Current", 12.000, functions=dict(value=lambda x: 2.232315e-6*cmd.get_var('tof')**3 - 1.164726e-3*cmd.get_var('tof')**2 + 1.986549e-1*cmd.get_var('tof') + 2.931988), enable=False)
     prg.add(40, "Delta 1 Current", 0.000, functions=dict(value=lambda x: cmd.get_var('Levitation_current')))
     prg.add(7940, "Ramp_bias_imaging", enable=False)
-    prg.add(8139, "Ramp_bias_imaging_dipole")
+    prg.add(8139, "Ramp_bias_imaging_dipole", functions=dict(time=lambda x: x+cmd.get_var('tof2')-cmd.get_var('t_cfo')-2.014))
     return prg
