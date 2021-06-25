@@ -53,21 +53,21 @@ def program(prg, cmd):
     prg.add(24500, "Shutter Gray molasses Open")
     prg.add(25000, "Config MOT.sub")
     prg.add(15025000, "MOT lights Off TTL.sub", enable=False)
+    prg.add(100000000, "Config Field OFF.sub", enable=False)
     prg.add(115025000, "Mirrors Imaging", enable=False)
     prg.add(116025000, "open_probe", enable=False)
     prg.add(151000000, "Scope 4 Trigger Pulse", polarity=1, pulse_t=0.01230, enable=False)
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(-0.175, -0.164, 0.002)
-    np.random.shuffle(iters)
+    iters = np.arange(10, 400, 30)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        Bx_bottom = iters[j]
-        cmd.set_var('Bx_bottom', Bx_bottom)
+        dipole_hold_time = iters[j]
+        cmd.set_var('dipole_hold_time', dipole_hold_time)
         print('\n')
-        print('Run #%d/%d, with variables:\nBx_bottom = %g\n'%(j+1, len(iters), Bx_bottom))
+        print('Run #%d/%d, with variables:\ndipole_hold_time = %g\n'%(j+1, len(iters), dipole_hold_time))
         cmd._system.run_number = j
         cmd.run(wait_end=True, add_time=100)
         j += 1
