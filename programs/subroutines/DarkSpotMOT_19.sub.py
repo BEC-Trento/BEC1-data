@@ -58,20 +58,3 @@ def program(prg, cmd):
     prg.add(116025000, "open_probe", enable=False)
     prg.add(151000000, "Scope 4 Trigger Pulse", polarity=1, pulse_t=0.01230, enable=False)
     return prg
-def commands(cmd):
-    import numpy as np
-    iters = np.arange(10, 400, 30)
-    j = 0
-    while(cmd.running):
-        print('\n-------o-------')
-        dipole_hold_time = iters[j]
-        cmd.set_var('dipole_hold_time', dipole_hold_time)
-        print('\n')
-        print('Run #%d/%d, with variables:\ndipole_hold_time = %g\n'%(j+1, len(iters), dipole_hold_time))
-        cmd._system.run_number = j
-        cmd.run(wait_end=True, add_time=100)
-        j += 1
-        if j == len(iters):
-            cmd._system.run_number = 0
-            cmd.stop()
-    return cmd
