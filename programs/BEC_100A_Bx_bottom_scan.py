@@ -31,20 +31,19 @@ def program(prg, cmd):
     prg.add(230053420, "BEC_imaging_z", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('sync_time')+cmd.get_var('evap3_time')+cmd.get_var('t_movie_start')+cmd.get_var('tof')), enable=False)
     prg.add(230053420, "BEC_imaging_xy", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('sync_time')+cmd.get_var('evap3_time')+cmd.get_var('t_movie_start')+cmd.get_var('tof')), enable=False)
     prg.add(230153419, "Config Field OFF.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('sync_time')+cmd.get_var('evap3_time')+cmd.get_var('t_movie_start')+cmd.get_var('tof')), enable=False)
-    prg.add(240153420, "DarkSpotMOT_19.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('hold_time')+cmd.get_var('tof')), enable=False)
+    prg.add(240153420, "DarkSpotMOT_19.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('sync_time')+cmd.get_var('evap3_time')+cmd.get_var('t_movie_start')+cmd.get_var('tof')))
     prg.add(240453420, "open_probe", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('hold_time')+cmd.get_var('tof')), enable=False)
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(1.1, 1.3, 0.01)
-    np.random.shuffle(iters)
+    iters = np.arange(0.05, 1.01, 0.1)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        evap2_fend = iters[j]
-        cmd.set_var('evap2_fend', evap2_fend)
+        Dipole_DAC_V_fraction = iters[j]
+        cmd.set_var('Dipole_DAC_V_fraction', Dipole_DAC_V_fraction)
         print('\n')
-        print('Run #%d/%d, with variables:\nevap2_fend = %g\n'%(j+1, len(iters), evap2_fend))
+        print('Run #%d/%d, with variables:\nDipole_DAC_V_fraction = %g\n'%(j+1, len(iters), Dipole_DAC_V_fraction))
         cmd._system.run_number = j
         cmd.run(wait_end=True, add_time=100)
         j += 1

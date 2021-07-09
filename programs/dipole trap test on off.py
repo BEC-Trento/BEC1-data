@@ -2,11 +2,12 @@ prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
     prg.add(5000000, "Dipole trap xy STANDBY")
+    prg.add(9990000, "Scope 1 Trigger Pulse", polarity=1, pulse_t=0.01000)
     prg.add(10000000, "Dipole trap xy ON")
-    prg.add(15000000, "Dipole Trap y DAC V", 6.000)
-    prg.add(20000000, "Dipole Trap y DAC V", 4.000)
-    prg.add(25000000, "Dipole Trap y DAC V", 2.000)
-    prg.add(30000000, "Dipole Trap y DAC V", 0.000)
+    prg.add(15000000, "Dipole Trap y DAC V", 4.000)
+    prg.add(20000000, "Dipole Trap x DAC V", 5.000)
+    prg.add(25000000, "Dipole Trap y DAC V", 0.000)
+    prg.add(30000000, "Dipole Trap x DAC V", 0.000)
     prg.add(40000000, "Dipole trap xy STANDBY")
     return prg
 def commands(cmd):
