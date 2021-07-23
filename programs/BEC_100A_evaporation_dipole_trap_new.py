@@ -26,23 +26,24 @@ def program(prg, cmd):
     prg.add(240052419, "Config Field OFF.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+0.23+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('magnetic_trap_hold')))
     prg.add(240052419, "Ramp_bias_field", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+0.33))
     prg.add(240052419, "Pulse uw with RF", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('dipole_hold2_time')+cmd.get_var('dipole_hold3_time')+cmd.get_var('dipole_evap2_time')-cmd.get_var('marconi1_pulsetime')*1e-3-0.01), enable=False)
-    prg.add(240052419, "Pulse uw with RF double", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('dipole_hold2_time')-cmd.get_var('marconi1_pulsetime')*1e-3+cmd.get_var('dipole_hold3_time')+cmd.get_var('dipole_evap2_time')-cmd.get_var('marconi1_pulsetime2')*1e-3-0.0147), enable=False)
-    prg.add(240052419, "Scope 1 Trigger Pulse", polarity=1, pulse_t=1.00000, functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('dipole_hold2_time')-cmd.get_var('marconi1_pulsetime')*1e-3-cmd.get_var('marconi1_pulsetime2')*1e-3-0.223+cmd.get_var('dipole_hold3_time')+cmd.get_var('dipole_evap2_time')))
-    prg.add(240052620, "Setup_imaging", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('dipole_hold2_time')+cmd.get_var('mix_time')+cmd.get_var('tof')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold3_time')+cmd.get_var('dipole_evap2_time')-22.3))
+    prg.add(240052419, "Pulse uw with RF double", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('dipole_hold2_time')-cmd.get_var('marconi1_pulsetime')*1e-3+cmd.get_var('dipole_hold3_time')+cmd.get_var('dipole_evap2_time')-cmd.get_var('marconi1_pulsetime2')*1e-3-0.0147))
+    prg.add(240052419, "Scope 1 Trigger Pulse", polarity=1, pulse_t=1.00000, functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('dipole_hold2_time')-cmd.get_var('marconi1_pulsetime')*1e-3+cmd.get_var('dipole_hold3_time')+cmd.get_var('dipole_evap2_time')-cmd.get_var('marconi1_pulsetime2')*1e-3-0.01))
+    prg.add(240052419, "Pulse uw with RF dressing", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('dipole_hold2_time')-cmd.get_var('marconi1_pulsetime')*1e-3+cmd.get_var('dipole_hold3_time')+cmd.get_var('dipole_evap2_time')-cmd.get_var('marconi1_pulsetime2')*1e-3-cmd.get_var('marconi1_pulsetime_dressing')*1e-3-0.0147), enable=False)
+    prg.add(240052620, "Setup_imaging", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('dipole_hold2_time')+cmd.get_var('mix_time')+cmd.get_var('tof')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold3_time')+cmd.get_var('dipole_evap2_time')-22.37))
     prg.add(240053420, "BEC_imaging_field_OFF")
     prg.add(240053420, "BEC_imaging_z_field_OFF", enable=False)
     prg.add(248053420, "DarkSpotMOT_19.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('dipole_hold2_time')+cmd.get_var('mix_time')+cmd.get_var('tof')+cmd.get_var('tof2')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('dipole_hold3_time')+cmd.get_var('dipole_evap2_time')))
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(10, 200, 20)
+    iters = np.arange(1.42, 1.435, 0.003)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        mix_time = iters[j]
-        cmd.set_var('mix_time', mix_time)
+        Bx_grad_comp = iters[j]
+        cmd.set_var('Bx_grad_comp', Bx_grad_comp)
         print('\n')
-        print('Run #%d/%d, with variables:\nmix_time = %g\n'%(j+1, len(iters), mix_time))
+        print('Run #%d/%d, with variables:\nBx_grad_comp = %g\n'%(j+1, len(iters), Bx_grad_comp))
         cmd._system.run_number = j
         cmd.run(wait_end=True, add_time=100)
         j += 1

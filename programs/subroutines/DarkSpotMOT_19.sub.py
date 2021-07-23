@@ -10,7 +10,7 @@ def program(prg, cmd):
     prg.add(500, "Delta 1 Voltage", 6.0000)
     prg.add(1000, "Delta 2 Voltage", 0.0000, enable=False)
     prg.add(1500, "Mirrors MOT")
-    prg.add(2000, "Pulse MOT Na OFF")
+    prg.add(2000, "Pulse MOT Na OFF", enable=False)
     prg.add(3000, "Na 3D MOT cool (-) ON")
     prg.add(3500, "Shutter 3DMOT cool Na Open")
     prg.add(4000, "Na 3D MOT cool (+) freq", 102.00, functions=dict(frequency=lambda x: 110+cmd.get_var('MOT3D_det')/2))
