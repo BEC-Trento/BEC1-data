@@ -1304,14 +1304,14 @@ def action_list_init(act_lst):
 #                board="ttl3",
 #                parameters=dict(channel=[6], status=[True]),
 #                categories=["actions", "TTL"])
-#    act_lst.add("Repumper D1 OFF", lib_action.DigitalAction,
-#                board="ttl3",
-#                parameters=dict(channel=[7], status=[False]),
-#                categories=["actions", "TTL"])
-#    act_lst.add("Repumper D1 ON", lib_action.DigitalAction,
-#                board="ttl3",
-#                parameters=dict(channel=[7], status=[True]),
-#                categories=["actions", "TTL"])
+    act_lst.add("Shutter 2DMOT Open", lib_action.DigitalAction,
+                board="ttl3",
+                parameters=dict(channel=[7], status=[True]),
+                categories=["actions", "TTL"])
+    act_lst.add("Shutter 2DMOT Close", lib_action.DigitalAction,
+                board="ttl3",
+                parameters=dict(channel=[7], status=[False]),
+                categories=["actions", "TTL"])
     act_lst.add("TTL Repumper GM OFF", lib_action.DigitalAction,
                 board="ttl3",
                 parameters=dict(channel=[8], status=[False]),

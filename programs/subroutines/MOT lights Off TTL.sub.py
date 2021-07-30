@@ -18,6 +18,7 @@ def program(prg, cmd):
     prg.add(0, "Na 3D MOT cool (-) Amp", 0)
     prg.add(1000, "Na 3D MOT cool (+) Amp", 0)
     prg.add(140000, "Shutter EOM Na Close")
+    prg.add(141000, "Shutter 2DMOT Close")
     prg.add(145000, "Shutter 3DMOT cool Na Close")
     prg.add(150000, "Shutter Probe/Push Close")
     prg.add(151000, "Shutter Dark Spot Close")

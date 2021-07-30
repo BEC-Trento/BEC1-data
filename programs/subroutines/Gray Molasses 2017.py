@@ -9,5 +9,5 @@ def program(prg, cmd):
     prg.add(18000, "Na Gray molasses (+) freq", 117.50, functions=dict(frequency=lambda x: 100+(cmd.get_var('GM_det')/4), funct_enable=False))
     prg.add(18500, "Na Gray molasses (-) freq", 82.50, functions=dict(frequency=lambda x: 100-(cmd.get_var('GM_det')/4), funct_enable=False))
     prg.add(19000, "GM amp(+) ramp", start_t=0, stop_x=200, n_points=30, start_x=750, stop_t=3)
-    prg.add(50000, "GM OFF")
+    prg.add(51070, "GM OFF")
     return prg

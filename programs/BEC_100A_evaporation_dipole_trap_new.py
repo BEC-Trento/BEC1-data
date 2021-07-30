@@ -17,33 +17,35 @@ def program(prg, cmd):
     prg.add(226000000, "All AOM On.sub", functions=dict(time=lambda x: 10015.6899+cmd.get_var('QuadRampTime'), funct_enable=False))
     prg.add(240001000, "Evaporation_2ramps_keep_on")
     prg.add(240001400, "Dipole Trap xy evaporation")
-    prg.add(240031000, "Synchronize.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')-cmd.get_var('sync_time')))
+    prg.add(240001450, "IGBT B grad x ON", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('Quad_rampdown2_time')+10))
+    prg.add(240001451, "B grad comp ON", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('Quad_rampdown2_time')+12))
+    prg.add(240002409, "Scope 1 Trigger Pulse", polarity=1, pulse_t=1.00000, functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')-cmd.get_var('marconi1_pulsetime')*1e-3-cmd.get_var('marconi1_pulsetime2')*1e-3-0.003))
+    prg.add(240002450, "Pulse uw with RF double", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')-cmd.get_var('marconi1_pulsetime')*1e-3-cmd.get_var('marconi1_pulsetime2')*1e-3-0.003), enable=False)
+    prg.add(240002450, "Pulse uw with RF", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')-cmd.get_var('marconi1_pulsetime')*1e-3+0.03), enable=False)
+    prg.add(240002450, "Pulse uw dressing", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')+0.103), enable=False)
+    prg.add(240002450, "Pulse uw with RF dressing", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')-cmd.get_var('marconi1_pulsetime')*1e-3-cmd.get_var('marconi1_pulsetime2')*1e-3-0.003), enable=False)
+    prg.add(240031000, "Synchronize.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')-cmd.get_var('sync_time')))
     prg.add(240052418, "Evaporation freq", 5, functions=dict(frequency=lambda x: 5*1e6, time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')-0.11))
-    prg.add(240052418, "IGBT B grad x ON", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+1.235))
-    prg.add(240052419, "B grad comp ON", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+1.8))
     prg.add(240052419, "Evaporation amp", 1, functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+0.2))
     prg.add(240052419, "Delta 1 Current ramp", start_t=0.0000, stop_x=0.000, n_points=100, start_x=100.000, stop_t=2000.0000, functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('magnetic_trap_hold'), start_x=lambda x: cmd.get_var('Quad_current_rampdown'), stop_t=lambda x: cmd.get_var('Quad_rampdown2_time'), stop_x=lambda x: cmd.get_var('Quad_rampdown2_current')))
     prg.add(240052419, "Config Field OFF.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+0.23+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('magnetic_trap_hold')))
     prg.add(240052419, "Ramp_bias_field", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+0.33))
-    prg.add(240052419, "Pulse uw with RF", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('dipole_hold2_time')+cmd.get_var('dipole_hold3_time')+cmd.get_var('dipole_evap2_time')-cmd.get_var('marconi1_pulsetime')*1e-3-0.01), enable=False)
-    prg.add(240052419, "Pulse uw with RF double", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('dipole_hold2_time')-cmd.get_var('marconi1_pulsetime')*1e-3+cmd.get_var('dipole_hold3_time')+cmd.get_var('dipole_evap2_time')-cmd.get_var('marconi1_pulsetime2')*1e-3-0.0147))
-    prg.add(240052419, "Scope 1 Trigger Pulse", polarity=1, pulse_t=1.00000, functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('dipole_hold2_time')-cmd.get_var('marconi1_pulsetime')*1e-3+cmd.get_var('dipole_hold3_time')+cmd.get_var('dipole_evap2_time')-cmd.get_var('marconi1_pulsetime2')*1e-3-0.01))
-    prg.add(240052419, "Pulse uw with RF dressing", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('dipole_hold2_time')-cmd.get_var('marconi1_pulsetime')*1e-3+cmd.get_var('dipole_hold3_time')+cmd.get_var('dipole_evap2_time')-cmd.get_var('marconi1_pulsetime2')*1e-3-cmd.get_var('marconi1_pulsetime_dressing')*1e-3-0.0147), enable=False)
-    prg.add(240052620, "Setup_imaging", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('dipole_hold2_time')+cmd.get_var('mix_time')+cmd.get_var('tof')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold3_time')+cmd.get_var('dipole_evap2_time')-22.37))
-    prg.add(240053420, "BEC_imaging_field_OFF")
+    prg.add(240052419, "Pulse uw with RF double", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('dipole_hold2_time')-cmd.get_var('marconi1_pulsetime')*1e-3+cmd.get_var('dipole_hold3_time')+cmd.get_var('dipole_evap2_time')-cmd.get_var('marconi1_pulsetime2')*1e-3+0.0007))
+    prg.add(240052620, "Setup_imaging", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('dipole_hold2_time')+cmd.get_var('mix_time')+cmd.get_var('tof')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold3_time')+cmd.get_var('dipole_evap2_time')-27.361))
+    prg.add(240052720, "BEC_imaging_field_OFF", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('dipole_hold2_time')+cmd.get_var('mix_time')+cmd.get_var('dipole_hold3_time')+cmd.get_var('dipole_evap2_time')))
     prg.add(240053420, "BEC_imaging_z_field_OFF", enable=False)
     prg.add(248053420, "DarkSpotMOT_19.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('dipole_hold2_time')+cmd.get_var('mix_time')+cmd.get_var('tof')+cmd.get_var('tof2')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('dipole_hold3_time')+cmd.get_var('dipole_evap2_time')))
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(1.42, 1.435, 0.003)
+    iters = np.arange(0.2, 3, 1)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        Bx_grad_comp = iters[j]
-        cmd.set_var('Bx_grad_comp', Bx_grad_comp)
+        mix_time = iters[j]
+        cmd.set_var('mix_time', mix_time)
         print('\n')
-        print('Run #%d/%d, with variables:\nBx_grad_comp = %g\n'%(j+1, len(iters), Bx_grad_comp))
+        print('Run #%d/%d, with variables:\nmix_time = %g\n'%(j+1, len(iters), mix_time))
         cmd._system.run_number = j
         cmd.run(wait_end=True, add_time=100)
         j += 1
