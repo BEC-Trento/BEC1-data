@@ -1256,14 +1256,14 @@ def action_list_init(act_lst):
                 board="ttl3",
                 parameters=dict(channel=[1], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("Shutter Push Na Close", lib_action.DigitalAction,
-                board="ttl3",
-                parameters=dict(channel=[2], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("Shutter Push Na Open", lib_action.DigitalAction,
-                board="ttl3",
-                parameters=dict(channel=[2], status=[True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("Shutter Push Na Close", lib_action.DigitalAction,
+#                board="ttl3",
+#                parameters=dict(channel=[2], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Shutter Push Na Open", lib_action.DigitalAction,
+#                board="ttl3",
+#                parameters=dict(channel=[2], status=[True]),
+#                categories=["actions", "TTL"])
     act_lst.add("Shutter 3DMOT cool Na Close", lib_action.DigitalAction,
                 board="ttl3",
                 parameters=dict(channel=[3], status=[False]),
@@ -1272,14 +1272,14 @@ def action_list_init(act_lst):
                 board="ttl3",
                 parameters=dict(channel=[3], status=[True]),
                 categories=["actions", "TTL"])
-    act_lst.add("Shutter EOM Na Close", lib_action.DigitalAction,
-                board="ttl3",
-                parameters=dict(channel=[4], status=[False]),
-                categories=["actions", "TTL"])
-    act_lst.add("Shutter EOM Na Open", lib_action.DigitalAction,
-                board="ttl3",
-                parameters=dict(channel=[4], status=[True]),
-                categories=["actions", "TTL"])
+#    act_lst.add("Shutter EOM Na Close", lib_action.DigitalAction,
+#                board="ttl3",
+#                parameters=dict(channel=[4], status=[False]),
+#                categories=["actions", "TTL"])
+#    act_lst.add("Shutter EOM Na Open", lib_action.DigitalAction,
+#                board="ttl3",
+#                parameters=dict(channel=[4], status=[True]),
+#                categories=["actions", "TTL"])
     act_lst.add("Shutter repump Na Close", lib_action.DigitalAction,
                 board="ttl3",
                 parameters=dict(channel=[5], status=[False]),
@@ -1319,6 +1319,14 @@ def action_list_init(act_lst):
     act_lst.add("TTL Repumper GM ON", lib_action.DigitalAction,
                 board="ttl3",
                 parameters=dict(channel=[8], status=[True]),
+                categories=["actions", "TTL"])           
+    act_lst.add("Shutter EOM Na Close", lib_action.DigitalAction,
+                board="ttl3",
+                parameters=dict(channel=[9], status=[False]),
+                categories=["actions", "TTL"])
+    act_lst.add("Shutter EOM Na Open", lib_action.DigitalAction,
+                board="ttl3",
+                parameters=dict(channel=[9], status=[True]),
                 categories=["actions", "TTL"])
     
 #    act_lst.add("Shutter Bragg D1 Open", lib_action.DigitalAction,
