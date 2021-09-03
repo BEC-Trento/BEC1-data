@@ -59,20 +59,3 @@ def program(prg, cmd):
     prg.add(116025000, "open_probe", enable=False)
     prg.add(151000000, "Scope 4 Trigger Pulse", polarity=1, pulse_t=0.01230, enable=False)
     return prg
-def commands(cmd):
-    import numpy as np
-    iters = np.arange(200, 1001, 200)
-    j = 0
-    while(cmd.running):
-        print('\n-------o-------')
-        push_amp = iters[j]
-        cmd.set_var('push_amp', push_amp)
-        print('\n')
-        print('Run #%d/%d, with variables:\npush_amp = %g\n'%(j+1, len(iters), push_amp))
-        cmd._system.run_number = j
-        cmd.run(wait_end=True, add_time=100)
-        j += 1
-        if j == len(iters):
-            cmd._system.run_number = 0
-            cmd.stop()
-    return cmd

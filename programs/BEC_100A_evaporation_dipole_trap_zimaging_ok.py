@@ -36,14 +36,15 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(10, 25, 3)
+    iters = np.arange(1.2, 1.33, 0.05)
+    np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        tof2 = iters[j]
-        cmd.set_var('tof2', tof2)
+        evap2_fend = iters[j]
+        cmd.set_var('evap2_fend', evap2_fend)
         print('\n')
-        print('Run #%d/%d, with variables:\ntof2 = %g\n'%(j+1, len(iters), tof2))
+        print('Run #%d/%d, with variables:\nevap2_fend = %g\n'%(j+1, len(iters), evap2_fend))
         cmd._system.run_number = j
         cmd.run(wait_end=True, add_time=100)
         j += 1
