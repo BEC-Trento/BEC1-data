@@ -21,13 +21,14 @@ def program(prg, cmd):
     prg.add(10200000, "BEC_imaging_xyz", enable=False)
     prg.add(10200000, "BEC_imaging_fast", enable=False)
     prg.add(10200000, "multiple_RF_sweep_movie", enable=False)
-    prg.add(10662300, "BEC_imaging_z", enable=False)
+    prg.add(10662300, "BEC_imaging_z")
     prg.add(10662300, "Scope 1 Trigger Pulse", polarity=1, pulse_t=10.00000, functions=dict(time=lambda x: x-1))
-    prg.add(10662349, "BEC_imaging")
+    prg.add(10662349, "BEC_imaging", enable=False)
     prg.add(11400001, "Setup_tof_imaging", enable=False)
     prg.add(12200000, "BEC_imaging", enable=False)
     prg.add(36400001, "open_probe")
     prg.add(36419001, "Shutter EOM Na Open", enable=False)
+    prg.add(36605000, "open_probe_z")
     prg.add(40000000, "EMPTY")
     return prg
 def commands(cmd):

@@ -1,9 +1,21 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
-    prg.add(0, "Ramp_bias_field")
-    prg.add(10000000, "Config Levitation")
-    prg.add(10169500, "Delta 1 Current ramp", start_t=0.0000, stop_x=0.000, n_points=50, start_x=0.000, stop_t=1.0000, functions=dict(stop_t=lambda x: cmd.get_var('levitation_switch_off_time'), start_x=lambda x: cmd.get_var('Levitation_current')))
-    prg.add(10169900, "Scope 1 Trigger Pulse", polarity=1, pulse_t=1.00000)
-    prg.add(10170000, "Config Field OFF.sub", functions=dict(time=lambda x: x+cmd.get_var('levitation_switch_off_time')))
+    prg.add(0, "Shutter repump Na Close", enable=False)
+    prg.add(0, "Shutter 2DMOT Close", enable=False)
+    prg.add(0, "Shutter 3DMOT cool Na Close", enable=False)
+    prg.add(0, "Shutter EOM Na Close")
+    prg.add(0, "Shutter Gray molasses Close", enable=False)
+    prg.add(0, "Shutter Probe/Push Close", enable=False)
+    prg.add(0, "Shutter Dark Spot Close", enable=False)
+    prg.add(0, "Shutter repump Na Close", enable=False)
+    prg.add(20000000, "Shutter repump Na Open", enable=False)
+    prg.add(20000000, "Shutter Dark Spot Open", enable=False)
+    prg.add(20000000, "Shutter Probe/Push Open", enable=False)
+    prg.add(20000000, "Shutter Gray molasses Open", enable=False)
+    prg.add(20000000, "Shutter EOM Na Open")
+    prg.add(20000000, "Shutter 3DMOT cool Na Open", enable=False)
+    prg.add(20000000, "Shutter 2DMOT Open", enable=False)
+    prg.add(20000000, "Shutter repump Na Open", enable=False)
+    prg.add(30000000, "EMPTY")
     return prg
