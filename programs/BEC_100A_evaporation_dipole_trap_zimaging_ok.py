@@ -36,15 +36,15 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(1.2, 1.33, 0.05)
+    iters = np.arange(80, 120, 5)
     np.random.shuffle(iters)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        evap2_fend = iters[j]
-        cmd.set_var('evap2_fend', evap2_fend)
+        dipole_hold3_time = iters[j]
+        cmd.set_var('dipole_hold3_time', dipole_hold3_time)
         print('\n')
-        print('Run #%d/%d, with variables:\nevap2_fend = %g\n'%(j+1, len(iters), evap2_fend))
+        print('Run #%d/%d, with variables:\ndipole_hold3_time = %g\n'%(j+1, len(iters), dipole_hold3_time))
         cmd._system.run_number = j
         cmd.run(wait_end=True, add_time=100)
         j += 1
