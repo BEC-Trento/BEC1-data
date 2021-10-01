@@ -7,5 +7,6 @@ def program(prg, cmd):
     prg.add(0, "BEC_imaging", functions=dict(time=lambda x: x+cmd.get_var('tof2')))
     prg.add(0, "BEC_imaging_4_frames", functions=dict(time=lambda x: x+cmd.get_var('tof2')), enable=False)
     prg.add(0, "BEC_imaging_dipole", functions=dict(time=lambda x: x+cmd.get_var('tof2')), enable=False)
+    prg.add(0, "BEC_imaging_x", functions=dict(time=lambda x: x+cmd.get_var('tof2')), enable=False)
     prg.add(5002201, "IGBT B grad x OFF", functions=dict(time=lambda x: x+cmd.get_var('tof2')+500))
     return prg
