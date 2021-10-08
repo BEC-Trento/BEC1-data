@@ -7,7 +7,7 @@ def program(prg, cmd):
     prg.add(209000000, "Synchronize.sub", enable=False)
     prg.add(209943111, "MOT lights Off TTL.sub")
     prg.add(209947301, "Config Field OFF.sub")
-    prg.add(209949001, "Gray Molasses 2017")
+    prg.add(209949001, "Gray Molasses 2017", enable=False)
     prg.add(209949001, "Optical pumping", enable=False)
     prg.add(209949011, "Scope 2 Trigger ON")
     prg.add(209986000, "Scope 2 Trigger OFF")

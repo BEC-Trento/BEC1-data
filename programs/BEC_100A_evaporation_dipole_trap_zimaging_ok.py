@@ -19,7 +19,7 @@ def program(prg, cmd):
     prg.add(240001400, "Dipole Trap xy evaporation")
     prg.add(240001450, "IGBT B grad x ON", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('Quad_rampdown2_time')-8), enable=False)
     prg.add(240001500, "Synchronize.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')-cmd.get_var('sync_time')-1e-3*cmd.get_var('marconi1_pulsetime')-1e-3*cmd.get_var('marconi1_pulsetime2')-1e-3*cmd.get_var('marconi1_pulsetime_dressing')-0.5549))
-    prg.add(240002419, "Scope 1 Trigger Pulse", polarity=1, pulse_t=1.00000, functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('dipole_hold2_time')+cmd.get_var('dipole_evap2_time')-1e-3*cmd.get_var('marconi1_pulsetime')-1e-3*cmd.get_var('marconi1_pulsetime2')-0.01))
+    prg.add(240002468, "Scope 1 Trigger Pulse", polarity=1, pulse_t=1.00000, functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('dipole_hold2_time')+cmd.get_var('dipole_evap2_time')-1e-3*cmd.get_var('marconi1_pulsetime')-1e-3*cmd.get_var('marconi1_pulsetime2')-0.001))
     prg.add(240002468, "Ramp_bias_field", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+0.33))
     prg.add(240002468, "Evaporation freq", 5, functions=dict(frequency=lambda x: 5*1e6, time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+0.314))
     prg.add(240002468, "Evaporation amp", 1, functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+0.21))
@@ -36,15 +36,14 @@ def program(prg, cmd):
     return prg
 def commands(cmd):
     import numpy as np
-    iters = np.arange(10, 50, 10)
-    np.random.shuffle(iters)
+    iters = np.arange(12, 16, 1)
     j = 0
     while(cmd.running):
         print('\n-------o-------')
-        probe_z_pulsetime_mix = iters[j]
-        cmd.set_var('probe_z_pulsetime_mix', probe_z_pulsetime_mix)
+        Levitation_current = iters[j]
+        cmd.set_var('Levitation_current', Levitation_current)
         print('\n')
-        print('Run #%d/%d, with variables:\nprobe_z_pulsetime_mix = %g\n'%(j+1, len(iters), probe_z_pulsetime_mix))
+        print('Run #%d/%d, with variables:\nLevitation_current = %g\n'%(j+1, len(iters), Levitation_current))
         cmd._system.run_number = j
         cmd.run(wait_end=True, add_time=100)
         j += 1
