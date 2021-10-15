@@ -3,17 +3,17 @@ prg_version = "0.7"
 def program(prg, cmd):
     prg.add(10000, "Initialize 0 TTL and Synchronize.sub")
     prg.add(50000, "DarkSpotMOT_19.sub")
-    prg.add(100000000, "Scope 4 Trigger Pulse", polarity=1, pulse_t=0.01230)
-    prg.add(100000000, "Synchronize.sub", enable=False)
-    prg.add(100930000, "MOT lights Off TTL.sub", enable=False)
-    prg.add(100930000, "MOT lights Off TTL pre-imaging.sub")
-    prg.add(100930190, "Config Field OFF.sub")
-    prg.add(100930289, "Scope 2 Trigger Pulse", polarity=1, pulse_t=2.00000)
-    prg.add(100931308, "Setup_imaging_MOT")
-    prg.add(100932190, "Gray Molasses 2017", enable=False)
-    prg.add(100935309, "BEC_imaging")
-    prg.add(100988889, "Setup_imaging_MOT", enable=False)
-    prg.add(100991889, "BEC_imaging", enable=False)
+    prg.add(200000000, "Scope 4 Trigger Pulse", polarity=1, pulse_t=0.01230)
+    prg.add(200000000, "Synchronize.sub", enable=False)
+    prg.add(200930000, "MOT lights Off TTL.sub", enable=False)
+    prg.add(200930000, "MOT lights Off TTL pre-imaging.sub")
+    prg.add(200930190, "Config Field OFF.sub")
+    prg.add(200930289, "Scope 2 Trigger Pulse", polarity=1, pulse_t=2.00000)
+    prg.add(200931308, "Setup_imaging_MOT")
+    prg.add(200932190, "Gray Molasses 2017", enable=False)
+    prg.add(200935309, "BEC_imaging")
+    prg.add(201088889, "Setup_imaging_MOT", enable=False)
+    prg.add(201091889, "BEC_imaging", enable=False)
     return prg
 def commands(cmd):
     import numpy as np
