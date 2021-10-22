@@ -56,6 +56,6 @@ def program(prg, cmd):
     prg.add(330000, "Na Gray molasses (-) freq", 82.50)
     prg.add(340000, "AOM GM Amp ch1 (+)", 1000, functions=dict(amplitude=lambda x: cmd.get_var('GM_amp')))
     prg.add(350000, "AOM GM Amp ch2 (-)", 1000, functions=dict(amplitude=lambda x: cmd.get_var('GM_amp')))
-    prg.add(15025000, "MOT lights Off TTL.sub", enable=False)
-    prg.add(16025000, "open_probe", enable=False)
+    prg.add(15025000, "MOT lights Off TTL.sub")
+    prg.add(16025000, "open_probe")
     return prg
