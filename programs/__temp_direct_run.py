@@ -1,5 +1,5 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
-    prg.add(0, "Na Probe y (+) amp", 10)
+    prg.add(0, "Dipole Trap x DAC V", 5.000)
     return prg

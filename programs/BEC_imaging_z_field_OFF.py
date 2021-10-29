@@ -1,8 +1,8 @@
 prg_comment = ""
 prg_version = "0.7"
 def program(prg, cmd):
-    prg.add(0, "BEC_imaging_z", enable=False)
-    prg.add(0, "BEC_imaging_z_4_frames")
+    prg.add(0, "BEC_imaging_z")
+    prg.add(0, "BEC_imaging_z_4_frames", enable=False)
     prg.add(0, "BEC_imaging_z_4_frames_bis", enable=False)
     prg.add(0, "BEC_imaging_z_4_frames_m1", enable=False)
     prg.add(0, "BEC_imaging_z_dipole", enable=False)
