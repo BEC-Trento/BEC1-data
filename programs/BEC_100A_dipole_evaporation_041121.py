@@ -17,6 +17,7 @@ def program(prg, cmd):
     prg.add(226000000, "All AOM On.sub", functions=dict(time=lambda x: 10015.6899+cmd.get_var('QuadRampTime'), funct_enable=False))
     prg.add(240001000, "Evaporation_2ramps_keep_on")
     prg.add(240001400, "Transfer_to_dipole", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')))
+    prg.add(240001400, "dipole_evaporation", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('dipole_hold_time')))
     prg.add(240001500, "Synchronize.sub", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('end_of_ODT_transfer')))
     prg.add(240002468, "Scope 1 Trigger Pulse", polarity=1, pulse_t=1.00000, functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('Quad_rampdown2_time')+cmd.get_var('dipole_hold_time')+cmd.get_var('dipole_evap_time')+cmd.get_var('magnetic_trap_hold')+cmd.get_var('dipole_hold2_time')+cmd.get_var('dipole_evap2_time')-1e-3*cmd.get_var('marconi1_pulsetime')-1e-3*cmd.get_var('marconi1_pulsetime2')-0.001))
     prg.add(240002468, "Pulse uw with RF double", functions=dict(time=lambda x: x+cmd.get_var('evap1_time')+cmd.get_var('evap2_time')+cmd.get_var('end_of_ODT_transfer')+1), enable=False)
