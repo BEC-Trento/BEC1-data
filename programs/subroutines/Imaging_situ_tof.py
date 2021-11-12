@@ -7,7 +7,7 @@ def program(prg, cmd):
     prg.add(21320, "Scope 2 Trigger ON")
     prg.add(22200, "Config Levitation dipole")
     prg.add(23010, "Config Field OFF.sub", functions=dict(time=lambda x: x+cmd.get_var('tof2')-cmd.get_var('t_cfo')))
-    prg.add(23010, "BEC_imaging", functions=dict(time=lambda x: x+cmd.get_var('tof2')+5))
+    prg.add(23010, "BEC_imaging", functions=dict(time=lambda x: x+cmd.get_var('tof2')+6))
     prg.add(35000, "B grad comp OFF")
     prg.add(53320, "Scope 2 Trigger OFF")
     prg.add(4579999, "IGBT B grad x OFF")
