@@ -59,3 +59,20 @@ def program(prg, cmd):
     prg.add(116025000, "open_probe", enable=False)
     prg.add(151000000, "Scope 4 Trigger Pulse", polarity=1, pulse_t=0.01230, enable=False)
     return prg
+def commands(cmd):
+    import numpy as np
+    iters = np.arange(12, 16, 1)
+    j = 0
+    while(cmd.running):
+        print('\n-------o-------')
+        Levitation_current = iters[j]
+        cmd.set_var('Levitation_current', Levitation_current)
+        print('\n')
+        print('Run #%d/%d, with variables:\nLevitation_current = %g\n'%(j+1, len(iters), Levitation_current))
+        cmd._system.run_number = j
+        cmd.run(wait_end=True, add_time=100)
+        j += 1
+        if j == len(iters):
+            cmd._system.run_number = 0
+            cmd.stop()
+    return cmd
